@@ -1,36 +1,53 @@
-# 02 / Fornecedores de segurança OT
+# 02 / Ecossistema de fornecedores Cyber OT
 
-> Curadoria de capacidades publicamente documentadas. **Não é ranking**, recomendação de compra, avaliação independente de eficácia nem indicação de liderança comercial.
+> **CALDEIRA / VENDOR LANDSCAPE** · revisão: 18/10/2026. Isto é uma **curadoria por capacidade publicamente documentada**, não ranking, certificação, recomendação de contratação ou endosso. Os fabricantes descrevem suas próprias soluções; funcionalidades e alegações comerciais exigem validação independente.
 
-| Empresa | Foco em OT/ICS | Casos de estudo | Fonte oficial |
+## Mapa de capacidades
+
+| Perfil de solução | Fornecedor | Capacidades descritas publicamente | Fontes do fabricante |
 |---|---|---|---|
-| **[Nozomi Networks](https://www.nozominetworks.com/)** | Descoberta e inventário de ativos, monitoramento de rede, análise de protocolos e detecção de anomalias. | Observabilidade de comunicação OT e inventário | [Site institucional](https://www.nozominetworks.com/) |
-| **[Claroty](https://claroty.com/)** | Segurança de CPS/XIoT, visibilidade e gestão de exposição em contextos industriais e outros ambientes ciberfísicos. | Governança de ativos e risco | [Site institucional](https://claroty.com/) |
-| **[Dragos](https://www.dragos.com/)** | Threat intelligence industrial, detecção de ameaças ICS, análise de incidentes e serviços especializados. | Adversários, incidentes e detecções | [2026 Year in Review](https://www.dragos.com/ot-cybersecurity-year-in-review) |
-| **[Fortinet](https://www.fortinet.com/solutions/ot-security)** | Segurança de redes IT/OT, segmentação, dispositivos industriais robustecidos, acesso seguro e integrações de SecOps. | Controles de comunicação entre zonas | [OT Security](https://www.fortinet.com/solutions/ot-security) |
-| **[Tenable OT](https://www.tenable.com/products/ot-security)** | Inventário, avaliação de exposição, visibilidade de dispositivos industriais e priorização de riscos. | Gestão contextual de exposição | [Tenable OT Security](https://www.tenable.com/products/ot-security) |
+| **Visibilidade e detecção industrial** | **[Dragos](https://www.dragos.com/)** | CTI de ambientes industriais, detecção contextual, investigação e resposta a incidentes ICS | [Year in Review](https://www.dragos.com/ot-cybersecurity-year-in-review) |
+| **Visibilidade de ativos / protocolos** | **[Nozomi Networks](https://www.nozominetworks.com/)** | Descoberta de ativos, monitoramento de rede e anomalias industriais | [Site institucional](https://www.nozominetworks.com/) |
+| **Gestão de exposição CPS/XIoT** | **[Claroty](https://claroty.com/)** | Visibilidade, riscos e proteção contextual em sistemas ciberfísicos e ambientes industriais | [Site institucional](https://claroty.com/) |
+| **Rede, segmentação e TI/OT** | **[Fortinet](https://www.fortinet.com/solutions/ot-security)** | Firewalls industriais, segmentação, gestão integrada e acesso seguro | [OT Security](https://www.fortinet.com/solutions/ot-security) |
+| **Gestão de exposição e inventário OT** | **[Tenable OT](https://www.tenable.com/products/ot-security)** | Ativos, exposição e avaliação de riscos industriais | [Tenable OT Security](https://www.tenable.com/products/ot-security) |
+| **Visibilidade unificada IT/OT/IoT/IoMT** | **[Armis](https://www.armis.com/platform/armis-centrix-for-ot-iot-security/)** | Contexto de ativos, análise de exposição, detecção de comportamentos e apoio à segmentação | [Armis Centrix for OT/IoT](https://www.armis.com/platform/armis-centrix-for-ot-iot-security/) |
+| **Proteção industrial de rede e endpoints** | **[TXOne Networks](https://www.txone.com/)** | IPS industrial Edge, proteção de endpoints Stellar, inspeção de mídia/estações Element | [Portfólio oficial](https://www.txone.com/resources/data-sheets/ot-cybersecurity-portfolio/) |
+| **Rede industrial e visibilidade embarcada** | **[Cisco](https://www.cisco.com/site/us/en/products/security/industrial-security/cyber-vision/index.html)** | Cyber Vision integra visibilidade OT a componentes de rede industrial, análise de tráfego, riscos, segmentação e acesso remoto | [Cyber Vision Data Sheet](https://www.cisco.com/c/en/us/products/collateral/security/cyber-vision/cyber-vision-ds.html) |
 
-## Como avaliar fornecedores sem transformar pesquisa em publicidade
+**O que mudou:** Armis, TXOne Networks e Cisco foram incorporadas com base em documentos dos fabricantes. Todas as categorias são **aproximações editoriais**, pois as ofertas frequentemente se sobrepõem; “nativo de OT” e “convergência TI/OT” não são classes formais.
 
-| Critério | Pergunta |
-|---|---|
-| **Cobertura** | Quais ativos, protocolos e versões de firmware são identificáveis? |
-| **Modo de coleta** | Passivo, ativo, híbrido? Quais são os impactos de cada método? |
-| **Safety** | Como o fabricante documenta riscos operacionais, janelas de manutenção e testes de compatibilidade? |
-| **Integração** | Há conectores SIEM, SOAR, APIs, SBOM, inventário e modelos de dados exportáveis? |
-| **Detecção** | Existem regras explicáveis, contexto ATT&CK for ICS, falsos positivos mensuráveis e procedimentos de tuning? |
-| **Exposição** | A priorização considera criticidade de processo e compensações disponíveis? |
-| **Dependência** | Há limitações de licença, nuvem, retenção de tráfego, alta disponibilidade e requisitos de conectividade? |
-| **Evidência** | A afirmação vem de documentação pública, estudo independente, teste reproduzível ou material comercial? |
+## O que **não** podemos inferir das páginas comerciais
 
-### Nota sobre descoberta ativa
+1. **Não existe implantação universalmente sem risco:** mesmo coleta passiva requer dimensionamento, interoperabilidade e validação operacional; recursos ativos e mecanismos de bloqueio exigem cuidado adicional.
+2. **TXOne não equivale a “fornecedor de data diode”:** o portfólio oficial pesquisado enfatiza **IPS industrial, endpoint protection, inspeção de dispositivos e orquestração**. Não atribuir diodo unidirecional à marca sem uma fonte específica e atual.
+3. **Cisco não equivale apenas a hardware industrial:** a documentação de **Cyber Vision** descreve sensores, análise de tráfego, descoberta e integração com controles de segmentação; algumas funcionalidades dependem de arquitetura e licenciamento.
+4. **Armis não é um firewall industrial dedicado:** seu diferencial documentado é a **visibilidade e gestão de exposição entre IT/OT/IoT/IoMT**, com integrações de enforcement. Verificar o produto exato ao comparar.
+5. **Ninguém é “o maior” por padrão:** tamanho, abrangência, incidentes acompanhados ou adequação dependem da métrica, segmento, país, data e avaliação independente.
 
-**Não presumir que consulta ativa ou varredura convencional seja segura em todos os PLCs/RTUs.** Testar primeiro em ambiente segregado e com aprovação da engenharia e da operação. Comparar produtos com critérios objetivos e não apenas descrições promocionais.
+## Cenários para estudo imparcial
 
-### Referência de mercado (não classificação)
+| Necessidade | Critérios que interessam | Evidência desejável |
+|---|---|---|
+| Inventário confiável de PLC, HMI, RTU e DCS | Profundidade de protocolo, perfil e baseline | Cobertura em ambiente de avaliação permitido |
+| Descoberta de anomalias ICS | Sensibilidade, falso positivo, controle de tuning | Teste reproduzível e limites de detecção |
+| Segmentação entre zonas | Desenho, redundância, fluxo e contingência | Diagrama aprovado e análise de impacto |
+| Visibilidade de legado | Compatibilidade, exigências de agentes, janelas de manutenção | Matriz de compatibilidade por versão |
+| Acesso de integradores | Identidade, sessão, menor privilégio e rastreabilidade | Registros e governança |
+| Governança de exposição | Conexão com criticidade de processo e inventário | Risco contextualizado, sem depender apenas de CVSS |
+| CTI e resposta | Referência primária, clareza sobre TTPs e fontes | Exemplo técnico documentado e revisável |
 
-A seleção de cinco fornecedores apresentada no pedido original foi aproveitada por pertinência ao estudo. Não há base metodológica nesta curadoria para declará-los os cinco maiores, nem para ordenar sua liderança global. Estudos de mercado devem explicitar data, método de amostragem, patrocinador e universo avaliado.
+Use a [matriz de avaliação técnica](avaliacao-fornecedores.md) antes de declarar qualquer produto “o melhor”.
 
-### Outras categorias a pesquisar
+## Due diligence de safety
 
-Integradores OT; automação e engenharia; fornecedores de SIS/DCS; proteção de endpoints compatíveis com OT; soluções de acesso remoto para manutenção; sistemas de inventário; ferramentas de análise de pacotes industriais.
+Alegações comerciais como “não intrusivo”, “sem impacto” e “zero downtime” devem ser tratadas como **declarações do fornecedor** até prova contextual. O risco concreto depende de ambiente e instalação. Mudanças em ativos reais exigem validação de engenharia OT, operadores e segurança de processo.
+
+## Referências adicionais
+
+- [NIST SP 800-82 Rev. 3](https://csrc.nist.gov/pubs/sp/800/82/r3/final)
+- [ISA/IEC 62443](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards)
+- [SANS ICS](https://www.sans.org/cybersecurity-focus-areas/industrial-control-systems-security)
+- [Resumo das referências fundamentais](../referenciais-ot.md)
+
+**Registro de revisão:** 18/10/2026. Os links oficiais demonstram **o que os fabricantes afirmam disponibilizar**, não a adequação comprovada a todo ambiente industrial.
