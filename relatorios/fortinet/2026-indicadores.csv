@@ -1,0 +1,10 @@
+indicador,ano,valor_percentual,unidade,escopo,pagina_fonte,nota
+invasoes_1_a_9_12_meses,2026,71,percentual,respondentes que relataram 1 a 9 invasoes,5,Autorrelato nao equivale a incidencia universal
+aumento_regulacao_ate_5_anos,2026,89,percentual,expectativa de respondentes,6,Projecao opinativa
+visibilidade_100_ot,2026,14,percentual,percepcao de cobertura integral de OT,9,Autoavaliacao
+visibilidade_cerca_50_ot,2026,23,percentual,percepcao de cobertura parcial de OT,9,Autoavaliacao
+phishing_email,2026,76,percentual,tipo de intrusao relatado,11,Pergunta multipla potencial
+ransomware_wiper,2026,50,percentual,tipo de intrusao relatado,11,Nao representa prevalencia global
+impacto_receita,2026,46,percentual,impacto operacional na receita relatado,12,Autorrelato
+maturidade_processo_nivel_4,2026,17,percentual,processos autoavaliados nivel 4,4,Series sujeitas a mudanca de avaliacao
+sistemas_ics_menos_5_anos,2026,40,percentual,idade de sistemas ICS declarada,12,Amostra nao necessariamente comparavel

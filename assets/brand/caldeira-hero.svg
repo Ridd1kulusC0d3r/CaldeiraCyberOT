@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="480" viewBox="0 0 1400 480" role="img" aria-label="Caldeira Cyber OT, Global Industrial Cybersecurity Intelligence">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07171E"/><stop offset=".6" stop-color="#092B30"/><stop offset="1" stop-color="#04141C"/></linearGradient>
+<linearGradient id="heat" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#E5A34E"/><stop offset="1" stop-color="#F47B45"/></linearGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#316269" stroke-opacity=".27"/></pattern>
+<filter id="glow"><feGaussianBlur stdDeviation="5"/></filter>
+</defs>
+<rect width="1400" height="480" rx="24" fill="url(#bg)"/><rect width="1400" height="480" rx="24" fill="url(#grid)"/>
+<path d="M0 440H1400" stroke="#3AA99B" stroke-opacity=".4"/>
+<g transform="translate(1020 70)" fill="none" stroke="#4CC2AD" opacity=".4">
+<circle cx="155" cy="170" r="160" stroke-width="2"/><circle cx="155" cy="170" r="116"/><ellipse cx="155" cy="170" rx="65" ry="160"/><ellipse cx="155" cy="170" rx="160" ry="63"/><path d="M-5 170H315M155 10V330"/>
+</g>
+<g opacity=".25" stroke="#4CC2AD" fill="none" stroke-width="2"><path d="M830 420v-100h70v-45h45V140"/><path d="M930 420v-130h100v-70h70"/><path d="M1140 420V322h160v-96"/><circle cx="900" cy="275" r="6" fill="#4CC2AD"/><circle cx="1030" cy="290" r="6" fill="#4CC2AD"/><circle cx="1300" cy="226" r="6" fill="#4CC2AD"/></g>
+<g transform="translate(75 55)">
+<rect x="0" y="0" width="88" height="88" rx="21" fill="#12383F" stroke="#3CAEA1" stroke-width="2"/>
+<path d="M22 57h45M28 44h33M37 28h17" stroke="#E5A34E" stroke-width="6" stroke-linecap="round"/>
+<path d="M22 66V18h45v48" fill="none" stroke="#71D4C1" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<text x="190" y="98" font-family="Arial,sans-serif" fill="#D7F5ED" font-size="23" font-weight="700" letter-spacing="5">RESEARCH · DEFENSE · RESILIENCE</text>
+<text x="75" y="220" font-family="Arial,sans-serif" font-size="82" font-weight="800" fill="#F5F9F7" letter-spacing="-1.8">CALDEIRA</text>
+<text x="78" y="305" font-family="Arial,sans-serif" font-size="73" font-weight="800" fill="url(#heat)" letter-spacing="4">CYBER OT</text>
+<rect x="77" y="339" height="4" width="115" rx="2" fill="#51D6BE"/>
+<text x="77" y="384" font-family="Arial,sans-serif" font-size="25" fill="#BCD5D2">Global Industrial Cybersecurity Intelligence</text>
+<text x="77" y="422" font-family="Arial,sans-serif" font-size="17" letter-spacing="3" fill="#68BEB1">ICS / SCADA / CPS / CRITICAL INFRASTRUCTURE</text>
+<g transform="translate(1170 384)"><rect x="0" y="0" width="150" height="38" rx="19" fill="#102E36" stroke="#3B9B92"/><circle cx="22" cy="19" r="5" fill="#E5A34E"/><text x="37" y="25" font-family="Arial" fill="#D4EEE9" font-weight="700" font-size="13">GLOBAL / 2026</text></g>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="285" viewBox="0 0 1300 285" role="img" aria-label="Seis domínios de pesquisa: landscape, ecosystem, intelligence, standards, evidence, practice">
+<rect width="1300" height="285" fill="#081F27" rx="16"/><g font-family="Arial,sans-serif">
+<path d="M125 117H1175" stroke="#28726C" stroke-width="3" stroke-dasharray="9 8"/>
+<g fill="#102F37" stroke="#47BEA7" stroke-width="3"><circle cx="117" cy="117" r="44"/><circle cx="330" cy="117" r="44"/><circle cx="543" cy="117" r="44"/><circle cx="756" cy="117" r="44"/><circle cx="969" cy="117" r="44"/><circle cx="1182" cy="117" r="44"/></g>
+<g font-size="23" font-weight="700" text-anchor="middle" fill="#E3A24E"><text x="117" y="125">01</text><text x="330" y="125">02</text><text x="543" y="125">03</text><text x="756" y="125">04</text><text x="969" y="125">05</text><text x="1182" y="125">06</text></g>
+<g font-size="17" fill="#E2F1ED" font-weight="700" text-anchor="middle"><text x="117" y="198">LANDSCAPE</text><text x="330" y="198">ECOSYSTEM</text><text x="543" y="198">INTELLIGENCE</text><text x="756" y="198">STANDARDS</text><text x="969" y="198">EVIDENCE</text><text x="1182" y="198">PRACTICE</text></g>
+<g font-size="13" fill="#86B6B2" text-anchor="middle"><text x="117" y="225">Regiões e setores</text><text x="330" y="225">Atores e soluções</text><text x="543" y="225">Ameaças observadas</text><text x="756" y="225">Risco e arquitetura</text><text x="969" y="225">Relatórios e dados</text><text x="1182" y="225">Casos e laboratórios</text></g></g>
+</svg>
