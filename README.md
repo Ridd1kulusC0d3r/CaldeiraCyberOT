@@ -13,7 +13,7 @@
 
 **Uma base global e independente para estudar, contextualizar e defender sistemas ciberfísicos.**
 
-[Explorar conhecimento](docs/index.md) · [Relatórios e análises](relatorios/README.md) · [Fornecedores](docs/ecossistema/fornecedores.md) · [Instituições e normas](docs/ecossistema/instituicoes.md) · [Estudos aplicados](labs/README.md)
+[**Portal visual (ativação opcional)**](docs/PORTAL.md) · [Explorar conhecimento](docs/index.md) · [Relatórios e análises](relatorios/README.md) · [Fornecedores](docs/ecossistema/fornecedores.md) · [Instituições e normas](docs/ecossistema/instituicoes.md) · [Estudos aplicados](labs/README.md)
 
 </div>
 
