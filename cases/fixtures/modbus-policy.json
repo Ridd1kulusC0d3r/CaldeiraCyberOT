@@ -1,0 +1,15 @@
+{
+  "schema": "caldeira.synthetic.v1",
+  "synthetic": true,
+  "case_id": "CAL-LAB-001",
+  "description": "Metadados fictícios de solicitações Modbus. Não são pacotes nem comandos executáveis.",
+  "policy": {
+    "modbus_approved_sources": {"PLC-SIM-01": ["HMI-SIM-01"]},
+    "approved_cross_zone": []
+  },
+  "events": [
+    {"event_id":"M-001","timestamp":"2026-10-18T10:00:00Z","protocol":"modbus","operation":"read","source":"ENG-SIM-02","target":"PLC-SIM-01","zone_from":"OT","zone_to":"OT"},
+    {"event_id":"M-002","timestamp":"2026-10-18T10:00:30Z","protocol":"modbus","operation":"write","source":"HMI-SIM-01","target":"PLC-SIM-01","zone_from":"OT","zone_to":"OT"},
+    {"event_id":"M-003","timestamp":"2026-10-18T10:01:00Z","protocol":"modbus","operation":"write","source":"UNKNOWN-SIM-04","target":"PLC-SIM-01","zone_from":"OT","zone_to":"OT"}
+  ]
+}

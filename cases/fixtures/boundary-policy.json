@@ -1,0 +1,15 @@
+{
+  "schema": "caldeira.synthetic.v1",
+  "synthetic": true,
+  "case_id": "CAL-LAB-002",
+  "description": "Matriz fictícia de zonas IT/OT. Testa alerta de fluxo não previsto, sem simular intrusão.",
+  "policy": {
+    "modbus_approved_sources": {},
+    "approved_cross_zone": [["IT-JUMP-SIM-01", "OT-HIST-SIM-01"]]
+  },
+  "events": [
+    {"event_id":"B-001","timestamp":"2026-10-18T11:00:00Z","protocol":"https","operation":"session","source":"IT-JUMP-SIM-01","target":"OT-HIST-SIM-01","zone_from":"IT","zone_to":"OT"},
+    {"event_id":"B-002","timestamp":"2026-10-18T11:01:00Z","protocol":"tcp-metadata","operation":"session","source":"IT-UNKNOWN-SIM-02","target":"OT-HMI-SIM-03","zone_from":"IT","zone_to":"OT"},
+    {"event_id":"B-003","timestamp":"2026-10-18T11:01:30Z","protocol":"tcp-metadata","operation":"session","source":"IT-USER-SIM-01","target":"IT-APP-SIM-02","zone_from":"IT","zone_to":"IT"}
+  ]
+}

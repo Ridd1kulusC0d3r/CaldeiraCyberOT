@@ -1,0 +1,28 @@
+name: Caldeira OT Labs · Testes offline
+on:
+  push:
+    paths:
+      - "core/**"
+      - "cases/**"
+      - "tests/**"
+      - ".github/workflows/ot-labs-tests.yml"
+  pull_request:
+    paths:
+      - "core/**"
+      - "cases/**"
+      - "tests/**"
+      - ".github/workflows/ot-labs-tests.yml"
+jobs:
+  offline-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate synthetic-only offline detections
+        run: python -m unittest discover -s tests -v
+      - name: Validate case catalogue
+        run: python scripts/validar_catalogo.py

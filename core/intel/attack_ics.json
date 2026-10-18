@@ -1,0 +1,15 @@
+{
+  "schema": "caldeira.attack_ics_map.v1",
+  "reviewed_on": "2026-10-18",
+  "source": "https://attack.mitre.org/matrices/ics/",
+  "note": "Relacionamentos educacionais. Uma anomalia isolada não prova técnica, campanha ou autoria.",
+  "techniques": [
+    {"id":"T0836","name":"Modify Parameter","url":"https://attack.mitre.org/techniques/T0836/","use":"Revisão contextual de alterações de parâmetros."},
+    {"id":"T0831","name":"Manipulation of Control","url":"https://attack.mitre.org/techniques/T0831/","use":"Consequência potencial que requer evidências adicionais."},
+    {"id":"T1692.001","name":"Unauthorized Message: Command Message","url":"https://attack.mitre.org/techniques/T1692/001/","use":"Analítica ilustrativa de mensagens não autorizadas."},
+    {"id":"T0858","name":"Change Operating Mode","url":"https://attack.mitre.org/techniques/T0858/","use":"Eventos de alteração de modo, não equivalentes a negação de controle."},
+    {"id":"T0843","name":"Program Download","url":"https://attack.mitre.org/techniques/T0843/","use":"Monitoramento defensivo de alterações de programa."},
+    {"id":"T0846","name":"Remote System Discovery","url":"https://attack.mitre.org/techniques/T0846/","use":"Descoberta de sistemas apenas quando comportamento corroborado."},
+    {"id":"T0842","name":"Network Sniffing","url":"https://attack.mitre.org/techniques/T0842/","use":"Não usar como rótulo genérico de enumeração ou scanning."}
+  ]
+}
