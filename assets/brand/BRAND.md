@@ -1,33 +1,29 @@
-# Identidade visual · Caldeira Cyber OT
+# Caldeira Cyber OT Labs / Visual identity v2
 
-**Conceito:** a caldeira representa energia controlada, processo físico, segurança de produção e engenharia. A linguagem visual recorre a sensores, tubulações, planos de fábrica, leitura de telemetria e topologias industriais.
+**Marca:** CALDEIRA, subtítulo **CYBER OT LABS**. Posicionamento: motor de inteligência e detecção, tecnologia crítica, segurança humana e engenharia.
 
-**Inspiração:** rigor editorial e sensação de pesquisa de campo associados ao universo de segurança OT e à comunicação da Dragos. **Não reproduzir** a marca, o logotipo, peças publicitárias ou layouts proprietários da Dragos. A identidade de Caldeira é autônoma.
+A comunicação utiliza os conceitos de **pressão controlada, processo físico, instrumentação, conectividade industrial e dados confiáveis**. Referência de sofisticação editorial OT, sem copiar a identidade, marca ou website Dragos.
 
-## Tokens
+## Tokens cromáticos
 
-| Uso | Cor | Hex |
+| Token | Hex | Uso |
 |---|---|---|
-| Background principal | Petróleo profundo | `#07171E` |
-| Superfícies | Verde industrial escuro | `#102F37` |
-| Telemetria | Menta técnica | `#51D6BE` |
-| Sinalização / energia | Âmbar cobre | `#E5A34E` |
-| Texto | Branco industrial | `#F5F9F7` |
-| Texto secundário | Cinza frio | `#BCD5D2` |
+| `--coal` | `#07171D` | Background e molduras |
+| `--steel` | `#0C2B32` | Painéis e superfícies |
+| `--sea-glass` | `#57C9B2` | Dados e status observáveis |
+| `--copper` | `#E99754` | Foco editorial e energia |
+| `--paper` | `#F4F8F5` | Texto principal em dark |
+| `--muted` | `#A9C8C5` | Conteúdo secundário |
 
-## Diretrizes
+## Linguagem visual
 
-- **Tipografia:** sans-serif legível para texto e títulos; monoespaçada apenas para IDs de técnicas, protocolos, indicadores e evidências.
-- **Sistema de navegação:** seções numeradas (`01 / LANDSCAPE`, `02 / ECOSYSTEM` etc.), links objetivos e densidade informativa moderada.
-- **Visualização:** gráficos com escala explícita, unidade, ano, fonte, n e definição do denominador.
-- **Imagens:** topologias, silhuetas industriais, mapas, esquemas de tubulação e visualizações de fluxos; não usar dashboards fictícios como evidência.
-- **Acessibilidade:** nunca comunicar alerta apenas por cor; acompanhar cor com texto e símbolo.
-- **Escopo:** PT-BR no conteúdo principal; preservar nomes técnicos internacionais; versões em inglês são futuras traduções revisadas.
-- **Integridade:** diagramas técnicos devem diferenciar rede real, rede hipotética e ambiente sintético.
+- **Capa**: `caldeira-hero.svg`, composta de vaso abstrato, tanque, sensor e pequenos painéis técnicos. Ilustração original; não é esquema para instalação física.
+- **Purdue**: `purdue-layers.svg`, modelo didático e não topologia obrigatória.
+- **Fontes:** system-ui / Arial para compatibilidade com GitHub; monoespaçada para código, dados e métricas.
+- **Acessibilidade:** contraste de texto, foco visível, textos alternativos, conteúdo não comunicado exclusivamente por cor.
+- **Interface:** hero amplo, alternância de cards, chips de status, log de evidências, organização numerada 01–07.
+- **Política:** não chamar documentação planejada de ferramenta funcional. Distinguir fato, hipótese, dataset sintético e opinião.
 
-## Arquivos
+## Marca de terceiros
 
-- `caldeira-hero.svg`: capa do README e material institucional.
-- `research-radar.svg`: seis domínios editoriais.
-
-**Marcas de terceiros:** todos os nomes de empresas e marcas pertencem aos respectivos titulares. Citações não constituem patrocínio ou endosso.
+Nome e produtos Dragos são propriedade dos titulares. Inspiração conceitual na qualidade editorial industrial, **não** derivação de peças oficiais e nenhuma relação de patrocínio.
