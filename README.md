@@ -1,124 +1,143 @@
 <div align="center">
 
-<img src="assets/brand/caldeira-hero.svg" alt="Caldeira Cyber OT — Global Industrial Cybersecurity Intelligence" width="100%" />
+<a href="COMECE-AQUI.md"><img src="assets/brand/caldeira-hero.svg" width="100%" alt="Caldeira Cyber OT Labs — Threat Intelligence, Detection Engineering and Industrial Security Research"/></a>
 
-<br/>
+<br>
 
-**GLOBAL OT/ICS THREAT INTELLIGENCE · RESEARCH · RESILIENCE**
+[![LAB MODE](https://img.shields.io/badge/LAB-OFFLINE%20%2B%20SYNTHETIC-57C9B2?style=for-the-badge&labelColor=07171D)](COMECE-AQUI.md)
+[![ICS RESEARCH](https://img.shields.io/badge/ICS-RESEARCH%20ATLAS-E99754?style=for-the-badge&labelColor=07171D)](docs/casos-ot/README.md)
+[![EVIDENCE](https://img.shields.io/badge/EVIDENCE-SHA256%20INTEGRITY-88B4BE?style=for-the-badge&labelColor=07171D)](core/evidence.py)
+[![PYTHON](https://img.shields.io/badge/PYTHON-STDLIB%20ONLY-CDD9D6?style=for-the-badge&labelColor=07171D)](tests/test_core.py)
 
-[![Focus](https://img.shields.io/badge/FOCUS-OT%20%2F%20ICS%20%2F%20SCADA-0B242A?style=flat-square)](docs/panorama-global.md)
-[![Research](https://img.shields.io/badge/RESEARCH-EVIDENCE--BASED-257D76?style=flat-square)](relatorios/README.md)
-[![Language](https://img.shields.io/badge/LANGUAGE-PT--BR-D18A35?style=flat-square)](README.md)
-[![Status](https://img.shields.io/badge/STATUS-KNOWLEDGE%20BASE-202F39?style=flat-square)](docs/index.md)
+### Threat intelligence is not just a report. Detection is not just an alert.
 
-**Uma base global e independente para estudar, contextualizar e defender sistemas ciberfísicos.**
+**Caldeira Cyber OT Labs** é um hub independente de estudos globais sobre **OT / ICS / SCADA**, com um núcleo didático de **detecção baseada em eventos sintéticos, evidências verificáveis e inteligência aplicada**.
 
-**Research Atlas 2026:** incidentes reais · evidência CTI · datasets OT · telemetria industrial
-
-[**Portal visual (ativação opcional)**](docs/PORTAL.md) · [Explorar conhecimento](docs/index.md) · [Relatórios e análises](relatorios/README.md) · [Fornecedores](docs/ecossistema/fornecedores.md) · [Instituições e normas](docs/ecossistema/instituicoes.md) · [Estudos aplicados](labs/README.md)
+[**COMECE AQUI**](COMECE-AQUI.md) · [**ABRIR PORTAL VISUAL**](docs/PORTAL.md) · [**CASOS DE DETECÇÃO**](cases/README.md) · [**ATLAS DE INCIDENTES**](docs/casos-ot/README.md) · [**ARQUITETURA**](docs/arquitetura-labs.md)
 
 </div>
 
 ---
 
 > [!IMPORTANT]
-> **Segurança operacional primeiro.** Este projeto é educativo e defensivo; não é afiliado à Dragos ou a fornecedores mencionados. Evidências comerciais, pesquisas de mercado e normas oficiais são identificadas separadamente. Nenhuma recomendação deve ser aplicada a uma planta real sem validação da engenharia, segurança de processo e responsáveis operacionais.
+> **Status real do projeto.** Implementado: dois detectores puros, runner local offline, fixtures sintéticas, digest SHA-256 e testes. OpenPLC, GRFICS, ScadaBR, Conpot e outros backends são **pesquisa e integração futura**, não funcionalidades disponíveis. O repositório [Mininet](https://github.com/Ridd1kulusC0d3r/mininet) é independente e é citado apenas como referência.
+>
+> **Safety first:** nenhuma operação neste repositório interage com sistemas OT reais. Nada aqui se destina a produção ou decisão automática sobre processo físico.
 
-## 01 / Mission control
+## 01 / An industrial intelligence workbench
 
-O **Caldeira Cyber OT** investiga a interseção entre **OT (Operational Technology), ICS (Industrial Control Systems), SCADA, inteligência de ameaças (CTI), segurança de processo e resiliência de infraestruturas críticas**. O objetivo é transformar fontes fragmentadas em conhecimento rastreável, comparável e útil para defender operações em diferentes países e setores.
+<table><tr>
+<td width="50%" valign="top">
 
-| DIMENSÃO | OBJETIVO | ENTREGA |
-|:---|:---|:---|
-| **01 · Landscape** | Compreender o cenário global e as diferenças regionais | [Panorama global](docs/panorama-global.md) |
-| **02 · Ecosystem** | Comparar atores, fornecedores, pesquisas e instituições | [Fornecedores](docs/ecossistema/fornecedores.md) · [Pesquisadores](docs/ecossistema/especialistas.md) |
-| **03 · Intelligence** | Diferenciar atividade observada, hipótese e tendência | [Ameaças e análise](docs/inteligencia-ameacas.md) |
-| **04 · Standards** | Relacionar arquitetura e gestão de risco às normas | [Instituições e referenciais](docs/ecossistema/instituicoes.md) |
-| **05 · Evidence** | Curar relatórios e analisar metodologia e vieses | [Biblioteca de relatórios](relatorios/README.md) |
-| **06 · Practice** | Traduzir estudos em cenários seguros de laboratório | [Laboratórios e casos](labs/README.md) |
+### <img src="https://img.shields.io/badge/01-RESEARCH-E99754?style=flat-square&labelColor=07171D" alt="01 Research"> Global OT Research
 
-## 02 / OT research radar
+Atlas de casos, relatórios anuais, fontes primárias, pesquisadores, fornecedores, ameaças, standards e metodologia de CTI industrial.
+
+**[Explorar atlas →](docs/casos-ot/README.md)**
+
+</td>
+<td width="50%" valign="top">
+
+### <img src="https://img.shields.io/badge/02-LABS-57C9B2?style=flat-square&labelColor=07171D" alt="02 Labs"> Detection & Evidence
+
+Regras puras sobre metadados fictícios, validação de baseline, resultados explicáveis, fixtures reproduzíveis e digest SHA-256.
+
+**[Executar casos offline →](COMECE-AQUI.md)**
+
+</td>
+</tr></table>
+
+## 02 / Architecture at a glance
 
 <div align="center">
-<img src="assets/brand/research-radar.svg" alt="Mapa visual de seis domínios do Caldeira Cyber OT" width="100%" />
+<img src="assets/brand/purdue-layers.svg" width="94%" alt="Mapa Purdue ilustrativo com níveis L0, L1, L2, L3, L3.5, L4 e L5"/>
 </div>
 
-### Comece pela edição 2026
+| Camada | Recurso | Estado |
+|:---|:---|:---|
+| **INTELLIGENCE** | [Atores, ferramentas e técnicas documentadas](core/intel/README.md) | Catálogo editorial |
+| **DETECTION CORE** | [Modbus policy](core/detectors/ot/modbus.py) · [IT/OT boundary](core/detectors/it/boundary.py) | **Implementado** |
+| **EVIDENCE ENGINE** | [JSON canônico e SHA-256](core/evidence.py) | **Implementado** |
+| **OFFLINE RUNNER** | [Análise de fixtures](core/runner.py) | **Implementado** |
+| **SIM BACKENDS** | [OpenPLC, GRFICS, Conpot e outros](sims/README.md) | **Planejados / não integrados** |
+| **EXTERNAL LAB** | [Mininet / Mininet-Sec](https://github.com/Ridd1kulusC0d3r/mininet) | **Projeto distinto** |
 
-**[Fortinet — Relatório 2026 sobre o Estado da Tecnologia Operacional e Cibersegurança](relatorios/fortinet/2026-state-of-ot-cybersecurity.md)**
+## 03 / First detections
 
-Estudo global com mais de 700 profissionais relacionados a OT. A análise independente do Caldeira cobre governança, maturidade, visibilidade, intrusões, regulamentação e recomendações, com **páginas de origem e ressalvas metodológicas**.
+<details open>
+<summary><b>CAL-LAB-001 · Solicitação de escrita Modbus fora da política</b></summary>
 
-| DADO DO RELATÓRIO | 2026 | INTERPRETAÇÃO CORRETA |
-|:---|---:|:---|
-| Respostas indicando 1–9 invasões no ano | **71%** | Frequência *relatada* na amostra, não incidência universal |
-| Esperam aumento regulatório em até 5 anos | **89%** | Expectativa dos entrevistados, não previsão legal confirmada |
-| Relataram visibilidade de 100% dos sistemas OT | **14%** | Autoavaliação de visibilidade, não inventário auditado |
-| Reportaram interrupções com impacto na receita | **46%** | Proporção declarada no levantamento |
+Analisa eventos *fictícios* de leitura/escrita e verifica uma matriz de origens autorizadas. A detecção retorna uma **hipótese** de comando não autorizado [T1692.001](https://attack.mitre.org/techniques/T1692/001/), sem afirmar que houve ação física ou incidente real.
 
-Fonte: [Fortinet 2026 — página oficial do relatório](https://www.fortinet.com/resources/reports/state-ot-cybersecurity). Análise e remissão à paginação em [relatorios/fortinet](relatorios/fortinet/2026-state-of-ot-cybersecurity.md).
+**Resultado esperado:** 1 alerta reproduzível. [Ver fixture](cases/fixtures/modbus-policy.json).
 
-## 03 / Global knowledge map
+</details>
+<details>
+<summary><b>CAL-LAB-002 · Fluxo IT→OT fora da matriz de zonas</b></summary>
 
-| CAMADA | ÁREAS DE ESTUDO |
-|:---|:---|
-| **Ambientes** | Manufatura, energia, água, óleo e gás, transporte, saúde, edifícios |
-| **Ativos** | PLC/CLP, RTU, HMI, EWS, historiadores, DCS, SCADA, SIS |
-| **Redes** | Segmentação, zonas e conduítes, acesso remoto, telemetria passiva |
-| **Ameaças** | Ransomware com impacto operacional, intrusões, engenharia social, exposição de fornecedores |
-| **Resiliência** | Gestão de ativos, monitoramento, resposta a incidentes, recuperação e continuidade |
-| **Governança** | ISA/IEC 62443, MITRE ATT&CK for ICS, NIST SP 800-82, orientações nacionais |
+Analisa somente metadados de uma fronteira fictícia IT/OT. Um desvio de política não prova movimento lateral, intrusão ou pivô. Por isso **nenhuma técnica ATT&CK é atribuída automaticamente**.
 
-### Arquitetura conceitual
+**Resultado esperado:** 1 alerta reproduzível. [Ver fixture](cases/fixtures/boundary-policy.json).
 
-```mermaid
-flowchart LR
-    A["Evidências públicas<br/>advisories · reports · cases"] --> B["Triagem e proveniência"]
-    B --> C["Contexto OT<br/>setor · país · ativo · processo"]
-    C --> D["Mapeamento defensivo<br/>ATT&CK for ICS · 62443"]
-    D --> E["Aplicação<br/>detecção · decisão · resiliência"]
-    E --> F["Estudo de caso / laboratório seguro"]
-    F -. "lições aprendidas" .-> B
+</details>
+
+### Run it (offline, no dependencies)
+
+```bash
+python -m unittest discover -s tests -v
+python -m core.runner cases/fixtures/modbus-policy.json
+python -m core.runner cases/fixtures/boundary-policy.json
 ```
 
-## 04 / Research atlas · Novos módulos
+**SHA-256 mede integridade, não autenticidade.** A validação indica se o payload difere do digest fornecido, mas não atesta quem gerou o arquivo. [Ver documentação](docs/arquitetura-labs.md).
 
-| Módulo | Conteúdo | Abrir |
-|---|---|---|
-| **07 · INCIDENT ATLAS** | Sete casos com classificação por impacto e confiança, incluindo TRITON, Industroyer2, FrostyGoop e JBS | [Explorar casos](docs/casos-ot/README.md) |
-| **08 · THREAT INTELLIGENCE** | Pipeline CTI, distinção entre fato e hipótese, critérios de defesa | [Metodologia](docs/metodologia-cti-ot.md) |
-| **09 · EVIDENCE & DATASETS** | Cyber4OT, CyOTE, HAI, SWaT, WADI e BATADAL com limitações | [Datasets](docs/datasets-ot.md) |
-| **10 · INDUSTRIAL PROTOCOLS** | Modbus, OPC UA, DNP3, IEC-104, CIP e telemetria | [Protocolos](docs/protocolos-telemetria.md) |
-| **11 · REPOSITORY LANDSCAPE** | Repositórios relevantes para estudo global, não para emulação Mininet | [Referências](docs/ecossistema/repositorios-e-projetos.md) |
+## 04 / Threat intelligence & technique accuracy
 
-**Projetos apartados:** [Caldeira = pesquisa, CTI e resiliência](docs/separacao-de-escopos.md) · [Mininet = laboratório executável](https://github.com/Ridd1kulusC0d3r/mininet). Nenhum código ou script de simulação foi transferido para o Caldeira.
+A matriz ATT&CK for ICS é **taxonomia de comportamentos**, não detector automático nem comprovação de autorias.
 
-## 05 / Navegação
+| Contexto | Estudo / técnica |
+|---|---|
+| Parâmetros industriais | [T0836 · Modify Parameter](https://attack.mitre.org/techniques/T0836/) |
+| Mensagem de comando não autorizada | [T1692.001 · Command Message](https://attack.mitre.org/techniques/T1692/001/) |
+| Mudança de modo do controlador | [T0858 · Change Operating Mode](https://attack.mitre.org/techniques/T0858/) |
+| Atualização de programa | [T0843 · Program Download](https://attack.mitre.org/techniques/T0843/) |
+| Descoberta remota | [T0846 · Remote System Discovery](https://attack.mitre.org/techniques/T0846/) |
 
-- **[Introdução e trilhas](docs/index.md)**: o que estudar e em qual ordem.
-- **[Panorama global](docs/panorama-global.md)**: regiões, setores e convergência IT/OT.
-- **[Fornecedores e soluções](docs/ecossistema/fornecedores.md)**: Dragos, Nozomi, Claroty, Fortinet e Tenable.
-- **[Especialistas e comunidade](docs/ecossistema/especialistas.md)**: Robert M. Lee, Joe Slowik e Dale Peterson.
-- **[Organizações e normas](docs/ecossistema/instituicoes.md)**: ISA, MITRE, NIST, CISA e autoridades internacionais.
-- **[Inteligência e evidências](docs/inteligencia-ameacas.md)**: taxonomia analítica e limitações.
-- **[Relatórios](relatorios/README.md)**: curadoria, indexação, síntese e metodologia.
-- **[Cenários didáticos](labs/README.md)**: exercícios defensivos isolados e observação de tráfego sintético.
-- **[Identidade visual](assets/brand/BRAND.md)**: linguagem gráfica, cores e regras.
-- **[Como contribuir](CONTRIBUTING.md)**: qualidade das evidências e estrutura de submissão.
+> Correção editorial 2026: os IDs antigos `T0855` e `T0857` não devem ser usados sem conferir o catálogo atual. `T0842` se refere a **Network Sniffing** e `T0813` a **Denial of Control**, conceitos distintos da descoberta e da mudança de modo. [Ver catálogo revisado](core/intel/README.md).
 
-## 06 / Regras editoriais
+## 05 / Global research atlas
 
-1. **Fonte primária antes de marketing.** Preferir norma, advisory oficial, telemetria publicada e documentação original.
-2. **Data importa.** Diferenciar *ano publicado*, *ano dos dados* e *ano do incidente*.
-3. **Inferência não é fato.** Separar número observado, interpretação, hipótese e recomendação.
-4. **Escopo global de verdade.** Não extrapolar uma amostra corporativa para todos os países e setores.
-5. **Safety by design.** Nunca orientar testes ativos em redes industriais sem autorização e aprovação operacional.
-6. **Direitos autorais.** Referenciar relatórios externos e publicar somente análises originais quando não houver licença de redistribuição.
+| Coleção | Conteúdo | Link |
+|:---|:---|:---|
+| **Incident Atlas** | BlackEnergy, Industroyer, TRITON, INCONTROLLER, Industroyer2, FrostyGoop, JBS | [Dossiês e ressalvas](docs/casos-ot/README.md) |
+| **Reports** | Fortinet 2026 + séries e relatórios internacionais | [Biblioteca](relatorios/README.md) |
+| **Vendors** | Nozomi, Claroty, Dragos, Fortinet, Tenable | [Comparativo editorial](docs/ecossistema/fornecedores.md) |
+| **Standards** | ISA/IEC 62443, CISA, NIST, MITRE e referências globais | [Referenciais](docs/ecossistema/instituicoes.md) |
+| **Datasets** | Fontes, licenças, limitações de aplicação | [Datasets](docs/datasets-ot.md) |
+| **Researchers** | Robert M. Lee, Joe Slowik, Dale Peterson e comunidade | [Pesquisadores](docs/ecossistema/especialistas.md) |
+| **Telemetry** | Conceitos dos protocolos industriais e observabilidade | [Protocolos](docs/protocolos-telemetria.md) |
+| **Evidence-Based CTI** | Proveniência, hipóteses, confiança e revisão | [Metodologia](docs/metodologia-cti-ot.md) |
+
+## 06 / Report spotlight · Fortinet 2026
+
+| Indicador da pesquisa global | Valor informado |
+|---|---:|
+| Respostas relatando 1–9 invasões no ano | **71%** |
+| Esperam maior regulamentação nos próximos cinco anos | **89%** |
+| Declaram cobertura de visibilidade OT de 100% | **14%** |
+| Reportam interrupção operacional com impacto na receita | **46%** |
+
+Estes números vêm de **respostas em uma amostra**, não representam taxas universais. [Análise crítica com páginas](relatorios/fortinet/2026-state-of-ot-cybersecurity.md) · [Fonte oficial](https://www.fortinet.com/resources/reports/state-ot-cybersecurity).
+
+## 07 / Contribute to better OT research
+
+Evidência primária > alegação de vendor. Consequência real > inferência de impacto. Técnica documentada > associação por semelhança. Segurança de processo > automação irrefletida.
+
+[Guia de contribuição](CONTRIBUTING.md) · [Critérios de escopo](docs/separacao-de-escopos.md) · [Identidade visual](assets/brand/BRAND.md) · [Portal HTML](docs/PORTAL.md)
 
 ---
 
 <div align="center">
-<strong>CALDEIRA CYBER OT</strong><br/>
-<sub>Industrial processes are physical. Evidence must be verifiable.</sub><br/><br/>
-<a href="https://github.com/Ridd1kulusC0d3r/CaldeiraCyberOT">GitHub</a> · <a href="relatorios/README.md">Research archive</a> · <a href="CONTRIBUTING.md">Contribute</a>
+<sub>CALDEIRA CYBER OT LABS · RESEARCH • DETECT • VERIFY • LEARN</sub><br>
+<sub>Projeto independente; sem afiliação com Dragos, MITRE ou os fornecedores citados.</sub>
 </div>
