@@ -1,27 +1,24 @@
-# Portal de pesquisa · GitHub Pages
+# Portal visual v2 · Caldeira Cyber OT Labs
 
-Um frontend estático, responsivo e navegável está em [`docs/index.html`](index.html).
+**Arquivo publicado:** [index.html](index.html). HTML, CSS e JS sem dependências, fontes externas ou analytics.
 
-## Publicação opcional
+### Conteúdo
 
-Como o GitHub Pages precisa ser ativado nas configurações do repositório, **a publicação pública do portal não está confirmada**. O arquivo HTML já está versionado.
+- Visual original inspirado na instrumentação industrial, painel Purdue L0–L5 e DMZ (conceitual).
+- Seis domínios de pesquisa com busca de texto e filtros de categoria.
+- Console didático com seleção entre os **dois casos realmente implementados**; resultados exibidos são exemplos estáticos baseados nos fixtures sintéticos.
+- Métricas publicadas na pesquisa Fortinet 2026 com links para crítica da metodologia e páginas.
+- Layout adaptável, sem necessidade de bibliotecas externas, com foco por teclado, regiões semânticas e tratamento de movimento reduzido.
 
-1. Abra **Settings → Pages** no repositório.
-2. Em **Build and deployment**, selecione **Deploy from a branch**.
-3. Escolha **main**, pasta **/docs**, e salve.
-4. Aguarde o deploy indicado pelo próprio GitHub e confira o endereço informado em Pages.
+### GitHub Pages
 
-## Recursos existentes
+É necessário ativar o Pages nas configurações do repositório. A presença do arquivo não comprova deploy.
 
-- Layout original Caldeira, com grade de telemetria e radar industrial.
-- Navegação por domínios, busca de texto e filtros de conteúdo.
-- Indicadores Fortinet 2026 com ressalva sobre amostra e fonte.
-- Cards de fontes primárias e atalhos diretos para documentação GitHub.
-- Responsividade mobile, navegação por teclado, foco visível e redução de animações quando solicitada.
-- Sem dependências externas, rastreamento ou APIs.
+1. GitHub: **Settings → Pages**.
+2. Selecionar **Deploy from a branch**.
+3. Branch `main`, pasta `/docs`; salvar.
+4. Usar a URL exibida pelo próprio GitHub na confirmação da publicação.
 
-## Limites
+**Atenção:** este painel é **editorial e estático**, não um SOC OT, não recebe eventos em tempo real, não executa o runner no navegador e não apresenta leitura de sensores reais.
 
-O site é um catálogo editorial e **não um dashboard de telemetria em tempo real**. Valores exibidos são estáticos e exigem curadoria para atualização. Nenhum dado é extraído automaticamente de redes industriais.
-
-**Manutenção:** sempre que adicionar nova seção, inclua o link equivalente no arquivo HTML e no README principal.
+Navegação: [README](../README.md) · [COMECE AQUI](../COMECE-AQUI.md) · [arquitetura](arquitetura-labs.md).
