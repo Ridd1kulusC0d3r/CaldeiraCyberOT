@@ -111,12 +111,25 @@ A matriz ATT&CK for ICS é **taxonomia de comportamentos**, não detector autom�
 |:---|:---|:---|
 | **Incident Atlas** | BlackEnergy, Industroyer, TRITON, INCONTROLLER, Industroyer2, FrostyGoop, JBS | [Dossiês e ressalvas](docs/casos-ot/README.md) |
 | **Reports** | Fortinet 2026 + séries e relatórios internacionais | [Biblioteca](relatorios/README.md) |
-| **Vendors** | Nozomi, Claroty, Dragos, Fortinet, Tenable | [Comparativo editorial](docs/ecossistema/fornecedores.md) |
-| **Standards** | ISA/IEC 62443, CISA, NIST, MITRE e referências globais | [Referenciais](docs/ecossistema/instituicoes.md) |
+| **Vendors** | Dragos, Nozomi, Claroty, Fortinet, Tenable, Armis, TXOne, Cisco | [Landscape](docs/ecossistema/fornecedores.md) · [Matriz neutra](docs/ecossistema/avaliacao-fornecedores.md) |
+| **Standards** | ISA/IEC 62443, Purdue/ISA-95, NIST, MITRE, CISA e SANS ICS | [Mapa de referenciais](docs/referenciais-ot.md) · [Instituições](docs/ecossistema/instituicoes.md) |
 | **Datasets** | Fontes, licenças, limitações de aplicação | [Datasets](docs/datasets-ot.md) |
 | **Researchers** | Robert M. Lee, Joe Slowik, Dale Peterson e comunidade | [Pesquisadores](docs/ecossistema/especialistas.md) |
 | **Telemetry** | Conceitos dos protocolos industriais e observabilidade | [Protocolos](docs/protocolos-telemetria.md) |
 | **Evidence-Based CTI** | Proveniência, hipóteses, confiança e revisão | [Metodologia](docs/metodologia-cti-ot.md) |
+
+### OT standards & mitigations · Curadoria expandida
+
+| Referência | Para estudar | Aplicação no Caldeira |
+|:---|:---|:---|
+| **[ISA/IEC 62443](docs/referenciais-ot.md)** | Famílias de requisitos para programas, sistemas e componentes IACS | Avaliar necessidades de arquitetura, governança e ciclo de vida |
+| **[Purdue + ISA-95](docs/arquitetura-labs.md)** | Funções industriais, fronteiras e integração entre sistemas | Compreender zonas didáticas, sem impor topologia universal |
+| **[MITRE ATT&CK for ICS](core/intel/README.md)** | Comportamentos adversários documentados | Hipóteses de detecção com evidências verificáveis |
+| **[NIST SP 800-82](docs/ecossistema/instituicoes.md)** | Segurança, desempenho, confiabilidade e safety | Orientação defensiva e análise de risco |
+| **[CISA · Five Primary Mitigations](docs/guias/cisa-mitigacoes-ot.md)** | Exposição, credenciais, acesso remoto, segmentação, operação manual | Checklist de discussão com engenharia OT |
+| **[SANS ICS](docs/ecossistema/instituicoes.md)** | Formação técnica e Five Critical ICS Controls | Trilha de aprendizagem profissional |
+
+**Atenção:** requisitos normativos, recomendações, taxonomias e claims comerciais não são equivalentes. [Leia a análise e as fontes oficiais](docs/referenciais-ot.md).
 
 ## 06 / Report spotlight · Fortinet 2026
 
@@ -133,7 +146,7 @@ Estes números vêm de **respostas em uma amostra**, não representam taxas univ
 
 Evidência primária > alegação de vendor. Consequência real > inferência de impacto. Técnica documentada > associação por semelhança. Segurança de processo > automação irrefletida.
 
-[Guia de contribuição](CONTRIBUTING.md) · [Critérios de escopo](docs/separacao-de-escopos.md) · [Identidade visual](assets/brand/BRAND.md) · [Portal HTML](docs/PORTAL.md)
+[Guia de contribuição](CONTRIBUTING.md) · [Referenciais OT](docs/referenciais-ot.md) · [Critérios de escopo](docs/separacao-de-escopos.md) · [Identidade visual](assets/brand/BRAND.md) · [Portal HTML](docs/PORTAL.md)
 
 ---
 

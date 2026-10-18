@@ -10,7 +10,9 @@
 | **INCIDENT ATLAS** | O incidente afetou controladores, sistemas TI ou apenas operação? | [Casos](casos-ot/README.md) |
 | **GLOBAL LANDSCAPE** | Quais regiões, setores e regulações são comparáveis? | [Panorama](panorama-global.md) |
 | **RESEARCH** | O que podemos concluir do estudo estatístico? | [Fortinet 2026](../relatorios/fortinet/2026-state-of-ot-cybersecurity.md) |
-| **ECOSYSTEM** | Onde diferem soluções, normas e pesquisadores? | [Fornecedores](ecossistema/fornecedores.md) · [Normas](ecossistema/instituicoes.md) · [Especialistas](ecossistema/especialistas.md) |
+| **ECOSYSTEM** | Onde diferem soluções, normas e pesquisadores? | [Fornecedores (8)](ecossistema/fornecedores.md) · [Avaliação neutra](ecossistema/avaliacao-fornecedores.md) · [Especialistas](ecossistema/especialistas.md) |
+| **STANDARDS** | Como relacionar norma, Purdue, taxonomia, guia e formação? | [Guia de referenciais](referenciais-ot.md) · [Instituições](ecossistema/instituicoes.md) |
+| **CISA / RESILIENCE** | Que recomendações prioritárias são aplicáveis à OT conectada? | [Mitigações CISA 2025](guias/cisa-mitigacoes-ot.md) |
 
 ## Status de execução
 
@@ -20,4 +22,4 @@ A capa do README e a [página HTML](index.html) são apresentações editoriais;
 
 ### Documentos históricos preservados
 
-[Protocolos](protocolos-telemetria.md) · [Biblioteca de datasets](datasets-ot.md) · [Repositórios externos](ecossistema/repositorios-e-projetos.md) · [Princípios de segurança](../CONTRIBUTING.md).
+[Normas e frameworks](referenciais-ot.md) · [CISA 2025](guias/cisa-mitigacoes-ot.md) · [Protocolos](protocolos-telemetria.md) · [Biblioteca de datasets](datasets-ot.md) · [Repositórios externos](ecossistema/repositorios-e-projetos.md) · [Princípios de segurança](../CONTRIBUTING.md).

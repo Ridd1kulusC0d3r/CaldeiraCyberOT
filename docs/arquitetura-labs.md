@@ -48,7 +48,7 @@ flowchart TD
 
 ![Purdue no Caldeira](../assets/brand/purdue-layers.svg)
 
-O modelo Purdue auxilia a pensar fronteiras e funções, mas não é um inventário obrigatório de níveis, nem garante segurança por si só. **Sistemas SIS não devem ser tratados como componentes ordinários da mesma cadeia de controle**, pois requisitos e independência de segurança são específicos.
+O modelo Purdue auxilia a pensar fronteiras e funções, mas não é um inventário obrigatório de níveis, nem garante segurança por si só. A **ISA-95 utiliza o Purdue Reference Model for CIM como referência de integração** entre funções empresariais e controle; isso não significa que a ISA-95 seja uma norma de cibersegurança ou sinônimo do Purdue. Os níveis **L3.5 (DMZ) e L5 (conectividade externa)** do nosso diagrama são convenções didáticas de arquitetura, não níveis universalmente obrigatórios. **Sistemas SIS não devem ser tratados como componentes ordinários da mesma cadeia de controle**, pois requisitos e independência de segurança são específicos.
 
 | Nível | Foco de conhecimento | Estado no Caldeira |
 |---|---|---|
@@ -80,3 +80,7 @@ SHA-256 detecta divergência entre conteúdo e digest armazenados **quando o dig
 Uma detecção de política não é automaticamente uma técnica ATT&CK observada. O código só usa a técnica `T1692.001` como **hipótese analítica**, a ser corroborada por dispositivo, fonte, horário, função e autorização. O detector de fronteira IT→OT evita atribuir técnica na ausência de evidências suficientes.
 
 Referências: [MITRE ATT&CK for ICS](https://attack.mitre.org/matrices/ics/) · [NIST SP 800-82 Rev.3](https://csrc.nist.gov/pubs/sp/800/82/r3/final).
+
+## Complementos normativos
+
+A hierarquia ilustrativa não substitui análise de zonas/conduítes em [ISA/IEC 62443](referenciais-ot.md), nem o guia [NIST SP 800-82](https://csrc.nist.gov/pubs/sp/800/82/r3/final). Para discussão de fronteiras, autenticação e continuidade, consulte as [cinco mitigações prioritárias CISA (2025)](guias/cisa-mitigacoes-ot.md).

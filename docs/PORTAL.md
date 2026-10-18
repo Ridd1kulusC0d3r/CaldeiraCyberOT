@@ -8,6 +8,7 @@
 - Seis domínios de pesquisa com busca de texto e filtros de categoria.
 - Console didático com seleção entre os **dois casos realmente implementados**; resultados exibidos são exemplos estáticos baseados nos fixtures sintéticos.
 - Métricas publicadas na pesquisa Fortinet 2026 com links para crítica da metodologia e páginas.
+- Sessão de **referenciais normativos e institucionais** (ISA/IEC 62443, Purdue/ISA-95, MITRE, NIST, CISA e SANS) e atalhos para **oito fornecedores** mais matriz de avaliação neutra.
 - Layout adaptável, sem necessidade de bibliotecas externas, com foco por teclado, regiões semânticas e tratamento de movimento reduzido.
 
 ### GitHub Pages
