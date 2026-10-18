@@ -1,30 +1,22 @@
-# Arquitetura editorial / Caldeira e Mininet são projetos separados
+# Limites de escopo / Caldeira e Mininet
+
+**Atualização de arquitetura em outubro de 2026:** o Caldeira passou a conter **um núcleo próprio de análise offline**, sem transferir o código do repositório Mininet. Os dois projetos continuam independentes, mas complementares.
 
 ~~~mermaid
-flowchart TB
-    S["Fontes globais públicas / pesquisadores / padrões"] --> C["CALDEIRA CYBER OT"]
-    C --> CTI["Threat intelligence e incidentes"]
-    C --> DAT["Datasets e bibliografia"]
-    C --> NOR["Normas, fornecedores e recomendações"]
-    CTI --> Q["Perguntas de pesquisa, não código executável"]
-    Q -. "referência documental" .-> M["MININET SEC LAB / projeto independente"]
-    M --> E["Testes em rede emulada e evidência técnica"]
-    E -. "achados agregados e revisados" .-> C
+flowchart LR
+  C["CALDEIRA CYBER OT LABS"] --> R["Pesquisa global e relatórios"]
+  C --> D["Núcleo offline: detecção + hash de integridade"]
+  D --> J["Fixtures sintéticas versionadas"]
+  M["MININET / projeto externo"] -. "referência bibliográfica e arquitetural" .-> C
 ~~~
 
-| Capacidade | CaldeiraCyberOT | mininet |
+| Tema | CaldeiraCyberOT | Mininet |
 |---|---|---|
-| Casos reais e cadeia de evidência | **Sim: repositório principal** | Referência aos casos, quando útil |
-| Cenário global e risco por setor | **Sim** | Não |
-| ATT&CK for ICS, normas e guias | **Sim: revisão conceitual** | Mapeamento operacional de experimentos |
-| Inventário de fornecedores | **Sim** | Não |
-| Catálogo de datasets e suas limitações | **Sim: curadoria e DOI** | Aquisição, extração e avaliação |
-| OpenPLC, OPC UA e parsers | **Visão tecnológica e referências** | Configuração/integração de laboratório |
-| Topologias, namespaces, Mininet-Sec | Não | **Sim** |
-| Scripts, captures, simulações e testes | Não | **Sim** |
-| Detecção e telemetria | **Método e hipóteses** | **Runner, detector e evidência** |
-| Publicações com análise independente | **Sim** | Metodologia experimental do próprio projeto |
+| Incidentes globais, fontes, fornecedores, normas | **Sim** | Referências contextuais |
+| Eventos sintéticos e regras puras de detecção | **Sim** | Tem seu próprio conjunto de detectores |
+| Hash SHA-256 de saídas offline | **Sim** | Projeto independente de evidências |
+| Captura ativa, topologias e emulação de rede | **Não** | Repositório distinto |
+| Execução de OpenPLC, GRFICS e Conpot | **Não** | Não assumida |
+| Perfis ATT&CK/CTI para aprendizado | **Sim**, com fontes | Seus próprios mapeamentos |
 
-**Regra de fronteira:** sem pasta de scripts de ataque, sem simuladores embutidos, sem clonagem de suites externas ou geração automática de ataques dentro do Caldeira. O repositório permanece uma base de conhecimento pesquisável e auditável.
-
-**Links:** [CaldeiraCyberOT](https://github.com/Ridd1kulusC0d3r/CaldeiraCyberOT) · [mininet](https://github.com/Ridd1kulusC0d3r/mininet)
+**O Caldeira não copia, importa nem executa automaticamente o Mininet.** A documentação de `sims/` sinaliza backends futuros, não módulos operacionais. Para o laboratório funcional do Caldeira consulte [COMECE-AQUI.md](../COMECE-AQUI.md).
