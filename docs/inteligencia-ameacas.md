@@ -49,3 +49,13 @@ decisao_defensiva: "validar baseline com engenharia"
 6. Resposta conjunta entre segurança digital, operação e segurança de processo.
 
 **Limites de uso:** estudar comportamentos e defesas em ambientes didáticos próprios; não extrapolar casos simulados para técnicas observadas em incidentes reais.
+## Pesquisa aprofundada 2026: casos e sinais verificáveis
+
+A pesquisa associou [sete casos documentados](casos-ot/README.md) a hipóteses de detecção e a um [catálogo estruturado](../catalogo/casos.json). Destaques metodológicos:
+
+- **TRITON:** o papel da segurança instrumentada e o limite entre intenção presumida e dano observado.
+- **INCONTROLLER:** distinguir descoberta de ferramenta e capacidade técnica de uma intrusão consumada.
+- **FrostyGoop:** o comportamento industrial pode ser anômalo mesmo quando a operação de protocolo é formalmente válida.
+- **JBS:** interrupção em organização industrial não prova ataque direto a PLCs.
+
+Explore também [metodologia e pipeline CTI](metodologia-cti-ot.md), [protocolos e observabilidade](protocolos-telemetria.md) e [fontes primárias](../relatorios/fontes-primarias-ot.md). A pesquisa foi baseada nos dois relatórios encaminhados em 18/10/2026, mas **afirmações não corroboradas foram deixadas em triagem**.

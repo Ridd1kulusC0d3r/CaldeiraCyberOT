@@ -13,6 +13,8 @@
 
 **Uma base global e independente para estudar, contextualizar e defender sistemas ciberfísicos.**
 
+**Research Atlas 2026:** incidentes reais · evidência CTI · datasets OT · telemetria industrial
+
 [**Portal visual (ativação opcional)**](docs/PORTAL.md) · [Explorar conhecimento](docs/index.md) · [Relatórios e análises](relatorios/README.md) · [Fornecedores](docs/ecossistema/fornecedores.md) · [Instituições e normas](docs/ecossistema/instituicoes.md) · [Estudos aplicados](labs/README.md)
 
 </div>
@@ -79,7 +81,19 @@ flowchart LR
     F -. "lições aprendidas" .-> B
 ```
 
-## 04 / Navegação
+## 04 / Research atlas · Novos módulos
+
+| Módulo | Conteúdo | Abrir |
+|---|---|---|
+| **07 · INCIDENT ATLAS** | Sete casos com classificação por impacto e confiança, incluindo TRITON, Industroyer2, FrostyGoop e JBS | [Explorar casos](docs/casos-ot/README.md) |
+| **08 · THREAT INTELLIGENCE** | Pipeline CTI, distinção entre fato e hipótese, critérios de defesa | [Metodologia](docs/metodologia-cti-ot.md) |
+| **09 · EVIDENCE & DATASETS** | Cyber4OT, CyOTE, HAI, SWaT, WADI e BATADAL com limitações | [Datasets](docs/datasets-ot.md) |
+| **10 · INDUSTRIAL PROTOCOLS** | Modbus, OPC UA, DNP3, IEC-104, CIP e telemetria | [Protocolos](docs/protocolos-telemetria.md) |
+| **11 · REPOSITORY LANDSCAPE** | Repositórios relevantes para estudo global, não para emulação Mininet | [Referências](docs/ecossistema/repositorios-e-projetos.md) |
+
+**Projetos apartados:** [Caldeira = pesquisa, CTI e resiliência](docs/separacao-de-escopos.md) · [Mininet = laboratório executável](https://github.com/Ridd1kulusC0d3r/mininet). Nenhum código ou script de simulação foi transferido para o Caldeira.
+
+## 05 / Navegação
 
 - **[Introdução e trilhas](docs/index.md)**: o que estudar e em qual ordem.
 - **[Panorama global](docs/panorama-global.md)**: regiões, setores e convergência IT/OT.
@@ -92,7 +106,7 @@ flowchart LR
 - **[Identidade visual](assets/brand/BRAND.md)**: linguagem gráfica, cores e regras.
 - **[Como contribuir](CONTRIBUTING.md)**: qualidade das evidências e estrutura de submissão.
 
-## 05 / Regras editoriais
+## 06 / Regras editoriais
 
 1. **Fonte primária antes de marketing.** Preferir norma, advisory oficial, telemetria publicada e documentação original.
 2. **Data importa.** Diferenciar *ano publicado*, *ano dos dados* e *ano do incidente*.

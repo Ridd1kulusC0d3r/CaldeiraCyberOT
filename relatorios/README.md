@@ -24,3 +24,11 @@ O anexo recebido foi **lido e analisado** para a entrada [Fortinet 2026](fortine
 - Identificar quando uma afirmação é derivada de amostra, percepção, telemetria operacional ou incidência confirmada.
 - Questionar vieses de fornecedor e representatividade.
 - Sinalizar claramente achados do relatório versus **interpretações do Caldeira**.
+## Atlas de casos, datasets e literatura técnica
+
+- [Índice de publicações primárias e estudos de referência](fontes-primarias-ot.md)
+- [Atlas de sete casos OT](../docs/casos-ot/README.md)
+- [Metodologia de avaliação e classificação das fontes](../docs/metodologia-cti-ot.md)
+- [Datasets, observáveis e limitações de pesquisa](../docs/datasets-ot.md)
+
+A nova coleção inclui evidências de **TRITON, Industroyer2, INCONTROLLER/PIPEDREAM e FrostyGoop**, sem reproduzir relatórios de terceiros e sem equiparar testbed a incidente real.

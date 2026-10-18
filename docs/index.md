@@ -42,3 +42,14 @@ Fonte introdutória: [NIST SP 800-82 Rev. 3](https://csrc.nist.gov/pubs/sp/800/8
 **Fundamentos → Arquitetura OT → Engenharia de detecção → CTI e ATT&CK for ICS → Resposta a incidentes → Resiliência e governança.**
 
 Recomendação: construir uma ficha de evidência para cada estudo antes de começar a desenhar a arquitetura ou selecionar tecnologia.
+## Trilhas de aprofundamento / casos → evidências → decisões
+
+| Nível | Pergunta | Estudo |
+|---|---|---|
+| **07 · Cases** | O que realmente aconteceu e como sabemos? | [Atlas de casos OT](casos-ot/README.md) |
+| **08 · CTI** | Como classificar observáveis, técnicas e hipóteses? | [Método CTI](metodologia-cti-ot.md) |
+| **09 · Datasets** | Como distinguir dados de rede e processo? | [Datasets OT](datasets-ot.md) |
+| **10 · Protocols** | Que sinais técnicos podem fundamentar detecção? | [Protocolos e telemetria](protocolos-telemetria.md) |
+| **11 · Ecosystem** | Quais repositórios são confiáveis e relevantes? | [Repositórios e projetos](ecossistema/repositorios-e-projetos.md) |
+
+A [separação de escopos](separacao-de-escopos.md) impede duplicar a plataforma de testes do repositório independente Mininet.

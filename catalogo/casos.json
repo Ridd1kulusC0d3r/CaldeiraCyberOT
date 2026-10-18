@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "reviewed_on": "2026-10-18",
+  "description": "Catálogo histórico editorial. Não contém comandos, alvos nem instruções operacionais.",
+  "cases": [
+    {
+      "id": "CAL-CASE-001",
+      "title": "Ucrânia / BlackEnergy",
+      "event_year": 2015,
+      "kind": "operational_incident",
+      "sector": "energia",
+      "ot_impact": "documented",
+      "evidence_level": "B",
+      "primary_url": "https://cyote.inl.gov/tools/cyote-insights/",
+      "notes": "Comparação histórica; decompor a cadeia de fontes do PAR antes de atribuir etapas."
+    },
+    {
+      "id": "CAL-CASE-002",
+      "title": "Industroyer",
+      "event_year": 2016,
+      "kind": "operational_incident",
+      "sector": "energia",
+      "ot_impact": "documented",
+      "evidence_level": "B",
+      "primary_url": "https://cyote.inl.gov/tools/cyote-insights/",
+      "notes": "Caso histórico; preserva distinção entre malware, mecanismo e impacto."
+    },
+    {
+      "id": "CAL-CASE-003",
+      "title": "TRITON / TRISIS",
+      "event_year": 2017,
+      "kind": "operational_incident",
+      "sector": "infraestrutura_critica",
+      "ot_impact": "operational_disruption",
+      "evidence_level": "A",
+      "primary_url": "https://cloud.google.com/blog/topics/threat-intelligence/attackers-deploy-new-ics-attack-framework-triton",
+      "notes": "Capacidade sobre SIS; intenção de dano foi avaliação dos investigadores."
+    },
+    {
+      "id": "CAL-CASE-004",
+      "title": "INCONTROLLER / PIPEDREAM",
+      "event_year": 2022,
+      "kind": "tooling_research",
+      "sector": "multissetorial",
+      "ot_impact": "not_confirmed",
+      "evidence_level": "A",
+      "primary_url": "https://cloud.google.com/blog/topics/threat-intelligence/incontroller-state-sponsored-ics-tool/",
+      "notes": "Ferramentas analisadas; sem incidente específico confirmado na publicação inicial."
+    },
+    {
+      "id": "CAL-CASE-005",
+      "title": "Industroyer2",
+      "event_year": 2022,
+      "kind": "attempted_disruption",
+      "sector": "energia",
+      "ot_impact": "attempt_documented",
+      "evidence_level": "A",
+      "primary_url": "https://www.welivesecurity.com/2022/04/12/industroyer2-industroyer-reloaded/",
+      "notes": "ESET/CERT-UA; tentativa disruptiva observada."
+    },
+    {
+      "id": "CAL-CASE-006",
+      "title": "FrostyGoop",
+      "event_year": 2024,
+      "kind": "operational_incident",
+      "sector": "aquecimento_distrital",
+      "ot_impact": "documented",
+      "evidence_level": "A",
+      "primary_url": "https://attack.mitre.org/campaigns/C0041/",
+      "techniques": [
+        "T0836",
+        "T0829"
+      ],
+      "notes": "Técnicas selecionadas presentes em MITRE Campaign C0041, sem atribuir toda a cronologia a um único mecanismo."
+    },
+    {
+      "id": "CAL-CASE-007",
+      "title": "JBS",
+      "event_year": 2021,
+      "kind": "it_ransomware_operational_consequence",
+      "sector": "alimentos",
+      "ot_impact": "ics_compromise_not_confirmed",
+      "evidence_level": "B",
+      "primary_url": "https://cyote.inl.gov/tools/cyote-insights/",
+      "notes": "Distinguir parada operacional de invasão de PLC/SCADA."
+    }
+  ]
+}

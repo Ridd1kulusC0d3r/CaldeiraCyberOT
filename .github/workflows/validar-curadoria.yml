@@ -1,0 +1,23 @@
+name: Validação de curadoria
+on:
+  push:
+    paths:
+      - "catalogo/**"
+      - "scripts/validar_catalogo.py"
+      - ".github/workflows/validar-curadoria.yml"
+  pull_request:
+    paths:
+      - "catalogo/**"
+      - "scripts/validar_catalogo.py"
+      - ".github/workflows/validar-curadoria.yml"
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/validar_catalogo.py

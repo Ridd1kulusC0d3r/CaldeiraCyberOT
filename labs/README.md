@@ -37,3 +37,16 @@ flowchart LR
 O Mininet pode representar **topologias IP, segmentação e políticas de fluxo**, mas **não reproduz por si só o comportamento físico de um PLC, uma planta ou um SIS**. Não apresentar uma simulação de rede como validação de segurança de processo. Priorizar roteiros de observação, análise de logs sintéticos e avaliações por cenários.
 
 Comece com [NIST SP 800-82r3](https://csrc.nist.gov/pubs/sp/800/82/r3/final) e [ATT&CK for ICS](https://attack.mitre.org/matrices/ics/) para formular perguntas de defesa.
+## Escopo dos estudos aplicados
+
+O **Caldeira** hospeda exercícios de **tabletop, análise de relatório, revisão de evidência, política de acesso e mapeamento de telemetria**. Implementações de redes, ferramentas de ataque e geração/captura de pacotes pertencem ao [repositório Mininet](https://github.com/Ridd1kulusC0d3r/mininet).
+
+| Roteiro do Caldeira | Referência | Entrega não operacional |
+|---|---|---|
+| **LAB-06 · Incident reconstruction** | [Industroyer2](../docs/casos-ot/README.md#cal-case-005--industroyer2-2022) | Linha do tempo e pontos de telemetria relevantes |
+| **LAB-07 · SIS resilience review** | [TRITON](../docs/casos-ot/README.md#cal-case-003--triton--trisis-2017) | Checklist de segregação, mudança e segurança de processo |
+| **LAB-08 · Protocol-aware monitoring** | [FrostyGoop](../docs/casos-ot/README.md#cal-case-006--frostygoop-2024) | Hipótese de alerta autorizada/indevida, sem comandos reais |
+| **LAB-09 · TI versus OT impact** | [JBS](../docs/casos-ot/README.md#cal-case-007--jbs-2021) | Árvore de dependência empresarial/industrial e RACI |
+| **LAB-10 · Dataset validity** | [Cyber4OT e HAI](../docs/datasets-ot.md) | Matriz de origem, rótulos, vieses e integridade |
+
+Para cada exercício, anexar fontes, justificativas, limites e revisão humana. Ver [separação de escopos](../docs/separacao-de-escopos.md).
