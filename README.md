@@ -115,6 +115,7 @@ A matriz ATT&CK for ICS é **taxonomia de comportamentos**, não detector autom�
 | **Standards** | ISA/IEC 62443, Purdue/ISA-95, NIST, MITRE, CISA e SANS ICS | [Mapa de referenciais](docs/referenciais-ot.md) · [Instituições](docs/ecossistema/instituicoes.md) |
 | **Datasets** | Fontes, licenças, limitações de aplicação | [Datasets](docs/datasets-ot.md) |
 | **Researchers** | Robert M. Lee, Joe Slowik, Dale Peterson e comunidade | [Pesquisadores](docs/ecossistema/especialistas.md) |
+| **UtilSec · Curated** | 10 repositórios revisados: referências aprovadas, duplicações e fontes em triagem | [Curadoria crítica](docs/ecossistema/utilsec-curadoria.md) |
 | **Telemetry** | Conceitos dos protocolos industriais e observabilidade | [Protocolos](docs/protocolos-telemetria.md) |
 | **Evidence-Based CTI** | Proveniência, hipóteses, confiança e revisão | [Metodologia](docs/metodologia-cti-ot.md) |
 

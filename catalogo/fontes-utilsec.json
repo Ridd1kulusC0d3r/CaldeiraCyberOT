@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "reviewed_at": "2026-10-18",
+  "scope": "curadoria documental de 10 repositorios utilsec explicitamente selecionados; nenhuma copia de codigo ou binarios",
+  "license_policy": "nenhum dos 10 repositorios com SPDX detectado na API consultada; links e metadados apenas; proibido presumir direito de redistribuicao",
+  "entries": [
+    {
+      "repository": "utilsec/ot-threat-dashboard",
+      "url": "https://github.com/utilsec/ot-threat-dashboard",
+      "status": "approved_reference",
+      "category": "threat_intelligence_editorial_feed",
+      "limitation": "Fonte secundaria; confirmar cada alegacao com fontes primarias; atribuicao do feed nao e licenca geral."
+    },
+    {
+      "repository": "utilsec/examine_pcap",
+      "url": "https://github.com/utilsec/examine_pcap",
+      "status": "approved_reference",
+      "category": "offline_passive_inventory_research",
+      "limitation": "Deteccao pelo tcp.srcport 502 nao prova semantica ou identidade de PLC."
+    },
+    {
+      "repository": "utilsec/Getting_Started_with_ICS",
+      "url": "https://github.com/utilsec/Getting_Started_with_ICS",
+      "status": "approved_reference",
+      "category": "introductory_education",
+      "limitation": "Ja constava no catalogo Caldeira; conteudo dos PDFs nao auditado integralmente."
+    },
+    {
+      "repository": "utilsec/ICS_OT_Intro_Course_Resources",
+      "url": "https://github.com/utilsec/ICS_OT_Intro_Course_Resources",
+      "status": "approved_reference",
+      "category": "ot_training_references",
+      "limitation": "Quatro PDFs duplicados em QuickStart-Guides; DOCX nao auditados integralmente."
+    },
+    {
+      "repository": "utilsec/Infographics",
+      "url": "https://github.com/utilsec/Infographics",
+      "status": "approved_reference",
+      "category": "visual_learning_resources",
+      "limitation": "Somente referencia; nao reutilizar imagens sem licenca e validar dados originais."
+    },
+    {
+      "repository": "utilsec/QuickStart-Guides",
+      "url": "https://github.com/utilsec/QuickStart-Guides",
+      "status": "limited_reference",
+      "category": "duplicate_educational_resources",
+      "limitation": "Quatro PDFs com hashes de blob identicos aos de ICS_OT_Intro_Course_Resources."
+    },
+    {
+      "repository": "utilsec/CompTIA-SecOT-Exam-Sim",
+      "url": "https://github.com/utilsec/CompTIA-SecOT-Exam-Sim",
+      "status": "limited_reference",
+      "category": "independent_exam_study_aid",
+      "limitation": "HTML declara nao afiliacao nem endosso da CompTIA; nao tratar como certificacao oficial; DOCX nao auditado."
+    },
+    {
+      "repository": "utilsec/atomics",
+      "url": null,
+      "status": "pending",
+      "category": "active_ics_assessment_tool",
+      "limitation": "Capacidades ativas podem alterar estado OT; nao recomendar como ferramenta operacional; no maximo referencia conceitual passiva apos revisao."
+    },
+    {
+      "repository": "utilsec/ChatGPT_for_ICS_OT",
+      "url": "https://github.com/utilsec/ChatGPT_for_ICS_OT",
+      "status": "pending",
+      "category": "unreviewed_docx_training_manual",
+      "limitation": "README minimo; conteudo completo de DOCX nao auditado."
+    },
+    {
+      "repository": "utilsec/OT-ICS-Packet-Captures",
+      "url": "https://github.com/utilsec/OT-ICS-Packet-Captures",
+      "status": "pending",
+      "category": "unverified_pcap",
+      "limitation": "Uma captura pequena sem README, origem, rotulos ou termos de uso; nao considerar dataset aprovado."
+    }
+  ]
+}

@@ -15,6 +15,14 @@
 | [Getting Started with ICS](https://github.com/utilsec/Getting_Started_with_ICS) | utilsec | Material introdutório para TI e OT | Conteúdo de terceiros; não reempacotar PDFs |
 | [NIST OT Security](https://csrc.nist.gov/Projects/operational-technology-security/publications) | NIST | Guias, backups, acesso remoto e atualizações normativas | Distinguir rascunhos de edições finais |
 
+## Curadoria utilsec · outubro de 2026
+
+Foram avaliados **dez repositórios selecionados pelo mantenedor**: cinco referências de pesquisa aprovadas, duas com ressalvas e três pendentes de validação de proveniência/conteúdo. A curadoria compara documentação, redundância e licenças, **sem incluir código, PCAP ou materiais protegidos**.
+
+**[Ler a análise individual, a tabela de duplicações e as decisões editoriais →](utilsec-curadoria.md)** · [Manifesto JSON](../../catalogo/fontes-utilsec.json).
+
+A entrada **Getting Started with ICS** já existia acima e **não foi duplicada**. Os guias rápidos têm arquivos idênticos aos presentes no repositório de material do curso; veja hashes no relatório.
+
 ## Como aproveitamos essas referências
 
 - **Referenciar** projeto, versão e mantenedor, não copiar seu README integral.

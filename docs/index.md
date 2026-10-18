@@ -11,6 +11,7 @@
 | **GLOBAL LANDSCAPE** | Quais regiões, setores e regulações são comparáveis? | [Panorama](panorama-global.md) |
 | **RESEARCH** | O que podemos concluir do estudo estatístico? | [Fortinet 2026](../relatorios/fortinet/2026-state-of-ot-cybersecurity.md) |
 | **ECOSYSTEM** | Onde diferem soluções, normas e pesquisadores? | [Fornecedores (8)](ecossistema/fornecedores.md) · [Avaliação neutra](ecossistema/avaliacao-fornecedores.md) · [Especialistas](ecossistema/especialistas.md) |
+| **UTILSEC CURATION** | Quais referências externas merecem entrar, quais são duplicadas e quais carecem de licença/proveniência? | [Curadoria de dez repositórios](ecossistema/utilsec-curadoria.md) |
 | **STANDARDS** | Como relacionar norma, Purdue, taxonomia, guia e formação? | [Guia de referenciais](referenciais-ot.md) · [Instituições](ecossistema/instituicoes.md) |
 | **CISA / RESILIENCE** | Que recomendações prioritárias são aplicáveis à OT conectada? | [Mitigações CISA 2025](guias/cisa-mitigacoes-ot.md) |
 
