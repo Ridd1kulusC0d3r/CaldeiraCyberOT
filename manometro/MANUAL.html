@@ -151,6 +151,7 @@ footer{max-width:1100px;margin:0 auto;padding:20px 20px 40px;color:var(--ink-3);
   <li><label class="agora"><input type="checkbox"> <span>Na matriz, clique em <b>Comportamento</b>. Veja as táticas caírem de 9 para 7 e as técnicas de 13 para 8.</span></label></li>
   <li><label class="agora"><input type="checkbox"> <span>Role até <b>Qualidade do mapeamento</b> e encontre o <code>T0855</code> que virou <code>T1692.001</code>.</span></label></li>
   <li><label class="agora"><input type="checkbox"> <span>Em <b>Configuration Download</b>, ache a linha vermelha <code>PC-17 → PLC-04</code>: uma estação de TI fora do baseline.</span></label></li>
+  <li><label class="agora"><input type="checkbox"> <span>No grafo de <b>Atores, campanhas e software</b>, passe o mouse em <i>Remote System Discovery</i> e veja quem já usou essa técnica. Lembre: hipótese, não atribuição.</span></label></li>
   <li><label class="agora"><input type="checkbox"> <span>Confira a integridade: <kbd>python3 -m manometro verificar saida/manometro-demo.json</kbd>. Deve dizer <b>ÍNTEGRO</b>.</span></label></li>
 </ol>
 
@@ -191,13 +192,24 @@ footer{max-width:1100px;margin:0 auto;padding:20px 20px 40px;color:var(--ink-3);
 </ul>
 
 <h3>Configuration Download, saúde e recomendações</h3>
-<div class="shot"><img src="manual/img/04-config-saude-rec.png" alt="Gráfico mensal de Configuration Download, tabela de pares com dois fora do baseline, tabela de erros de coleta e recomendações priorizadas" width="1280" height="1644">
-  <span class="mk" style="left:2.8%;top:4.1%">1</span><span class="mk" style="left:52.8%;top:5.8%">2</span><span class="mk" style="left:2.8%;top:58.4%">3</span><span class="mk" style="left:2.8%;top:73.1%">4</span></div>
+<div class="shot"><img src="manual/img/04-config-saude-rec.png" alt="Gráfico mensal de Configuration Download, tabela de pares com dois fora do baseline, tabela de erros de coleta e recomendações priorizadas" width="1280" height="1708">
+  <span class="mk" style="left:2.8%;top:3.9%">1</span><span class="mk" style="left:52.8%;top:5.6%">2</span><span class="mk" style="left:2.8%;top:56.2%">3</span><span class="mk" style="left:2.8%;top:70.4%">4</span></div>
 <ul class="leg">
   <li><b class="c">1</b>Eventos de Configuration Download por mês.</li>
   <li><b class="c">2</b>Pares origem → destino; os fora do baseline vêm primeiro, em vermelho.</li>
   <li><b class="c">3</b>Erros de coleta normalizados (números e IDs viram &lt;n&gt;/&lt;id&gt;).</li>
   <li><b class="c">4</b>Recomendações ordenadas por prioridade, geradas a partir dos números.</li>
+</ul>
+
+<h3>Atores, campanhas e software</h3>
+<div class="shot"><img src="manual/img/06-grafo.png" alt="Grafo em cinco colunas — grupos, campanhas, software, técnicas e alertas — com a técnica Remote System Discovery destacada e suas ligações, seguido do ranking de sobreposição" width="1280" height="704">
+  <span class="mk" style="left:2.8%;top:11.0%">1</span><span class="mk" style="left:2.8%;top:19.8%">2</span><span class="mk" style="left:59.4%;top:45.5%">3</span><span class="mk" style="left:3.1%;top:49.7%">4</span><span class="mk" style="left:2.8%;top:75.8%">5</span></div>
+<ul class="leg">
+  <li><b class="c">1</b>Aviso fixo: sobreposição de técnicas não é atribuição. Mostra quais técnicas formam a base.</li>
+  <li><b class="c">2</b>Legenda por forma: quadrado = grupo, losango = campanha, círculo = software, barra = técnica, triângulo = alerta.</li>
+  <li><b class="c">3</b>Passe o mouse (ou use <kbd>Tab</kbd>) num nó: as ligações acendem e o resto apaga.</li>
+  <li><b class="c">4</b>Linha tracejada: técnica que o grupo herda de uma campanha atribuída a ele pela MITRE. <code>▣n</code> = casos do atlas Caldeira.</li>
+  <li><b class="c">5</b>Ranking: técnicas em comum, especificidade, alertas ligados e link para o caso do atlas.</li>
 </ul>
 
 <h3>Tema escuro e inglês</h3>
@@ -211,6 +223,7 @@ footer{max-width:1100px;margin:0 auto;padding:20px 20px 40px;color:var(--ink-3);
 <tr><td><code>--de</code> / <code>--ate</code></td><td>Período em meses (AAAA-MM), inclusivo. Sem elas: do primeiro ao último mês com dados (no demo, 2025-11 → 2026-10).</td></tr>
 <tr><td><code>--json</code></td><td>Grava o envelope selado (payload + digest SHA-256).</td></tr>
 <tr><td><code>--html</code></td><td>Gera o relatório estático a partir do mesmo payload.</td></tr>
+<tr><td><code>--graphml</code></td><td>Exporta o grafo atores → campanhas → software → técnicas → alertas em GraphML, para abrir no Gephi, yEd, Maltego ou importar no Neo4j.</td></tr>
 <tr><td><code>verificar ARQ.json</code></td><td>Recalcula o digest. <b>ÍNTEGRO</b> ou <b>ALTERADO</b>. Integridade não é autoria.</td></tr>
 </tbody></table>
 <p>Para recriar o caso demo: <code>python3 -m manometro.gerar_demo</code>. Para atualizar o catálogo quando sair outra versão do ATT&amp;CK: baixe o <code>ics-attack-XX.json</code> oficial e rode <code>python3 -m manometro.matriz caminho/ics-attack-XX.json</code>.</p>
@@ -224,6 +237,7 @@ footer{max-width:1100px;margin:0 auto;padding:20px 20px 40px;color:var(--ink-3);
 <tr><td>Só comportamento</td><td>Exclui alertas cuja categoria está em <code>categorias_exposicao</code> (padrão: <code>Risk</code>).</td><td>Firmware antigo ou certificado vencido parecerem adversário na matriz.</td></tr>
 <tr><td>Ativos obsoletos</td><td>União de EoL (<code>end_of.life.state</code>) e firmware desatualizado (tipo de alerta).</td><td>Somar as duas listas e contar duas vezes quem está nas duas.</td></tr>
 <tr><td>Configuration Download</td><td>Eventos do tipo na política, agrupados origem → destino e comparados com <code>baseline_config</code>.</td><td>Validar baseline “de olho”; confundir download com upload.</td></tr>
+<tr><td>Sobreposição com atores e campanhas</td><td>Técnicas dos alertas de <b>comportamento</b> (no nível da técnica-mãe) comparadas com as relações <code>uses</code> de cada grupo, campanha e software do ATT&amp;CK for ICS v20.0; grupos herdam as técnicas das campanhas atribuídas a eles. Ordena por técnicas em comum e especificidade.</td><td>Ler sobreposição como atribuição; deixar ferramentas amplas (INCONTROLLER) parecerem “o culpado”.</td></tr>
 <tr><td>Saúde da coleta</td><td>Documentos com <code>error.message</code> no período, por tipo normalizado.</td><td>Painel bonito sobre integração quebrada.</td></tr>
 </tbody></table>
 
@@ -269,6 +283,10 @@ footer{max-width:1100px;margin:0 auto;padding:20px 20px 40px;color:var(--ink-3);
 <dt>Purdue</dt><dd>Modelo didático de níveis (0 a 5) de uma arquitetura industrial.</dd>
 <dt>EoL</dt><dd>End of Life: fora do suporte do fabricante.</dd>
 <dt>Baseline</dt><dd>Lista declarada do que é esperado (aqui: quem pode fazer Configuration Download para quem).</dd>
+<dt>Grupo / campanha / software</dt><dd>Entidades do ATT&amp;CK: quem (G), qual operação documentada (C) e qual ferramenta (S).</dd>
+<dt>Sobreposição</dt><dd>Técnicas em comum entre seus alertas e o repertório documentado de uma entidade. Hipótese, não atribuição.</dd>
+<dt>Especificidade</dt><dd>Quanto do repertório da entidade aparece nos seus alertas. Alta especificidade com poucas técnicas pesa mais que muitas técnicas genéricas.</dd>
+<dt>GraphML</dt><dd>Formato aberto de grafo em XML, lido por Gephi, yEd, Maltego e Neo4j.</dd>
 <dt>SHA-256 / digest</dt><dd>Impressão digital do payload. Detecta alteração; não prova quem gerou.</dd>
 </dl>
 
@@ -276,12 +294,12 @@ footer{max-width:1100px;margin:0 auto;padding:20px 20px 40px;color:var(--ink-3);
 <div class="grid2">
 <div class="box"><h3>Garantias</h3><ul>
 <li>Biblioteca padrão do Python apenas; nenhum <code>socket</code>, <code>urllib</code> ou subprocesso.</li>
-<li>Catálogo ATT&amp;CK derivado do STIX oficial <code>ics-attack-20.0.json</code> (SHA-256 <code>c9ca0ce5…1e1183</code>), com contagens conferidas em teste.</li>
+<li>Catálogo e grafo ATT&amp;CK derivados do STIX oficial <code>ics-attack-20.0.json</code> (SHA-256 <code>c9ca0ce5…1e1183</code>): 12 táticas, 78 técnicas, 26 subtécnicas, 14 grupos, 10 campanhas, 25 softwares; contagens conferidas em teste.</li>
 <li>Resultado determinístico: mesma exportação + mesmo período = mesmo digest.</li>
 <li>Entrada nunca é alterada (teste dedicado).</li>
 </ul></div>
 <div class="box"><h3>Resultado dos testes</h3>
-<p>25 testes (9 do núcleo + 16 do Manômetro), executados em workspace Linux na nuvem em 23/10/2026, Python 3.13 e 3.11: <b>todos passaram</b>. Detalhes em <a href="RELATORIO-TESTES.md">RELATORIO-TESTES.md</a>. O GitHub Actions repete a bateria a cada push.</p>
+<p>32 testes (9 do núcleo + 23 do Manômetro), executados em workspace Linux na nuvem em 23/10/2026, Python 3.13 e 3.11: <b>todos passaram</b>. Detalhes em <a href="RELATORIO-TESTES.md">RELATORIO-TESTES.md</a>. O GitHub Actions repete a bateria a cada push.</p>
 <pre>python3 -m unittest discover -s tests -v</pre></div>
 </div>
 <p>Limites conhecidos: valores de <code>category</code>/<code>status</code> do fornecedor variam por ambiente e ficam na política; o sentido de “download/upload” deve ser confirmado com o fornecedor; dois campos de nome de dispositivo em eventos são supostos.</p>

@@ -45,6 +45,7 @@ ROTULOS_EN = {
     "m_map": "Mapped alerts",
     "m_nota": "Vendor mapping, not proof of execution. A technique that belongs to N tactics counts in all N.",
     "s_qualidade": "Mapping quality",
+    "s_grafo": "Actors, campaigns and software — overlap with alerts",
     "s_ativos": "Asset exposure",
     "s_config": "Configuration Download × baseline",
     "s_saude": "Collection health",
@@ -92,12 +93,94 @@ def _tecnica(t, alertas):
     )
 
 
+COLUNAS = (("grupo", "Grupos"), ("campanha", "Campanhas"), ("software", "Software"),
+           ("tecnica", "Técnicas dos alertas"), ("alerta", "Alertas"))
+REPO = "https://github.com/Ridd1kulusC0d3r/CaldeiraCyberOT/blob/main/"
+
+
+def _marca(tipo, x, y):
+    """Forma por tipo (nunca só cor): quadrado, losango, círculo, barra, triângulo."""
+    if tipo == "grupo":
+        return f'<rect class="mk" x="{x - 6}" y="{y - 6}" width="12" height="12"/>'
+    if tipo == "campanha":
+        return f'<path class="mk" d="M{x} {y - 7}L{x + 7} {y}L{x} {y + 7}L{x - 7} {y}Z"/>'
+    if tipo == "software":
+        return f'<circle class="mk" cx="{x}" cy="{y}" r="6"/>'
+    if tipo == "tecnica":
+        return f'<rect class="mk" x="{x - 8}" y="{y - 3}" width="16" height="6"/>'
+    return f'<path class="mk" d="M{x - 6} {y + 5}L{x} {y - 6}L{x + 6} {y + 5}Z"/>'
+
+
+def grafo_svg(gr):
+    if not gr or not gr.get("nos"):
+        return '<p class="nota">Sem técnicas de alerta para cruzar no período.</p>'
+    largura, passo, topo = 1440, 34, 44
+    xs = {"grupo": 24, "campanha": 300, "software": 590, "tecnica": 870, "alerta": 1150}
+    pos, por_col = {}, {}
+    for n in gr["nos"]:
+        por_col.setdefault(n["tipo"], []).append(n)
+    altura = topo + passo * max(len(v) for v in por_col.values()) + 20
+    for tipo, lista in por_col.items():
+        off = topo + (altura - topo - 20 - passo * len(lista)) // 2
+        for i, n in enumerate(lista):
+            pos[n["id"]] = (xs[tipo], off + i * passo + passo // 2)
+    arestas = []
+    for a, rel, b in gr["arestas"]:
+        if a not in pos or b not in pos:
+            continue
+        (x1, y1), (x2, y2) = pos[a], pos[b]
+        if x1 > x2:
+            (x1, y1), (x2, y2), a, b = (x2, y2), (x1, y1), b, a
+        mx = (x1 + x2) / 2
+        tracejada = " via" if rel == "uses-via-campaign" else ""
+        arestas.append(f'<path class="edge{tracejada}" data-a="{E(a)}" data-b="{E(b)}" d="M{x1 + 8} {y1}C{mx} {y1} {mx} {y2} {x2 - 8} {y2}"/>')
+    cab = "".join(f'<text class="gcol" x="{xs[t] - 8}" y="22">{E(r.upper())}</text>' for t, r in COLUNAS)
+    nos = []
+    for n in gr["nos"]:
+        x, y = pos[n["id"]]
+        rotulo = n["nome"] if n["tipo"] != "alerta" else f'#{n["id"].split("-")[-1]} {n["nome"]}'
+        limite = 34 if n["tipo"] == "alerta" else 24
+        rotulo = rotulo if len(rotulo) <= limite else rotulo[:limite - 1] + "…"
+        sufixo = f' {n["id"]}' if n["tipo"] != "alerta" else ""
+        casos = f' ▣{len(n["casos"])}' if n.get("casos") else ""
+        nos.append(
+            f'<g class="node t-{n["tipo"]}" tabindex="0" data-id="{E(n["id"])}" role="button" '
+            f'aria-label="{E(n["tipo"])} {E(n["nome"])}{E(" · atlas " + ", ".join(n["casos"])) if n.get("casos") else ""}"><title>{E(n["nome"])}{E(" · atlas Caldeira: " + ", ".join(n["casos"])) if n.get("casos") else ""}</title>{_marca(n["tipo"], x, y)}'
+            f'<text x="{x + 14}" y="{y + 4}">{E(rotulo)}<tspan class="gid">{E(sufixo)}{E(casos)}</tspan></text></g>'
+        )
+    return (f'<div class="gwrap"><svg id="grafo" viewBox="0 0 {largura} {altura}" role="img" '
+            f'aria-label="Grafo de grupos, campanhas e software que usam as técnicas dos alertas">'
+            f'{cab}<g>{"".join(arestas)}</g>{"".join(nos)}</svg></div>')
+
+
+def grafo_tabela(gr):
+    linhas = []
+    tipos = {"grupo": "grupo", "campanha": "campanha", "software": "software"}
+    for e in gr.get("entidades", [])[:15]:
+        casos = " ".join(f'<a href="{REPO}docs/casos-ot/README.md">{E(c["id"])}</a>' for c in e["casos_caldeira"]) or "—"
+        via = f' <small>({len(e["tecnicas_via_campanha"])} via campanha)</small>' if e["tecnicas_via_campanha"] else ""
+        periodo = " → ".join(x for x in (e.get("inicio"), e.get("fim")) if x) or ""
+        extra = ""
+        if e["atribuida_a"]:
+            extra = f'<br><small>atribuída a {E(", ".join(e["atribuida_a"]))} (MITRE)</small>'
+        linhas.append(
+            f'<tr><td><a href="{E(e["url"])}">{E(e["nome"])}</a> <span class="id">{E(e["id"])}</span>{extra}'
+            + (f'<br><small>{E(", ".join(e["apelidos"]))}</small>' if e["apelidos"] else "")
+            + f'</td><td>{tipos[e["tipo"]]}</td><td class="num">{len(e["tecnicas_comuns"])}/{len(gr["tecnicas_base"])}{via}'
+            f'<br><small>{E(", ".join(e["tecnicas_comuns"]))}</small></td>'
+            f'<td class="num">{round(100 * e["especificidade"])}%</td><td class="num">{len(e["alertas"])}</td>'
+            f'<td>{E(periodo)}</td><td>{casos}</td></tr>'
+        )
+    return "".join(linhas) or '<tr><td colspan="7">Nenhuma entidade com técnica em comum.</td></tr>'
+
+
 def renderizar(env):
     p = env["payload"]
     k = p["kpis"]
     per, co, al, di, ma, at, cf, sa = (k[x] for x in ("periodo", "coleta", "alertas", "dispositivos", "matriz",
                                                       "ativos", "config", "saude"))
     tot = ma["totais"]
+    gr = k.get("grafo", {})
     alertas = {a["id"]: a for a in al["lista"]}
 
     ordem = {"OT": 0, "IT": 1, "IoT": 2, "Médico": 3}
@@ -236,6 +319,13 @@ ol.rec{{margin:0;padding:0;list-style:none;counter-reset:r}}ol.rec li{{counter-i
 ol.rec li:before{{content:counter(r,decimal-leading-zero);font:600 12px var(--mono);color:var(--ink-3)}}
 ol.rec span{{align-self:start;justify-self:start;font:600 10px var(--mono);letter-spacing:.08em;padding:1px 5px;border:1px solid var(--rule);color:var(--ink-3)}}
 ol.rec .p-alta span{{background:var(--signal);border-color:var(--signal);color:var(--signal-ink)}}ol.rec .p-media span{{border-color:var(--ink);color:var(--ink)}}
+.gwrap{{overflow:auto;border:1px solid var(--rule);background:var(--paper-2);margin:8px 0 14px}}#grafo{{display:block;min-width:1100px;width:100%;height:auto}}
+.gcol{{font:600 10px var(--mono);letter-spacing:.12em;fill:var(--ink-3)}}
+.edge{{fill:none;stroke:var(--ink-3);stroke-width:1;opacity:.22}}.edge.via{{stroke-dasharray:4 4}}.edge.on{{stroke:var(--signal);opacity:1;stroke-width:1.8}}
+.node{{cursor:pointer;outline:none}}.node text{{font:11.5px var(--sans);fill:var(--ink);paint-order:stroke;stroke:var(--paper-2);stroke-width:4px;stroke-linejoin:round}}.node .gid{{font:10px var(--mono);fill:var(--ink-3)}}
+.node .mk{{fill:var(--ink);stroke:var(--ink)}}.node.t-alerta .mk,.node.t-tecnica .mk{{fill:var(--paper-2)}}
+.node.dim{{opacity:.2}}.node.on .mk{{fill:var(--signal);stroke:var(--signal)}}.node.on text{{fill:var(--signal)}}.node:focus-visible text{{text-decoration:underline}}
+.leg svg{{color:var(--ink);vertical-align:-2px;margin-right:4px}}.gtab .id{{font:11px var(--mono);color:var(--ink-3)}}.gtab td.num{{font-family:var(--mono)}}
 footer{{margin:34px 0 10px;color:var(--ink-3);font:12px var(--mono);border-top:1px solid var(--ink);padding-top:12px}}footer code{{font-family:var(--mono);word-break:break-all}}
 @media (max-width:1100px){{.cards{{grid-template-columns:repeat(3,minmax(0,1fr))}}.card:nth-child(4){{border-left:0;padding-left:0}}.card{{border-top:1px solid var(--rule)}}}}
 @media (max-width:640px){{.wrap{{padding:0 16px 16px}}.cards{{grid-template-columns:repeat(2,minmax(0,1fr))}}.card:nth-child(odd){{border-left:0;padding-left:0}}.card:nth-child(4){{border-left:1px solid var(--rule);padding-left:16px}}.ctl input[type=search]{{min-width:0;width:100%}}.two{{grid-template-columns:1fr}}}}
@@ -301,6 +391,15 @@ footer{{margin:34px 0 10px;color:var(--ink-3);font:12px var(--mono);border-top:1
 <h2 data-i18n="s_qualidade">Qualidade do mapeamento</h2>
 <div class="box"><table><thead><tr><th>Alerta</th><th>ID recebido</th><th>ID usado</th><th>Motivo</th></tr></thead><tbody>{linhas_q}</tbody></table>
 <p class="nota">Catálogo derivado do STIX oficial da MITRE (SHA-256 <code>{E(ma["fonte_sha256"][:16])}…</code>). IDs revogados são remapeados para o substituto oficial; IDs de outro domínio não contam cobertura.</p></div>
+
+<h2 data-i18n="s_grafo">Atores, campanhas e software — sobreposição com os alertas</h2>
+<div class="box" id="atores">
+  <p class="banner" style="cursor:default">{E(gr.get("aviso", ""))} Base: técnicas dos alertas de <b>{E(gr.get("natureza", ""))}</b> ({len(gr.get("tecnicas_base", []))}: {E(", ".join(gr.get("tecnicas_base", [])))}).</p>
+  <div class="leg"><span><svg width="12" height="12"><rect x="0" y="0" width="12" height="12" fill="currentColor"/></svg> grupo</span><span><svg width="14" height="14"><path d="M7 0L14 7L7 14L0 7Z" fill="currentColor"/></svg> campanha</span><span><svg width="12" height="12"><circle cx="6" cy="6" r="6" fill="currentColor"/></svg> software</span><span><svg width="16" height="6"><rect width="16" height="6" fill="currentColor"/></svg> técnica</span><span><svg width="12" height="12"><path d="M0 12L6 0L12 12Z" fill="currentColor"/></svg> alerta</span><span>▣n · casos do atlas Caldeira</span><span>- - - técnica via campanha atribuída</span><span>Passe o mouse ou foque um nó para ver as ligações.</span></div>
+  {grafo_svg(gr)}
+  <table class="gtab"><thead><tr><th>Entidade (MITRE)</th><th>Tipo</th><th>Técnicas em comum</th><th title="parte do repertório da entidade que aparece nos alertas">Especificidade</th><th>Alertas</th><th>Período</th><th>Atlas Caldeira</th></tr></thead><tbody>{grafo_tabela(gr)}</tbody></table>
+  <p class="nota">Ordenado por técnicas em comum e, no empate, por especificidade (quanto do repertório da entidade aparece aqui). Ferramentas amplas como INCONTROLLER cobrem muitas técnicas e por isso pontuam alto: leia como “o que procurar”, não como “quem foi”. Fonte: relações <code>uses</code> e <code>attributed-to</code> do STIX oficial v{E(gr.get("attack_version", ""))}.</p>
+</div>
 
 <h2 data-i18n="s_ativos">Exposição de ativos</h2>
 <div class="two">
@@ -374,6 +473,12 @@ footer{{margin:34px 0 10px;color:var(--ink-3);font:12px var(--mono);border-top:1
     document.getElementById('mt-map').textContent=Object.keys(al).length;
     den.textContent=den.dataset[modo==='todos'?'todos':modo];
   }}
+  var gnodes=[].slice.call(document.querySelectorAll('#grafo .node')),gedges=[].slice.call(document.querySelectorAll('#grafo .edge'));
+  function marcar(id){{var viz={{}};viz[id]=1;gedges.forEach(function(e){{var on=e.dataset.a===id||e.dataset.b===id;e.classList.toggle('on',on);if(on){{viz[e.dataset.a]=1;viz[e.dataset.b]=1;}}}});
+    gnodes.forEach(function(n){{n.classList.toggle('on',n.dataset.id===id);n.classList.toggle('dim',!viz[n.dataset.id]);}});}}
+  function limpar(){{gedges.forEach(function(e){{e.classList.remove('on')}});gnodes.forEach(function(n){{n.classList.remove('on','dim')}});}}
+  gnodes.forEach(function(n){{n.addEventListener('mouseenter',function(){{marcar(n.dataset.id)}});n.addEventListener('focus',function(){{marcar(n.dataset.id)}});
+    n.addEventListener('mouseleave',limpar);n.addEventListener('blur',limpar);n.addEventListener('keydown',function(ev){{if(ev.key==='Escape'){{n.blur();}}}});}});
   seg('[data-f]','f',function(v){{modo=v;aplicar();}});
   ['busca','expandir','mes'].forEach(function(id){{document.getElementById(id).addEventListener('input',aplicar);}});
   aplicar();

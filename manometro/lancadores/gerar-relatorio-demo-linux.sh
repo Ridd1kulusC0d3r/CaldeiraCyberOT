@@ -7,5 +7,5 @@ if [ -z "$PY" ]; then
   printf "Pressione Enter para fechar..."; read _; exit 1
 fi
 "$PY" -m manometro analisar manometro/fixtures/demo-xdome.json --de 2026-01 --ate 2026-10 \
-  --json saida/manometro-demo.json --html saida/manometro-demo.html || { printf "Falhou. Enter para fechar..."; read _; exit 1; }
+  --json saida/manometro-demo.json --html saida/manometro-demo.html --graphml saida/manometro-demo.graphml || { printf "Falhou. Enter para fechar..."; read _; exit 1; }
 xdg-open saida/manometro-demo.html >/dev/null 2>&1 || echo "Abra no navegador: $(pwd)/saida/manometro-demo.html"

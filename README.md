@@ -99,7 +99,7 @@ python -m core.runner cases/fixtures/boundary-policy.json
 
 ### Novo braço · MANÔMETRO (KPIs de OT)
 
-Transforma documentos da integração **Claroty xDome → Elastic** em KPIs defensáveis: deduplica re-coletas por `claroty_xdome.alert.id`, normaliza IDs para o **ATT&CK for ICS v20.0** (derivado do STIX oficial), separa **comportamento** de **exposição**, mede ativos obsoletos, valida **Configuration Download** contra baseline e mostra a **saúde da coleta**. Offline, stdlib, dados sintéticos.
+Transforma documentos da integração **Claroty xDome → Elastic** em KPIs defensáveis: deduplica re-coletas por `claroty_xdome.alert.id`, normaliza IDs para o **ATT&CK for ICS v20.0** (derivado do STIX oficial), separa **comportamento** de **exposição**, mede ativos obsoletos, valida **Configuration Download** contra baseline e mostra a **saúde da coleta**. Cruza as técnicas observadas com **grupos, campanhas e software** do ATT&CK em um grafo interativo e exportável em GraphML, ligado ao atlas de incidentes (hipótese de caça, não atribuição). Offline, stdlib, dados sintéticos.
 
 ```bash
 python -m manometro analisar manometro/fixtures/demo-xdome.json --de 2026-01 --ate 2026-10 --html saida/manometro-demo.html

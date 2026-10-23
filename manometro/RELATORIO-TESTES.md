@@ -8,11 +8,11 @@
 | Ambiente | Workspace Linux em nuvem (kernel 6.18), sem acesso de rede pelo código testado |
 | Interpretadores | Python 3.13.17 e Python 3.11.17 |
 | Comando | `python -m unittest discover -s tests -v` |
-| Resultado | **25 testes, 0 falhas, 0 erros** nas duas versões (9 do núcleo + 16 do Manômetro) |
-| Determinismo | Duas execuções do demo (2026-01 → 2026-10) geraram o mesmo digest `771bc041173c2d25…48fa` |
+| Resultado | **32 testes, 0 falhas, 0 erros** nas duas versões (9 do núcleo + 23 do Manômetro) |
+| Determinismo | Duas execuções do demo (2026-01 → 2026-10) geraram o mesmo digest `2e139b7ccfc90b2c…359f` |
 | Isolamento | Nenhum import de `socket`, `urllib`, `http` ou `subprocess` em `manometro/` |
 | Exportação demo | `fixtures/demo-xdome.json` · SHA-256 `c7ef9424afd152c3…6c75` · 1.033 documentos |
-| Catálogo | `ics-attack-20.0.json` oficial · SHA-256 `c9ca0ce523a1b5e5…1183` · 12 / 78 / 26 |
+| Catálogo e grafo | `ics-attack-20.0.json` oficial · SHA-256 `c9ca0ce523a1b5e5…1183` · 12 táticas / 78 técnicas / 26 subtécnicas · 14 grupos / 10 campanhas / 25 softwares / 334 arestas |
 
 ## O que cada grupo prova
 
@@ -22,6 +22,7 @@
 | `DedupTest` | 3 | Estado mais recente vence; fan-out só do snapshot vigente; leitura de campo achatado e aninhado |
 | `DemoTest` | 9 | Envelope íntegro e adulteração detectada; números do demo; matriz separa comportamento; baseline; saúde; seletor de período; período inválido; HTML sem recursos externos; entrada não mutada |
 | `TravaSinteticaTest` | 1 | Exportação sem `synthetic: true` é recusada |
+| `GrafoTest` | 7 | Contagens do grafo v20.0; atlas Caldeira ligado a campanhas; cruzamento só com comportamento e com aviso; grupo herda técnicas de campanhas; modo `todas`; GraphML válido; grafo interativo no relatório |
 
 O GitHub Actions (`.github/workflows/ot-labs-tests.yml`) repete a bateria em Python 3.12 a cada push ou PR que toque `core/`, `cases/`, `manometro/` ou `tests/`.
 
@@ -52,10 +53,17 @@ test_periodo_invalido (test_manometro.DemoTest.test_periodo_invalido) ... ok
 test_relatorio_html_autocontido (test_manometro.DemoTest.test_relatorio_html_autocontido) ... ok
 test_saude_da_coleta (test_manometro.DemoTest.test_saude_da_coleta) ... ok
 test_seletor_de_periodo (test_manometro.DemoTest.test_seletor_de_periodo) ... ok
+test_atlas_caldeira_ligado_a_campanhas (test_manometro.GrafoTest.test_atlas_caldeira_ligado_a_campanhas) ... ok
+test_cruzamento_usa_so_comportamento_e_avisa (test_manometro.GrafoTest.test_cruzamento_usa_so_comportamento_e_avisa) ... ok
+test_grafo_derivado_do_stix_v20 (test_manometro.GrafoTest.test_grafo_derivado_do_stix_v20) ... ok
+test_graphml_valido (test_manometro.GrafoTest.test_graphml_valido) ... ok
+test_grupo_herda_tecnicas_das_campanhas_atribuidas (test_manometro.GrafoTest.test_grupo_herda_tecnicas_das_campanhas_atribuidas) ... ok
+test_natureza_todas_amplia_base (test_manometro.GrafoTest.test_natureza_todas_amplia_base) ... ok
+test_relatorio_tem_grafo_interativo (test_manometro.GrafoTest.test_relatorio_tem_grafo_interativo) ... ok
 test_rejeita_exportacao_nao_sintetica (test_manometro.TravaSinteticaTest.test_rejeita_exportacao_nao_sintetica) ... ok
 
 ----------------------------------------------------------------------
-Ran 25 tests in 0.144s
+Ran 32 tests in 0.157s
 
 OK
 ```

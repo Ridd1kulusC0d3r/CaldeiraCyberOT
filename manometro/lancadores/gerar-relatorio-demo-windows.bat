@@ -10,7 +10,7 @@ if not defined PY (
   pause
   exit /b 1
 )
-%PY% -m manometro analisar manometro\fixtures\demo-xdome.json --de 2026-01 --ate 2026-10 --json saida\manometro-demo.json --html saida\manometro-demo.html
+%PY% -m manometro analisar manometro\fixtures\demo-xdome.json --de 2026-01 --ate 2026-10 --json saida\manometro-demo.json --html saida\manometro-demo.html --graphml saida\manometro-demo.graphml
 if errorlevel 1 (
   pause
   exit /b 1

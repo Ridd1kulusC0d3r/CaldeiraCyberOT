@@ -7,5 +7,5 @@ if [ -z "$PY" ]; then
   read -r -p "Pressione Enter para fechar..." _; exit 1
 fi
 "$PY" -m manometro analisar manometro/fixtures/demo-xdome.json --de 2026-01 --ate 2026-10 \
-  --json saida/manometro-demo.json --html saida/manometro-demo.html || { read -r -p "Falhou. Enter para fechar..." _; exit 1; }
+  --json saida/manometro-demo.json --html saida/manometro-demo.html --graphml saida/manometro-demo.graphml || { read -r -p "Falhou. Enter para fechar..." _; exit 1; }
 open saida/manometro-demo.html

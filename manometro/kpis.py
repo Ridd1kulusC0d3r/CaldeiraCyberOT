@@ -27,6 +27,8 @@ POLITICA_PADRAO = {
     "niveis_purdue_atencao": ["Level 2", "Level 3"],
     "tipos_evento_config": ["Configuration Download"],
     "baseline_config": [],
+    "grafo_natureza": "comportamento",
+    "grafo_limite": 6,
 }
 
 
@@ -73,7 +75,7 @@ def separar(docs):
     return alerta, evento, erro, outros
 
 
-def calcular(exportacao, catalogo, de=None, ate=None):
+def calcular(exportacao, catalogo, de=None, ate=None, grafo=None, casos=None):
     politica = {**POLITICA_PADRAO, **exportacao.get("policy", {})}
     docs = exportacao["docs"]
     docs_alerta, docs_evento, docs_erro, outros = separar(docs)
@@ -297,6 +299,13 @@ def calcular(exportacao, catalogo, de=None, ate=None):
         "saude": saude,
         "campos_supostos": campos_supostos(),
     }
+    if grafo is not None:
+        from .grafo import cruzar
+
+        resultado["grafo"] = cruzar(resultado["alertas"]["lista"], grafo, politica["grafo_natureza"],
+                                    int(politica["grafo_limite"]), casos)
+        resultado["grafo"]["attack_version"] = grafo["attack_version"]
+        resultado["grafo"]["fonte_sha256"] = grafo["source_sha256"]
     resultado["recomendacoes"] = recomendar(resultado)
     return resultado
 
@@ -341,6 +350,12 @@ def recomendar(r):
                             f"do baseline ({cfg['eventos_fora_baseline']} eventos): validar com Automação."))
     if r["campos_supostos"] and cfg["eventos"]:
         rec.append(("baixa", "Confirmar no índice os campos não documentados usados: " + ", ".join(r["campos_supostos"]) + "."))
+    gr = r.get("grafo")
+    if gr and gr["entidades"]:
+        topo = gr["entidades"][0]
+        rec.append(("media", f"Hipótese de caça (não atribuição): {topo['nome']} ({topo['id']}) usa "
+                             f"{len(topo['tecnicas_comuns'])} das {len(gr['tecnicas_base'])} técnicas dos alertas de "
+                             f"{gr['natureza']}. Revise os relatórios desse {topo['tipo']} e procure as técnicas que faltam."))
     peso = {"alta": 0, "media": 1, "baixa": 2}
     rec.sort(key=lambda x: peso[x[0]])
     return [{"prioridade": p, "texto": txt} for p, txt in rec]

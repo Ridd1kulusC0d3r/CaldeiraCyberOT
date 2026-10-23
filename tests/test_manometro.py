@@ -151,3 +151,59 @@ class TravaSinteticaTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class GrafoTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from manometro import grafo
+        cls.mod = grafo
+        cls.g = grafo.carregar()
+        cls.env = analisar(DEMO, "2026-01", "2026-10")
+        cls.gr = cls.env["payload"]["kpis"]["grafo"]
+
+    def test_grafo_derivado_do_stix_v20(self):
+        self.assertEqual(self.g["attack_version"], "20.0")
+        self.assertEqual(self.g["contagens"], {"grupo": 14, "campanha": 10, "software": 25, "tecnica": 104})
+        self.assertIn(["C0028", "attributed-to", "G0034"], self.g["arestas"])
+        self.assertEqual(self.g["source_sha256"], carregar()["source_sha256"])
+
+    def test_atlas_caldeira_ligado_a_campanhas(self):
+        casos = self.mod.casos_por_ref()
+        self.assertEqual(casos["C0028"][0]["id"], "CAL-CASE-001")
+        self.assertEqual(casos["S1045"][0]["id"], "CAL-CASE-004")
+
+    def test_cruzamento_usa_so_comportamento_e_avisa(self):
+        self.assertEqual(self.gr["natureza"], "comportamento")
+        self.assertIn("não é atribuição", self.gr["aviso"])
+        self.assertNotIn("T0866", self.gr["tecnicas_base"], "SMBv1 (exposição) não entra na base")
+        topo = self.gr["entidades"][0]
+        self.assertEqual(topo["id"], "S1045")
+        self.assertEqual(len(topo["tecnicas_comuns"]), len(self.gr["tecnicas_base"]))
+
+    def test_grupo_herda_tecnicas_das_campanhas_atribuidas(self):
+        sandworm = next(e for e in self.gr["entidades"] if e["id"] == "G0034")
+        self.assertTrue(sandworm["tecnicas_via_campanha"])
+        self.assertIn("C0028", sandworm["campanhas"])
+        self.assertTrue(any(rel == "uses-via-campaign" for a, rel, b in self.gr["arestas"] if a == "G0034"))
+
+    def test_natureza_todas_amplia_base(self):
+        alertas = self.env["payload"]["kpis"]["alertas"]["lista"]
+        todas = self.mod.cruzar(alertas, self.g, natureza="todas")
+        self.assertIn("T0866", todas["tecnicas_base"])
+        self.assertGreater(len(todas["tecnicas_base"]), len(self.gr["tecnicas_base"]))
+
+    def test_graphml_valido(self):
+        import xml.etree.ElementTree as ET
+        raiz = ET.fromstring(self.mod.graphml(self.gr).split("\n", 1)[1])
+        ns = {"g": "http://graphml.graphdrawing.org/xmlns"}
+        ids = {n.get("id") for n in raiz.iterfind(".//g:node", ns)}
+        self.assertIn("G0034", ids)
+        self.assertIn("xd-0043", ids)
+        self.assertEqual(len(raiz.findall(".//g:edge", ns)), len(self.gr["arestas"]))
+
+    def test_relatorio_tem_grafo_interativo(self):
+        pagina = renderizar(self.env)
+        self.assertIn('id="grafo"', pagina)
+        self.assertIn('data-id="S1045"', pagina)
+        self.assertIn("não é atribuição", pagina)

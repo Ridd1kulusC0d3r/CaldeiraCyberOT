@@ -1,0 +1,2638 @@
+{
+"schema": "caldeira.manometro.attack_ics_grafo.v1",
+"attack_version": "20.0",
+"source_sha256": "c9ca0ce523a1b5e512060a390415e8aefe8f6d32c5f82d7de81264960c1e1183",
+"license_note": "Derivado do MITRE ATT&CK(R) for ICS. (c) The MITRE Corporation. Termos de uso: https://attack.mitre.org/resources/legal-and-branding/terms-of-use/",
+"contagens": {
+"grupo": 14,
+"campanha": 10,
+"software": 25,
+"tecnica": 104
+},
+"nos": [
+{
+"id": "C0020",
+"tipo": "campanha",
+"nome": "Maroochy Water Breach",
+"inicio": "2000-02",
+"fim": "2000-04"
+},
+{
+"id": "C0025",
+"tipo": "campanha",
+"nome": "2016 Ukraine Electric Power Attack",
+"inicio": "2016-12",
+"fim": "2016-12"
+},
+{
+"id": "C0028",
+"tipo": "campanha",
+"nome": "2015 Ukraine Electric Power Attack",
+"inicio": "2015-12",
+"fim": "2016-01"
+},
+{
+"id": "C0030",
+"tipo": "campanha",
+"nome": "Triton Safety Instrumented System Attack",
+"inicio": "2017-06",
+"fim": "2017-08"
+},
+{
+"id": "C0031",
+"tipo": "campanha",
+"nome": "Unitronics Defacement Campaign",
+"inicio": "2023-11",
+"fim": "2023-11"
+},
+{
+"id": "C0034",
+"tipo": "campanha",
+"nome": "2022 Ukraine Electric Power Attack",
+"inicio": "2022-06",
+"fim": "2022-10"
+},
+{
+"id": "C0041",
+"tipo": "campanha",
+"nome": "FrostyGoop Incident",
+"inicio": "2024-01",
+"fim": "2024-01"
+},
+{
+"id": "C0063",
+"tipo": "campanha",
+"nome": "2025 Poland Wiper Attacks",
+"apelidos": [
+"2025 Poland Wiper Campaign"
+],
+"inicio": "2025-03",
+"fim": "2025-12"
+},
+{
+"id": "C0064",
+"tipo": "campanha",
+"nome": "AI-Assisted Breach of Mexico's Government Infrastructure",
+"inicio": "2025-12",
+"fim": "2026-02"
+},
+{
+"id": "C0066",
+"tipo": "campanha",
+"nome": "2026 U.S. Water Utilities Attacks",
+"apelidos": [
+"2026 Water Utilities Attacks"
+],
+"inicio": "2026-07",
+"fim": "2026-07"
+},
+{
+"id": "G0032",
+"tipo": "grupo",
+"nome": "Lazarus Group",
+"apelidos": [
+"Labyrinth Chollima",
+"HIDDEN COBRA",
+"Guardians of Peace",
+"ZINC",
+"NICKEL ACADEMY",
+"Diamond Sleet"
+]
+},
+{
+"id": "G0034",
+"tipo": "grupo",
+"nome": "Sandworm Team",
+"apelidos": [
+"ELECTRUM",
+"Telebots",
+"IRON VIKING",
+"BlackEnergy (Group)",
+"Quedagh",
+"Voodoo Bear",
+"IRIDIUM",
+"Seashell Blizzard",
+"FROZENBARENTS",
+"APT44"
+]
+},
+{
+"id": "G0035",
+"tipo": "grupo",
+"nome": "Dragonfly",
+"apelidos": [
+"TEMP.Isotope",
+"DYMALLOY",
+"Berserk Bear",
+"TG-4192",
+"Crouching Yeti",
+"IRON LIBERTY",
+"Energetic Bear",
+"Ghost Blizzard",
+"BROMINE"
+]
+},
+{
+"id": "G0037",
+"tipo": "grupo",
+"nome": "FIN6",
+"apelidos": [
+"Magecart Group 6",
+"ITG08",
+"Skeleton Spider",
+"TAAL",
+"Camouflage Tempest"
+]
+},
+{
+"id": "G0046",
+"tipo": "grupo",
+"nome": "FIN7",
+"apelidos": [
+"GOLD NIAGARA",
+"ITG14",
+"Carbon Spider",
+"ELBRUS",
+"Sangria Tempest"
+]
+},
+{
+"id": "G0049",
+"tipo": "grupo",
+"nome": "OilRig",
+"apelidos": [
+"COBALT GYPSY",
+"IRN2",
+"APT34",
+"Helix Kitten",
+"Evasive Serpens",
+"Hazel Sandstorm",
+"EUROPIUM",
+"ITG13",
+"Earth Simnavaz",
+"Crambus",
+"TA452"
+]
+},
+{
+"id": "G0064",
+"tipo": "grupo",
+"nome": "APT33",
+"apelidos": [
+"HOLMIUM",
+"Elfin",
+"Peach Sandstorm"
+]
+},
+{
+"id": "G0082",
+"tipo": "grupo",
+"nome": "APT38",
+"apelidos": [
+"NICKEL GLADSTONE",
+"BeagleBoyz",
+"Bluenoroff",
+"Stardust Chollima",
+"Sapphire Sleet",
+"COPERNICIUM"
+]
+},
+{
+"id": "G0088",
+"tipo": "grupo",
+"nome": "TEMP.Veles",
+"apelidos": [
+"XENOTIME"
+]
+},
+{
+"id": "G0102",
+"tipo": "grupo",
+"nome": "Wizard Spider",
+"apelidos": [
+"UNC1878",
+"TEMP.MixMaster",
+"Grim Spider",
+"FIN12",
+"GOLD BLACKBURN",
+"ITG23",
+"Periwinkle Tempest",
+"DEV-0193",
+"Pistachio Tempest",
+"DEV-0237"
+]
+},
+{
+"id": "G0115",
+"tipo": "grupo",
+"nome": "GOLD SOUTHFIELD",
+"apelidos": [
+"Pinchy Spider"
+]
+},
+{
+"id": "G1000",
+"tipo": "grupo",
+"nome": "ALLANITE",
+"apelidos": [
+"Palmetto Fusion"
+]
+},
+{
+"id": "G1001",
+"tipo": "grupo",
+"nome": "HEXANE",
+"apelidos": [
+"Lyceum",
+"Siamesekitten",
+"Spirlin"
+]
+},
+{
+"id": "G1027",
+"tipo": "grupo",
+"nome": "CyberAv3ngers",
+"apelidos": [
+"Soldiers of Soloman"
+]
+},
+{
+"id": "S0038",
+"tipo": "software",
+"nome": "Duqu"
+},
+{
+"id": "S0089",
+"tipo": "software",
+"nome": "BlackEnergy",
+"apelidos": [
+"Black Energy"
+]
+},
+{
+"id": "S0093",
+"tipo": "software",
+"nome": "Backdoor.Oldrea",
+"apelidos": [
+"Havex"
+]
+},
+{
+"id": "S0143",
+"tipo": "software",
+"nome": "Flame",
+"apelidos": [
+"Flamer",
+"sKyWIper"
+]
+},
+{
+"id": "S0366",
+"tipo": "software",
+"nome": "WannaCry",
+"apelidos": [
+"WanaCry",
+"WanaCrypt",
+"WanaCrypt0r",
+"WCry"
+]
+},
+{
+"id": "S0368",
+"tipo": "software",
+"nome": "NotPetya",
+"apelidos": [
+"ExPetr",
+"Diskcoder.C",
+"GoldenEye",
+"Petrwrap",
+"Nyetya"
+]
+},
+{
+"id": "S0372",
+"tipo": "software",
+"nome": "LockerGoga"
+},
+{
+"id": "S0446",
+"tipo": "software",
+"nome": "Ryuk"
+},
+{
+"id": "S0496",
+"tipo": "software",
+"nome": "REvil",
+"apelidos": [
+"Sodin",
+"Sodinokibi"
+]
+},
+{
+"id": "S0603",
+"tipo": "software",
+"nome": "Stuxnet",
+"apelidos": [
+"W32.Stuxnet"
+]
+},
+{
+"id": "S0604",
+"tipo": "software",
+"nome": "Industroyer",
+"apelidos": [
+"CRASHOVERRIDE",
+"Win32/Industroyer"
+]
+},
+{
+"id": "S0605",
+"tipo": "software",
+"nome": "EKANS",
+"apelidos": [
+"SNAKEHOSE"
+]
+},
+{
+"id": "S0606",
+"tipo": "software",
+"nome": "Bad Rabbit",
+"apelidos": [
+"Win32/Diskcoder.D"
+]
+},
+{
+"id": "S0607",
+"tipo": "software",
+"nome": "KillDisk",
+"apelidos": [
+"Win32/KillDisk.NBI",
+"Win32/KillDisk.NBH",
+"Win32/KillDisk.NBD",
+"Win32/KillDisk.NBC",
+"Win32/KillDisk.NBB"
+]
+},
+{
+"id": "S0608",
+"tipo": "software",
+"nome": "Conficker",
+"apelidos": [
+"Kido",
+"Downadup"
+]
+},
+{
+"id": "S1000",
+"tipo": "software",
+"nome": "ACAD/Medre.A"
+},
+{
+"id": "S1006",
+"tipo": "software",
+"nome": "PLC-Blaster"
+},
+{
+"id": "S1009",
+"tipo": "software",
+"nome": "Triton",
+"apelidos": [
+"TRISIS",
+"HatMan"
+]
+},
+{
+"id": "S1010",
+"tipo": "software",
+"nome": "VPNFilter"
+},
+{
+"id": "S1045",
+"tipo": "software",
+"nome": "INCONTROLLER",
+"apelidos": [
+"PIPEDREAM"
+]
+},
+{
+"id": "S1072",
+"tipo": "software",
+"nome": "Industroyer2"
+},
+{
+"id": "S1157",
+"tipo": "software",
+"nome": "Fuxnet"
+},
+{
+"id": "S1165",
+"tipo": "software",
+"nome": "FrostyGoop",
+"apelidos": [
+"BUSTLEBERM"
+]
+},
+{
+"id": "S9045",
+"tipo": "software",
+"nome": "BACKUPOSINT v9.0 APEX PREDATOR"
+},
+{
+"id": "S9046",
+"tipo": "software",
+"nome": "IOControl"
+},
+{
+"id": "T0800",
+"tipo": "tecnica",
+"nome": "Activate Firmware Update Mode"
+},
+{
+"id": "T0801",
+"tipo": "tecnica",
+"nome": "Monitor Process State"
+},
+{
+"id": "T0802",
+"tipo": "tecnica",
+"nome": "Automated Collection"
+},
+{
+"id": "T0806",
+"tipo": "tecnica",
+"nome": "Brute Force I/O"
+},
+{
+"id": "T0809",
+"tipo": "tecnica",
+"nome": "Data Destruction"
+},
+{
+"id": "T0811",
+"tipo": "tecnica",
+"nome": "Data from Information Repositories"
+},
+{
+"id": "T0813",
+"tipo": "tecnica",
+"nome": "Denial of Control"
+},
+{
+"id": "T0814",
+"tipo": "tecnica",
+"nome": "Denial of Service"
+},
+{
+"id": "T0815",
+"tipo": "tecnica",
+"nome": "Denial of View"
+},
+{
+"id": "T0816",
+"tipo": "tecnica",
+"nome": "Device Restart/Shutdown"
+},
+{
+"id": "T0817",
+"tipo": "tecnica",
+"nome": "Drive-by Compromise"
+},
+{
+"id": "T0819",
+"tipo": "tecnica",
+"nome": "Exploit Public-Facing Application"
+},
+{
+"id": "T0820",
+"tipo": "tecnica",
+"nome": "Exploitation for Evasion"
+},
+{
+"id": "T0821",
+"tipo": "tecnica",
+"nome": "Modify Controller Tasking"
+},
+{
+"id": "T0822",
+"tipo": "tecnica",
+"nome": "External Remote Services"
+},
+{
+"id": "T0823",
+"tipo": "tecnica",
+"nome": "Graphical User Interface"
+},
+{
+"id": "T0826",
+"tipo": "tecnica",
+"nome": "Loss of Availability"
+},
+{
+"id": "T0827",
+"tipo": "tecnica",
+"nome": "Loss of Control"
+},
+{
+"id": "T0828",
+"tipo": "tecnica",
+"nome": "Loss of Productivity and Revenue"
+},
+{
+"id": "T0829",
+"tipo": "tecnica",
+"nome": "Loss of View"
+},
+{
+"id": "T0830",
+"tipo": "tecnica",
+"nome": "Adversary-in-the-Middle"
+},
+{
+"id": "T0831",
+"tipo": "tecnica",
+"nome": "Manipulation of Control"
+},
+{
+"id": "T0832",
+"tipo": "tecnica",
+"nome": "Manipulation of View"
+},
+{
+"id": "T0834",
+"tipo": "tecnica",
+"nome": "Native API"
+},
+{
+"id": "T0835",
+"tipo": "tecnica",
+"nome": "Manipulate I/O Image"
+},
+{
+"id": "T0836",
+"tipo": "tecnica",
+"nome": "Modify Parameter"
+},
+{
+"id": "T0837",
+"tipo": "tecnica",
+"nome": "Loss of Protection"
+},
+{
+"id": "T0838",
+"tipo": "tecnica",
+"nome": "Modify Alarm Settings"
+},
+{
+"id": "T0840",
+"tipo": "tecnica",
+"nome": "Network Connection Enumeration"
+},
+{
+"id": "T0842",
+"tipo": "tecnica",
+"nome": "Network Sniffing"
+},
+{
+"id": "T0843",
+"tipo": "tecnica",
+"nome": "Program Download"
+},
+{
+"id": "T0843.001",
+"tipo": "tecnica",
+"nome": "Download All"
+},
+{
+"id": "T0843.002",
+"tipo": "tecnica",
+"nome": "Online Edit"
+},
+{
+"id": "T0843.003",
+"tipo": "tecnica",
+"nome": "Program Append"
+},
+{
+"id": "T0845",
+"tipo": "tecnica",
+"nome": "Program Upload"
+},
+{
+"id": "T0846",
+"tipo": "tecnica",
+"nome": "Remote System Discovery"
+},
+{
+"id": "T0846.001",
+"tipo": "tecnica",
+"nome": "Port Scan"
+},
+{
+"id": "T0846.002",
+"tipo": "tecnica",
+"nome": "Broadcast Discovery"
+},
+{
+"id": "T0846.003",
+"tipo": "tecnica",
+"nome": "Multicast Discovery"
+},
+{
+"id": "T0847",
+"tipo": "tecnica",
+"nome": "Replication Through Removable Media"
+},
+{
+"id": "T0848",
+"tipo": "tecnica",
+"nome": "Rogue Master"
+},
+{
+"id": "T0849",
+"tipo": "tecnica",
+"nome": "Masquerading"
+},
+{
+"id": "T0851",
+"tipo": "tecnica",
+"nome": "Rootkit"
+},
+{
+"id": "T0852",
+"tipo": "tecnica",
+"nome": "Screen Capture"
+},
+{
+"id": "T0858",
+"tipo": "tecnica",
+"nome": "Change Operating Mode"
+},
+{
+"id": "T0859",
+"tipo": "tecnica",
+"nome": "Valid Accounts"
+},
+{
+"id": "T0860",
+"tipo": "tecnica",
+"nome": "Wireless Compromise"
+},
+{
+"id": "T0861",
+"tipo": "tecnica",
+"nome": "Point & Tag Identification"
+},
+{
+"id": "T0862",
+"tipo": "tecnica",
+"nome": "Supply Chain Compromise"
+},
+{
+"id": "T0863",
+"tipo": "tecnica",
+"nome": "User Execution"
+},
+{
+"id": "T0864",
+"tipo": "tecnica",
+"nome": "Transient Cyber Asset"
+},
+{
+"id": "T0865",
+"tipo": "tecnica",
+"nome": "Spearphishing Attachment"
+},
+{
+"id": "T0866",
+"tipo": "tecnica",
+"nome": "Exploitation of Remote Services"
+},
+{
+"id": "T0867",
+"tipo": "tecnica",
+"nome": "Lateral Tool Transfer"
+},
+{
+"id": "T0868",
+"tipo": "tecnica",
+"nome": "Detect Operating Mode"
+},
+{
+"id": "T0869",
+"tipo": "tecnica",
+"nome": "Standard Application Layer Protocol"
+},
+{
+"id": "T0869.001",
+"tipo": "tecnica",
+"nome": "DNS"
+},
+{
+"id": "T0869.002",
+"tipo": "tecnica",
+"nome": "Publish/Subscribe Protocols"
+},
+{
+"id": "T0871",
+"tipo": "tecnica",
+"nome": "Execution through API"
+},
+{
+"id": "T0872",
+"tipo": "tecnica",
+"nome": "Indicator Removal on Host"
+},
+{
+"id": "T0873",
+"tipo": "tecnica",
+"nome": "Project File Infection"
+},
+{
+"id": "T0873.001",
+"tipo": "tecnica",
+"nome": "Siemens Project File Format"
+},
+{
+"id": "T0874",
+"tipo": "tecnica",
+"nome": "Hooking"
+},
+{
+"id": "T0877",
+"tipo": "tecnica",
+"nome": "I/O Image"
+},
+{
+"id": "T0878",
+"tipo": "tecnica",
+"nome": "Alarm Suppression"
+},
+{
+"id": "T0879",
+"tipo": "tecnica",
+"nome": "Damage to Property"
+},
+{
+"id": "T0880",
+"tipo": "tecnica",
+"nome": "Loss of Safety"
+},
+{
+"id": "T0881",
+"tipo": "tecnica",
+"nome": "Service Stop"
+},
+{
+"id": "T0882",
+"tipo": "tecnica",
+"nome": "Theft of Operational Information"
+},
+{
+"id": "T0883",
+"tipo": "tecnica",
+"nome": "Internet Accessible Device"
+},
+{
+"id": "T0884",
+"tipo": "tecnica",
+"nome": "Connection Proxy"
+},
+{
+"id": "T0885",
+"tipo": "tecnica",
+"nome": "Commonly Used Port"
+},
+{
+"id": "T0886",
+"tipo": "tecnica",
+"nome": "Remote Services"
+},
+{
+"id": "T0887",
+"tipo": "tecnica",
+"nome": "Wireless Sniffing"
+},
+{
+"id": "T0888",
+"tipo": "tecnica",
+"nome": "Remote System Information Discovery"
+},
+{
+"id": "T0889",
+"tipo": "tecnica",
+"nome": "Modify Program"
+},
+{
+"id": "T0890",
+"tipo": "tecnica",
+"nome": "Exploitation for Privilege Escalation"
+},
+{
+"id": "T0892",
+"tipo": "tecnica",
+"nome": "Change Credential"
+},
+{
+"id": "T0893",
+"tipo": "tecnica",
+"nome": "Data from Local System"
+},
+{
+"id": "T0894",
+"tipo": "tecnica",
+"nome": "System Binary Proxy Execution"
+},
+{
+"id": "T0895",
+"tipo": "tecnica",
+"nome": "Autorun Image"
+},
+{
+"id": "T1691",
+"tipo": "tecnica",
+"nome": "Block Operational Technology Message"
+},
+{
+"id": "T1691.001",
+"tipo": "tecnica",
+"nome": "Command Message"
+},
+{
+"id": "T1691.002",
+"tipo": "tecnica",
+"nome": "Reporting Message"
+},
+{
+"id": "T1692",
+"tipo": "tecnica",
+"nome": "Unauthorized Message"
+},
+{
+"id": "T1692.001",
+"tipo": "tecnica",
+"nome": "Command Message"
+},
+{
+"id": "T1692.002",
+"tipo": "tecnica",
+"nome": "Reporting Message"
+},
+{
+"id": "T1693",
+"tipo": "tecnica",
+"nome": "Modify Firmware"
+},
+{
+"id": "T1693.001",
+"tipo": "tecnica",
+"nome": "System Firmware"
+},
+{
+"id": "T1693.002",
+"tipo": "tecnica",
+"nome": "Module Firmware"
+},
+{
+"id": "T1694",
+"tipo": "tecnica",
+"nome": "Insecure Credentials"
+},
+{
+"id": "T1694.001",
+"tipo": "tecnica",
+"nome": "Default Credentials"
+},
+{
+"id": "T1694.002",
+"tipo": "tecnica",
+"nome": "Hardcoded Credentials"
+},
+{
+"id": "T1695",
+"tipo": "tecnica",
+"nome": "Block Communications"
+},
+{
+"id": "T1695.001",
+"tipo": "tecnica",
+"nome": "Serial COM"
+},
+{
+"id": "T1695.002",
+"tipo": "tecnica",
+"nome": "Ethernet"
+},
+{
+"id": "T1695.003",
+"tipo": "tecnica",
+"nome": "Wi-Fi"
+},
+{
+"id": "T1701",
+"tipo": "tecnica",
+"nome": "Command and Scripting Interpreter"
+},
+{
+"id": "T1701.001",
+"tipo": "tecnica",
+"nome": "PowerShell"
+},
+{
+"id": "T1701.002",
+"tipo": "tecnica",
+"nome": "Windows Command Shell"
+},
+{
+"id": "T1701.003",
+"tipo": "tecnica",
+"nome": "Unix Shell"
+},
+{
+"id": "T1701.004",
+"tipo": "tecnica",
+"nome": "Visual Basic"
+},
+{
+"id": "T1701.005",
+"tipo": "tecnica",
+"nome": "Python"
+},
+{
+"id": "T1701.006",
+"tipo": "tecnica",
+"nome": "JavaScript"
+}
+],
+"arestas": [
+[
+"C0020",
+"uses",
+"T0813"
+],
+[
+"C0020",
+"uses",
+"T0815"
+],
+[
+"C0020",
+"uses",
+"T0822"
+],
+[
+"C0020",
+"uses",
+"T0836"
+],
+[
+"C0020",
+"uses",
+"T0838"
+],
+[
+"C0020",
+"uses",
+"T0848"
+],
+[
+"C0020",
+"uses",
+"T0860"
+],
+[
+"C0020",
+"uses",
+"T0864"
+],
+[
+"C0020",
+"uses",
+"T0878"
+],
+[
+"C0020",
+"uses",
+"T0879"
+],
+[
+"C0020",
+"uses",
+"T1692.001"
+],
+[
+"C0020",
+"uses",
+"T1692.002"
+],
+[
+"C0025",
+"attributed-to",
+"G0034"
+],
+[
+"C0025",
+"uses",
+"S0604"
+],
+[
+"C0025",
+"uses",
+"T0849"
+],
+[
+"C0025",
+"uses",
+"T0859"
+],
+[
+"C0025",
+"uses",
+"T0867"
+],
+[
+"C0025",
+"uses",
+"T0886"
+],
+[
+"C0025",
+"uses",
+"T1701.001"
+],
+[
+"C0025",
+"uses",
+"T1701.002"
+],
+[
+"C0025",
+"uses",
+"T1701.004"
+],
+[
+"C0028",
+"attributed-to",
+"G0034"
+],
+[
+"C0028",
+"uses",
+"S0089"
+],
+[
+"C0028",
+"uses",
+"S0607"
+],
+[
+"C0028",
+"uses",
+"T0813"
+],
+[
+"C0028",
+"uses",
+"T0814"
+],
+[
+"C0028",
+"uses",
+"T0816"
+],
+[
+"C0028",
+"uses",
+"T0822"
+],
+[
+"C0028",
+"uses",
+"T0823"
+],
+[
+"C0028",
+"uses",
+"T0826"
+],
+[
+"C0028",
+"uses",
+"T0827"
+],
+[
+"C0028",
+"uses",
+"T0828"
+],
+[
+"C0028",
+"uses",
+"T0831"
+],
+[
+"C0028",
+"uses",
+"T0846"
+],
+[
+"C0028",
+"uses",
+"T0859"
+],
+[
+"C0028",
+"uses",
+"T0867"
+],
+[
+"C0028",
+"uses",
+"T0884"
+],
+[
+"C0028",
+"uses",
+"T0885"
+],
+[
+"C0028",
+"uses",
+"T0886"
+],
+[
+"C0028",
+"uses",
+"T1691.001"
+],
+[
+"C0028",
+"uses",
+"T1691.002"
+],
+[
+"C0028",
+"uses",
+"T1692.001"
+],
+[
+"C0028",
+"uses",
+"T1693.001"
+],
+[
+"C0028",
+"uses",
+"T1695.001"
+],
+[
+"C0030",
+"attributed-to",
+"G0088"
+],
+[
+"C0030",
+"uses",
+"S1009"
+],
+[
+"C0030",
+"uses",
+"T0828"
+],
+[
+"C0030",
+"uses",
+"T0830"
+],
+[
+"C0030",
+"uses",
+"T0843.003"
+],
+[
+"C0030",
+"uses",
+"T0859"
+],
+[
+"C0030",
+"uses",
+"T0867"
+],
+[
+"C0030",
+"uses",
+"T0872"
+],
+[
+"C0030",
+"uses",
+"T0886"
+],
+[
+"C0030",
+"uses",
+"T1692.001"
+],
+[
+"C0030",
+"uses",
+"T1701"
+],
+[
+"C0030",
+"uses",
+"T1701.001"
+],
+[
+"C0031",
+"attributed-to",
+"G1027"
+],
+[
+"C0031",
+"uses",
+"T0814"
+],
+[
+"C0031",
+"uses",
+"T0826"
+],
+[
+"C0031",
+"uses",
+"T0828"
+],
+[
+"C0031",
+"uses",
+"T0829"
+],
+[
+"C0031",
+"uses",
+"T0883"
+],
+[
+"C0031",
+"uses",
+"T1694.001"
+],
+[
+"C0034",
+"attributed-to",
+"G0034"
+],
+[
+"C0034",
+"uses",
+"T0894"
+],
+[
+"C0034",
+"uses",
+"T0895"
+],
+[
+"C0034",
+"uses",
+"T1692.001"
+],
+[
+"C0034",
+"uses",
+"T1701.002"
+],
+[
+"C0034",
+"uses",
+"T1701.004"
+],
+[
+"C0041",
+"uses",
+"S1165"
+],
+[
+"C0041",
+"uses",
+"T0826"
+],
+[
+"C0041",
+"uses",
+"T0829"
+],
+[
+"C0041",
+"uses",
+"T0836"
+],
+[
+"C0041",
+"uses",
+"T1693.001"
+],
+[
+"C0063",
+"uses",
+"T0809"
+],
+[
+"C0063",
+"uses",
+"T0816"
+],
+[
+"C0063",
+"uses",
+"T0822"
+],
+[
+"C0063",
+"uses",
+"T0823"
+],
+[
+"C0063",
+"uses",
+"T0827"
+],
+[
+"C0063",
+"uses",
+"T0829"
+],
+[
+"C0063",
+"uses",
+"T0840"
+],
+[
+"C0063",
+"uses",
+"T0846"
+],
+[
+"C0063",
+"uses",
+"T0846.001"
+],
+[
+"C0063",
+"uses",
+"T0846.002"
+],
+[
+"C0063",
+"uses",
+"T0852"
+],
+[
+"C0063",
+"uses",
+"T0859"
+],
+[
+"C0063",
+"uses",
+"T0882"
+],
+[
+"C0063",
+"uses",
+"T0885"
+],
+[
+"C0063",
+"uses",
+"T0886"
+],
+[
+"C0063",
+"uses",
+"T0888"
+],
+[
+"C0063",
+"uses",
+"T0892"
+],
+[
+"C0063",
+"uses",
+"T1693.001"
+],
+[
+"C0063",
+"uses",
+"T1694.001"
+],
+[
+"C0063",
+"uses",
+"T1701.001"
+],
+[
+"C0063",
+"uses",
+"T1701.003"
+],
+[
+"C0064",
+"uses",
+"S9045"
+],
+[
+"C0066",
+"uses",
+"T0813"
+],
+[
+"C0066",
+"uses",
+"T0826"
+],
+[
+"C0066",
+"uses",
+"T0827"
+],
+[
+"C0066",
+"uses",
+"T0829"
+],
+[
+"C0066",
+"uses",
+"T0836"
+],
+[
+"C0066",
+"uses",
+"T0883"
+],
+[
+"C0066",
+"uses",
+"T0889"
+],
+[
+"C0066",
+"uses",
+"T0892"
+],
+[
+"C0066",
+"uses",
+"T1694.001"
+],
+[
+"G0032",
+"uses",
+"S0366"
+],
+[
+"G0032",
+"uses",
+"T0865"
+],
+[
+"G0034",
+"uses",
+"S0089"
+],
+[
+"G0034",
+"uses",
+"S0368"
+],
+[
+"G0034",
+"uses",
+"S0604"
+],
+[
+"G0034",
+"uses",
+"S0606"
+],
+[
+"G0034",
+"uses",
+"S0607"
+],
+[
+"G0034",
+"uses",
+"S1010"
+],
+[
+"G0034",
+"uses",
+"S1072"
+],
+[
+"G0034",
+"uses",
+"T0819"
+],
+[
+"G0034",
+"uses",
+"T0884"
+],
+[
+"G0034",
+"uses",
+"T1701.001"
+],
+[
+"G0034",
+"uses",
+"T1701.002"
+],
+[
+"G0035",
+"uses",
+"S0093"
+],
+[
+"G0035",
+"uses",
+"T0817"
+],
+[
+"G0035",
+"uses",
+"T0862"
+],
+[
+"G0037",
+"uses",
+"S0372"
+],
+[
+"G0037",
+"uses",
+"S0446"
+],
+[
+"G0046",
+"uses",
+"S0496"
+],
+[
+"G0049",
+"uses",
+"T0817"
+],
+[
+"G0049",
+"uses",
+"T0859"
+],
+[
+"G0049",
+"uses",
+"T0865"
+],
+[
+"G0049",
+"uses",
+"T0869"
+],
+[
+"G0049",
+"uses",
+"T1701.001"
+],
+[
+"G0049",
+"uses",
+"T1701.004"
+],
+[
+"G0064",
+"uses",
+"T0852"
+],
+[
+"G0064",
+"uses",
+"T0865"
+],
+[
+"G0064",
+"uses",
+"T1701.001"
+],
+[
+"G0082",
+"uses",
+"S0607"
+],
+[
+"G0088",
+"uses",
+"S1009"
+],
+[
+"G0088",
+"uses",
+"T0817"
+],
+[
+"G0088",
+"uses",
+"T0862"
+],
+[
+"G0102",
+"uses",
+"S0446"
+],
+[
+"G0115",
+"uses",
+"S0496"
+],
+[
+"G1000",
+"uses",
+"T0817"
+],
+[
+"G1000",
+"uses",
+"T0852"
+],
+[
+"G1000",
+"uses",
+"T0859"
+],
+[
+"G1000",
+"uses",
+"T0865"
+],
+[
+"G1027",
+"uses",
+"T0826"
+],
+[
+"G1027",
+"uses",
+"T0827"
+],
+[
+"G1027",
+"uses",
+"T0829"
+],
+[
+"G1027",
+"uses",
+"T0838"
+],
+[
+"G1027",
+"uses",
+"T0843"
+],
+[
+"G1027",
+"uses",
+"T0845"
+],
+[
+"G1027",
+"uses",
+"T0871"
+],
+[
+"G1027",
+"uses",
+"T0879"
+],
+[
+"G1027",
+"uses",
+"T0880"
+],
+[
+"G1027",
+"uses",
+"T0883"
+],
+[
+"G1027",
+"uses",
+"T0885"
+],
+[
+"G1027",
+"uses",
+"T0886"
+],
+[
+"G1027",
+"uses",
+"T0889"
+],
+[
+"G1027",
+"uses",
+"T0892"
+],
+[
+"G1027",
+"uses",
+"T1692.001"
+],
+[
+"G1027",
+"uses",
+"T1694.001"
+],
+[
+"G1027",
+"uses",
+"T1695"
+],
+[
+"S0038",
+"uses",
+"T0811"
+],
+[
+"S0038",
+"uses",
+"T0882"
+],
+[
+"S0038",
+"uses",
+"T0893"
+],
+[
+"S0089",
+"uses",
+"T0859"
+],
+[
+"S0089",
+"uses",
+"T0865"
+],
+[
+"S0089",
+"uses",
+"T0869"
+],
+[
+"S0093",
+"uses",
+"T0802"
+],
+[
+"S0093",
+"uses",
+"T0814"
+],
+[
+"S0093",
+"uses",
+"T0846"
+],
+[
+"S0093",
+"uses",
+"T0861"
+],
+[
+"S0093",
+"uses",
+"T0862"
+],
+[
+"S0093",
+"uses",
+"T0863"
+],
+[
+"S0093",
+"uses",
+"T0865"
+],
+[
+"S0093",
+"uses",
+"T0888"
+],
+[
+"S0143",
+"uses",
+"T0882"
+],
+[
+"S0143",
+"uses",
+"T0893"
+],
+[
+"S0366",
+"uses",
+"T0866"
+],
+[
+"S0366",
+"uses",
+"T0867"
+],
+[
+"S0368",
+"uses",
+"T0828"
+],
+[
+"S0368",
+"uses",
+"T0866"
+],
+[
+"S0368",
+"uses",
+"T0867"
+],
+[
+"S0372",
+"uses",
+"T0827"
+],
+[
+"S0372",
+"uses",
+"T0828"
+],
+[
+"S0372",
+"uses",
+"T0829"
+],
+[
+"S0372",
+"uses",
+"T1695.002"
+],
+[
+"S0372",
+"uses",
+"T1695.003"
+],
+[
+"S0446",
+"uses",
+"T0828"
+],
+[
+"S0496",
+"uses",
+"T0828"
+],
+[
+"S0496",
+"uses",
+"T0849"
+],
+[
+"S0496",
+"uses",
+"T0863"
+],
+[
+"S0496",
+"uses",
+"T0869"
+],
+[
+"S0496",
+"uses",
+"T0881"
+],
+[
+"S0496",
+"uses",
+"T0882"
+],
+[
+"S0496",
+"uses",
+"T0886"
+],
+[
+"S0496",
+"uses",
+"T1701.001"
+],
+[
+"S0496",
+"uses",
+"T1701.006"
+],
+[
+"S0603",
+"uses",
+"T0801"
+],
+[
+"S0603",
+"uses",
+"T0821"
+],
+[
+"S0603",
+"uses",
+"T0831"
+],
+[
+"S0603",
+"uses",
+"T0832"
+],
+[
+"S0603",
+"uses",
+"T0834"
+],
+[
+"S0603",
+"uses",
+"T0835"
+],
+[
+"S0603",
+"uses",
+"T0836"
+],
+[
+"S0603",
+"uses",
+"T0842"
+],
+[
+"S0603",
+"uses",
+"T0843"
+],
+[
+"S0603",
+"uses",
+"T0847"
+],
+[
+"S0603",
+"uses",
+"T0849"
+],
+[
+"S0603",
+"uses",
+"T0851"
+],
+[
+"S0603",
+"uses",
+"T0863"
+],
+[
+"S0603",
+"uses",
+"T0866"
+],
+[
+"S0603",
+"uses",
+"T0867"
+],
+[
+"S0603",
+"uses",
+"T0869"
+],
+[
+"S0603",
+"uses",
+"T0873.001"
+],
+[
+"S0603",
+"uses",
+"T0874"
+],
+[
+"S0603",
+"uses",
+"T0877"
+],
+[
+"S0603",
+"uses",
+"T0885"
+],
+[
+"S0603",
+"uses",
+"T0886"
+],
+[
+"S0603",
+"uses",
+"T0888"
+],
+[
+"S0603",
+"uses",
+"T0889"
+],
+[
+"S0603",
+"uses",
+"T1694.002"
+],
+[
+"S0603",
+"uses",
+"T1701.002"
+],
+[
+"S0604",
+"uses",
+"T0800"
+],
+[
+"S0604",
+"uses",
+"T0801"
+],
+[
+"S0604",
+"uses",
+"T0802"
+],
+[
+"S0604",
+"uses",
+"T0806"
+],
+[
+"S0604",
+"uses",
+"T0809"
+],
+[
+"S0604",
+"uses",
+"T0813"
+],
+[
+"S0604",
+"uses",
+"T0814"
+],
+[
+"S0604",
+"uses",
+"T0815"
+],
+[
+"S0604",
+"uses",
+"T0816"
+],
+[
+"S0604",
+"uses",
+"T0827"
+],
+[
+"S0604",
+"uses",
+"T0829"
+],
+[
+"S0604",
+"uses",
+"T0831"
+],
+[
+"S0604",
+"uses",
+"T0832"
+],
+[
+"S0604",
+"uses",
+"T0837"
+],
+[
+"S0604",
+"uses",
+"T0840"
+],
+[
+"S0604",
+"uses",
+"T0846"
+],
+[
+"S0604",
+"uses",
+"T0846.001"
+],
+[
+"S0604",
+"uses",
+"T0881"
+],
+[
+"S0604",
+"uses",
+"T0884"
+],
+[
+"S0604",
+"uses",
+"T0888"
+],
+[
+"S0604",
+"uses",
+"T1691.001"
+],
+[
+"S0604",
+"uses",
+"T1691.002"
+],
+[
+"S0604",
+"uses",
+"T1692.001"
+],
+[
+"S0604",
+"uses",
+"T1695.001"
+],
+[
+"S0604",
+"uses",
+"T1701.002"
+],
+[
+"S0605",
+"uses",
+"T0828"
+],
+[
+"S0605",
+"uses",
+"T0840"
+],
+[
+"S0605",
+"uses",
+"T0849"
+],
+[
+"S0605",
+"uses",
+"T0881"
+],
+[
+"S0606",
+"uses",
+"T0817"
+],
+[
+"S0606",
+"uses",
+"T0828"
+],
+[
+"S0606",
+"uses",
+"T0863"
+],
+[
+"S0606",
+"uses",
+"T0866"
+],
+[
+"S0606",
+"uses",
+"T0867"
+],
+[
+"S0607",
+"uses",
+"T0809"
+],
+[
+"S0607",
+"uses",
+"T0829"
+],
+[
+"S0607",
+"uses",
+"T0872"
+],
+[
+"S0607",
+"uses",
+"T0881"
+],
+[
+"S0608",
+"uses",
+"T0826"
+],
+[
+"S0608",
+"uses",
+"T0828"
+],
+[
+"S0608",
+"uses",
+"T0847"
+],
+[
+"S1000",
+"uses",
+"T0882"
+],
+[
+"S1000",
+"uses",
+"T0893"
+],
+[
+"S1006",
+"uses",
+"T0814"
+],
+[
+"S1006",
+"uses",
+"T0821"
+],
+[
+"S1006",
+"uses",
+"T0834"
+],
+[
+"S1006",
+"uses",
+"T0835"
+],
+[
+"S1006",
+"uses",
+"T0843"
+],
+[
+"S1006",
+"uses",
+"T0846.001"
+],
+[
+"S1006",
+"uses",
+"T0858"
+],
+[
+"S1006",
+"uses",
+"T0889"
+],
+[
+"S1009",
+"uses",
+"T0820"
+],
+[
+"S1009",
+"uses",
+"T0821"
+],
+[
+"S1009",
+"uses",
+"T0834"
+],
+[
+"S1009",
+"uses",
+"T0843"
+],
+[
+"S1009",
+"uses",
+"T0845"
+],
+[
+"S1009",
+"uses",
+"T0846.002"
+],
+[
+"S1009",
+"uses",
+"T0849"
+],
+[
+"S1009",
+"uses",
+"T0858"
+],
+[
+"S1009",
+"uses",
+"T0868"
+],
+[
+"S1009",
+"uses",
+"T0869"
+],
+[
+"S1009",
+"uses",
+"T0871"
+],
+[
+"S1009",
+"uses",
+"T0872"
+],
+[
+"S1009",
+"uses",
+"T0874"
+],
+[
+"S1009",
+"uses",
+"T0880"
+],
+[
+"S1009",
+"uses",
+"T0885"
+],
+[
+"S1009",
+"uses",
+"T0890"
+],
+[
+"S1009",
+"uses",
+"T1693.001"
+],
+[
+"S1009",
+"uses",
+"T1701.005"
+],
+[
+"S1010",
+"uses",
+"T0830"
+],
+[
+"S1010",
+"uses",
+"T0842"
+],
+[
+"S1045",
+"uses",
+"T0809"
+],
+[
+"S1045",
+"uses",
+"T0836"
+],
+[
+"S1045",
+"uses",
+"T0842"
+],
+[
+"S1045",
+"uses",
+"T0843"
+],
+[
+"S1045",
+"uses",
+"T0843.001"
+],
+[
+"S1045",
+"uses",
+"T0845"
+],
+[
+"S1045",
+"uses",
+"T0846"
+],
+[
+"S1045",
+"uses",
+"T0846.001"
+],
+[
+"S1045",
+"uses",
+"T0846.003"
+],
+[
+"S1045",
+"uses",
+"T0858"
+],
+[
+"S1045",
+"uses",
+"T0859"
+],
+[
+"S1045",
+"uses",
+"T0861"
+],
+[
+"S1045",
+"uses",
+"T0867"
+],
+[
+"S1045",
+"uses",
+"T0869"
+],
+[
+"S1045",
+"uses",
+"T0884"
+],
+[
+"S1045",
+"uses",
+"T0886"
+],
+[
+"S1045",
+"uses",
+"T0888"
+],
+[
+"S1045",
+"uses",
+"T0890"
+],
+[
+"S1045",
+"uses",
+"T1692.001"
+],
+[
+"S1045",
+"uses",
+"T1694.002"
+],
+[
+"S1072",
+"uses",
+"T0801"
+],
+[
+"S1072",
+"uses",
+"T0802"
+],
+[
+"S1072",
+"uses",
+"T0806"
+],
+[
+"S1072",
+"uses",
+"T0836"
+],
+[
+"S1072",
+"uses",
+"T0881"
+],
+[
+"S1072",
+"uses",
+"T0888"
+],
+[
+"S1072",
+"uses",
+"T1692.001"
+],
+[
+"S1157",
+"uses",
+"T0806"
+],
+[
+"S1157",
+"uses",
+"T0809"
+],
+[
+"S1157",
+"uses",
+"T0814"
+],
+[
+"S1157",
+"uses",
+"T0822"
+],
+[
+"S1157",
+"uses",
+"T0829"
+],
+[
+"S1157",
+"uses",
+"T0883"
+],
+[
+"S1165",
+"uses",
+"T0801"
+],
+[
+"S1165",
+"uses",
+"T0836"
+],
+[
+"S1165",
+"uses",
+"T0869"
+],
+[
+"S1165",
+"uses",
+"T0885"
+],
+[
+"S1165",
+"uses",
+"T1701"
+],
+[
+"S9046",
+"uses",
+"T0846.001"
+],
+[
+"S9046",
+"uses",
+"T0869.001"
+],
+[
+"S9046",
+"uses",
+"T0869.002"
+],
+[
+"S9046",
+"uses",
+"T1701.003"
+]
+]
+}

@@ -5,6 +5,8 @@ on:
       - "core/**"
       - "cases/**"
       - "manometro/**"
+      - "catalogo/**"
+      - "scripts/validar_catalogo.py"
       - "tests/**"
       - ".github/workflows/ot-labs-tests.yml"
   pull_request:
@@ -12,6 +14,8 @@ on:
       - "core/**"
       - "cases/**"
       - "manometro/**"
+      - "catalogo/**"
+      - "scripts/validar_catalogo.py"
       - "tests/**"
       - ".github/workflows/ot-labs-tests.yml"
 jobs:
@@ -30,5 +34,5 @@ jobs:
         run: python scripts/validar_catalogo.py
       - name: Manometro demo report (offline)
         run: |
-          python -m manometro analisar manometro/fixtures/demo-xdome.json --de 2026-01 --ate 2026-10 --json saida/manometro-demo.json --html saida/manometro-demo.html
+          python -m manometro analisar manometro/fixtures/demo-xdome.json --de 2026-01 --ate 2026-10 --json saida/manometro-demo.json --html saida/manometro-demo.html --graphml saida/manometro-demo.graphml
           python -m manometro verificar saida/manometro-demo.json
