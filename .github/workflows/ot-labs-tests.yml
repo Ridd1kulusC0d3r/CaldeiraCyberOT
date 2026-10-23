@@ -4,12 +4,14 @@ on:
     paths:
       - "core/**"
       - "cases/**"
+      - "manometro/**"
       - "tests/**"
       - ".github/workflows/ot-labs-tests.yml"
   pull_request:
     paths:
       - "core/**"
       - "cases/**"
+      - "manometro/**"
       - "tests/**"
       - ".github/workflows/ot-labs-tests.yml"
 jobs:
@@ -26,3 +28,7 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Validate case catalogue
         run: python scripts/validar_catalogo.py
+      - name: Manometro demo report (offline)
+        run: |
+          python -m manometro analisar manometro/fixtures/demo-xdome.json --de 2026-01 --ate 2026-10 --json saida/manometro-demo.json --html saida/manometro-demo.html
+          python -m manometro verificar saida/manometro-demo.json

@@ -18,6 +18,8 @@ DOCUMENTS = [
     "docs/guias/cisa-mitigacoes-ot.md",
     "docs/arquitetura-labs.md",
     "docs/PORTAL.md",
+    "manometro/README.md",
+    "manometro/COMECE-AQUI.md",
 ]
 HTML = "docs/index.html"
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")

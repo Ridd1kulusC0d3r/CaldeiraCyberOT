@@ -29,6 +29,10 @@ Cada execução lê **apenas arquivos JSON fictícios** e exibe em stdout um env
 - `core/intel/attack_ics.json` → catálogo de referências ao ATT&CK for ICS, sem atribuição automática.
 - `tests/test_core.py` → testes de funcionamento e integridade.
 
+## Novo braço: MANÔMETRO
+
+KPIs de OT sobre exportações sintéticas da integração Claroty xDome → Elastic, com deduplicação, ATT&CK for ICS v20.0 e saúde da coleta. Comece por [manometro/COMECE-AQUI.md](manometro/COMECE-AQUI.md).
+
 ## O que está no roadmap, mas não foi implementado
 
 OpenPLC, ScadaBR, Conpot, GRFICS, protocolos DNP3/S7/IEC-104 e integração com Mininet. Estão **documentados como possíveis fontes futuras de telemetria**, sem execução incorporada. O projeto [Mininet](https://github.com/Ridd1kulusC0d3r/mininet) permanece independente.

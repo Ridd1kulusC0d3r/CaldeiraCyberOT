@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="system">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Manual ilustrado do MANÔMETRO, braço de KPIs honestos de OT do Caldeira Cyber OT Labs.">
+<title>Manual Manômetro</title>
+<style>
+:root{--bg:#f4f8f5;--panel:#fff;--panel2:#eaf1ef;--line:#c9d8d5;--ink:#0b2026;--muted:#4d6a6f;--acc:#b8642a;--mint:#1f8a76;--bad:#b3261e;--font:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#07171d;--panel:#0f2a33;--panel2:#0b222a;--line:#244751;--ink:#f4f8f5;--muted:#a9c8c5;--acc:#e99754;--mint:#57c9b2;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#07171d;--panel:#0f2a33;--panel2:#0b222a;--line:#244751;--ink:#f4f8f5;--muted:#a9c8c5;--acc:#e99754;--mint:#57c9b2;--bad:#ff8a80}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.65}
+a{color:var(--mint)}:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{font-weight:900;letter-spacing:.04em}.brand small{display:block;font-weight:500;color:var(--muted);letter-spacing:0;font-size:12px}
+nav{display:flex;gap:4px;flex-wrap:wrap;font-size:13px}nav a{padding:4px 8px;border-radius:6px;text-decoration:none;color:var(--ink)}nav a:hover{background:var(--panel2)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}.seg button{background:none;border:0;color:var(--ink);padding:5px 10px;cursor:pointer;font:inherit;font-size:13px}.seg button[aria-pressed="true"]{background:var(--mint);color:#04161a;font-weight:700}
+main{max-width:1100px;margin:0 auto;padding:0 16px 60px}
+h1{font-size:34px;line-height:1.15;margin:32px 0 8px}h2{scroll-margin-top:70px;font-size:24px;margin:48px 0 10px;padding-top:8px;border-top:1px solid var(--line)}h3{font-size:18px;margin:24px 0 6px}
+.lead{font-size:18px;color:var(--muted);max-width:780px}
+.n2{font-family:var(--mono);color:var(--acc);font-size:14px;margin-right:8px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.ok{border-left:4px solid var(--mint)}.no{border-left:4px solid var(--bad)}.warn{border-left:4px solid var(--acc)}
+code,kbd,pre{font-family:var(--mono);font-size:14px}pre{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:12px;overflow-x:auto;white-space:pre}
+kbd{border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--panel2)}
+.tabs [role=tablist]{display:flex;gap:6px;flex-wrap:wrap}.tabs [role=tab]{border:1px solid var(--line);background:var(--panel2);color:var(--ink);padding:8px 16px;border-radius:8px 8px 0 0;cursor:pointer;font:inherit;font-weight:600}
+.tabs [role=tab][aria-selected=true]{background:var(--mint);color:#04161a}.tabs [role=tabpanel]{border:1px solid var(--line);border-radius:0 8px 8px 8px;padding:14px 18px;background:var(--panel)}
+ol.passos{counter-reset:p;list-style:none;padding:0}ol.passos>li{counter-increment:p;position:relative;padding:10px 12px 10px 52px;margin:8px 0;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+ol.passos>li::before{content:counter(p);position:absolute;left:12px;top:10px;width:28px;height:28px;border-radius:50%;background:var(--acc);color:#04161a;font-weight:800;display:grid;place-items:center;font-family:var(--mono)}
+.agora{display:flex;gap:10px;align-items:flex-start}.agora input{width:20px;height:20px;margin-top:4px;flex:none}
+.shot{position:relative;margin:12px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#07171d}.shot img{display:block;width:100%;height:auto}
+.mk{position:absolute;transform:translate(-85%,-85%);width:28px;height:28px;border-radius:50%;background:#e99754;color:#04161a;font:800 14px/28px var(--mono);text-align:center;box-shadow:0 0 0 3px #07171d,0 0 0 5px #e99754}
+.leg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:6px 16px;padding:0;list-style:none;margin:8px 0 0}.leg li{display:flex;gap:10px;align-items:flex-start}
+.leg b.c{flex:none;width:24px;height:24px;border-radius:50%;background:#e99754;color:#04161a;display:grid;place-items:center;font:800 12px var(--mono)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+svg{max-width:100%;height:auto}svg text{font-family:var(--font)}
+.s-box{fill:var(--panel2);stroke:var(--line)}.s-acc{fill:none;stroke:var(--acc);stroke-width:2}.s-mint{fill:var(--mint)}.s-t{fill:var(--ink);font-size:13px}.s-m{fill:var(--muted);font-size:11px}.s-line{stroke:var(--muted);stroke-width:1.5;fill:none}
+details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}summary{cursor:pointer;font-weight:700}
+dl.glos{display:grid;grid-template-columns:minmax(140px,220px) 1fr;gap:6px 16px}dl.glos dt{font-weight:700}dl.glos dd{margin:0;color:var(--muted)}
+footer{max-width:1100px;margin:0 auto;padding:20px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+@media (max-width:700px){h1{font-size:26px}nav{display:none}dl.glos{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <div class="brand">MANÔMETRO <small>Caldeira Cyber OT Labs · manual v0.1</small></div>
+  <nav aria-label="Seções"><a href="#oque">O que é</a><a href="#como">Como funciona</a><a href="#instalar">Instalação</a><a href="#primeiro">Primeiro uso</a><a href="#tour">Tour</a><a href="#kpis">KPIs</a><a href="#problemas">Problemas</a><a href="#tecnico">Técnico</a></nav>
+  <div class="seg" role="group" aria-label="Tema"><button data-th="system" aria-pressed="true">Sistema</button><button data-th="light" aria-pressed="false">Claro</button><button data-th="dark" aria-pressed="false">Escuro</button></div>
+</div></header>
+<main>
+
+<h1>Medir pressão antes de abrir a válvula.</h1>
+<p class="lead">O MANÔMETRO transforma uma exportação de documentos da integração <b>Claroty xDome → Elastic</b> em KPIs de OT que dá para defender numa reunião: alertas deduplicados, matriz <b>MITRE ATT&amp;CK for ICS v20.0</b> separando comportamento de exposição, ativos obsoletos, <i>Configuration Download</i> contra baseline e saúde da coleta. Tudo offline, só com Python.</p>
+
+<div class="box warn"><b>Este repositório só processa dados sintéticos.</b> O caso de demonstração é inventado (planta, ativos, IPs de documentação RFC 5737). A ferramenta recusa arquivos sem a marca <code>"synthetic": true</code>. Ela nunca se conecta ao Elastic, à API do fornecedor nem a ativos OT.</div>
+
+<h2 id="oque"><span class="n2">01</span>O que é — e o que não é</h2>
+<div class="grid2">
+  <div class="box ok"><h3>É</h3><ul>
+    <li>Um <b>calculador offline</b> de KPIs sobre documentos exportados.</li>
+    <li>Um <b>verificador de honestidade</b>: aponta inflação por re-coleta, IDs ATT&amp;CK revogados, IDs de outro domínio e erros de coleta.</li>
+    <li>Um gerador de <b>relatório HTML</b> autocontido (abre sem internet) e de um <b>envelope JSON selado</b> com SHA-256.</li>
+  </ul></div>
+  <div class="box no"><h3>Não é</h3><ul>
+    <li>Um SIEM, conector ou coletor. Não abre sockets.</li>
+    <li>Um detector de ataques: o mapeamento ATT&amp;CK vem do fornecedor e <b>não prova execução</b>.</li>
+    <li>Uma ferramenta para decisões automáticas em processo físico.</li>
+  </ul></div>
+</div>
+
+<h2 id="como"><span class="n2">02</span>Como funciona</h2>
+<p>Seis etapas, sempre na mesma ordem. Cada uma reduz um tipo de erro de medição.</p>
+<svg viewBox="0 0 1060 210" role="img" aria-labelledby="sv1t"><title id="sv1t">Fluxo: exportação, trava sintética, deduplicação, normalização ATT&amp;CK, KPIs, envelope e relatório</title>
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#e99754"/></marker></defs>
+  <g>
+    <rect class="s-box" x="10" y="40" width="150" height="110" rx="10"/><text class="s-t" x="85" y="80" text-anchor="middle" font-weight="700">1 · Exportação</text><text class="s-m" x="85" y="102" text-anchor="middle">docs _source</text><text class="s-m" x="85" y="118" text-anchor="middle">alert · event · erro</text>
+    <rect class="s-box" x="190" y="40" width="150" height="110" rx="10"/><text class="s-t" x="265" y="80" text-anchor="middle" font-weight="700">2 · Trava</text><text class="s-m" x="265" y="102" text-anchor="middle">synthetic: true</text><text class="s-m" x="265" y="118" text-anchor="middle">limite 25 MB</text>
+    <rect class="s-box" x="370" y="40" width="150" height="110" rx="10"/><text class="s-t" x="445" y="80" text-anchor="middle" font-weight="700">3 · Dedup</text><text class="s-m" x="445" y="102" text-anchor="middle">alert.id + último</text><text class="s-m" x="445" y="118" text-anchor="middle">updated_time</text>
+    <rect class="s-box" x="550" y="40" width="150" height="110" rx="10"/><text class="s-t" x="625" y="80" text-anchor="middle" font-weight="700">4 · ATT&amp;CK v20</text><text class="s-m" x="625" y="102" text-anchor="middle">revogado → novo</text><text class="s-m" x="625" y="118" text-anchor="middle">fora do ICS → fora</text>
+    <rect class="s-box" x="730" y="40" width="150" height="110" rx="10"/><text class="s-t" x="805" y="80" text-anchor="middle" font-weight="700">5 · KPIs</text><text class="s-m" x="805" y="102" text-anchor="middle">período · natureza</text><text class="s-m" x="805" y="118" text-anchor="middle">distintos por uid</text>
+    <rect class="s-box" x="910" y="40" width="140" height="110" rx="10"/><text class="s-t" x="980" y="80" text-anchor="middle" font-weight="700">6 · Saída</text><text class="s-m" x="980" y="102" text-anchor="middle">JSON SHA-256</text><text class="s-m" x="980" y="118" text-anchor="middle">HTML estático</text>
+    <path d="M160 95H186M340 95H366M520 95H546M700 95H726M880 95H906" stroke="#e99754" stroke-width="2" marker-end="url(#ar)"/>
+    <text class="s-m" x="445" y="180" text-anchor="middle">707 documentos → 19 alertas no demo</text>
+    <text class="s-m" x="625" y="180" text-anchor="middle">T0855 → T1692.001</text>
+    <text class="s-m" x="805" y="180" text-anchor="middle">comportamento × exposição</text>
+  </g></svg>
+
+<h3>Jornada de quem lê o relatório</h3>
+<svg viewBox="0 0 1060 120" role="img" aria-labelledby="sv2t"><title id="sv2t">Jornada de leitura: banner de saúde, cards, matriz filtrada, qualidade, recomendações, verificação</title>
+  <path class="s-line" d="M40 60H1020" stroke-dasharray="4 6"/>
+  <g font-size="12">
+    <circle cx="60" cy="60" r="18" fill="#e99754"/><text x="60" y="65" text-anchor="middle" font-weight="800" fill="#04161a">1</text><text class="s-t" x="60" y="100" text-anchor="middle">Saúde da coleta</text>
+    <circle cx="250" cy="60" r="18" fill="#e99754"/><text x="250" y="65" text-anchor="middle" font-weight="800" fill="#04161a">2</text><text class="s-t" x="250" y="100" text-anchor="middle">Cards (distintos)</text>
+    <circle cx="440" cy="60" r="18" fill="#e99754"/><text x="440" y="65" text-anchor="middle" font-weight="800" fill="#04161a">3</text><text class="s-t" x="440" y="100" text-anchor="middle">Matriz: filtro Comportamento</text>
+    <circle cx="630" cy="60" r="18" fill="#e99754"/><text x="630" y="65" text-anchor="middle" font-weight="800" fill="#04161a">4</text><text class="s-t" x="630" y="100" text-anchor="middle">Qualidade do mapeamento</text>
+    <circle cx="820" cy="60" r="18" fill="#e99754"/><text x="820" y="65" text-anchor="middle" font-weight="800" fill="#04161a">5</text><text class="s-t" x="820" y="100" text-anchor="middle">Recomendações</text>
+    <circle cx="1000" cy="60" r="18" fill="#57c9b2"/><text x="1000" y="65" text-anchor="middle" font-weight="800" fill="#04161a">✓</text><text class="s-t" x="1000" y="100" text-anchor="middle">Verificar digest</text>
+  </g></svg>
+
+<h2 id="instalar"><span class="n2">03</span>Instalação, passo a passo</h2>
+<p>Você só precisa de <b>Python 3.10 ou mais novo</b>. Não há pacotes para instalar.</p>
+<div class="tabs" data-tabs>
+  <div role="tablist" aria-label="Sistema operacional">
+    <button role="tab" id="t-win" aria-controls="p-win" aria-selected="true">Windows</button>
+    <button role="tab" id="t-mac" aria-controls="p-mac" aria-selected="false" tabindex="-1">macOS</button>
+    <button role="tab" id="t-lin" aria-controls="p-lin" aria-selected="false" tabindex="-1">Linux</button>
+  </div>
+  <div role="tabpanel" id="p-win" aria-labelledby="t-win">
+    <ol class="passos">
+      <li>Abra <b>python.org/downloads</b>, baixe o instalador do Python 3 e, na primeira tela, marque <b>“Add python.exe to PATH”</b>. Clique em <b>Install Now</b>.</li>
+      <li>No GitHub do repositório, clique em <b>Code → Download ZIP</b> e extraia a pasta (botão direito → <b>Extrair tudo</b>).</li>
+      <li>Abra a pasta extraída, depois <code>manometro\lancadores</code>.</li>
+      <li>Dê dois cliques em <code>gerar-relatorio-demo-windows.bat</code>. Se o SmartScreen avisar, clique em <b>Mais informações → Executar assim mesmo</b> (o arquivo é texto; abra no Bloco de Notas para conferir antes).</li>
+      <li>O navegador abre o relatório. Pronto.</li>
+    </ol>
+  </div>
+  <div role="tabpanel" id="p-mac" aria-labelledby="t-mac" hidden>
+    <ol class="passos">
+      <li>Abra o <b>Terminal</b> e digite <kbd>python3 --version</kbd>. Se aparecer 3.10 ou mais, pule para o passo 3.</li>
+      <li>Se não houver Python, instale pelo <b>python.org/downloads</b> (pacote .pkg) e repita o passo 1.</li>
+      <li>No GitHub do repositório, <b>Code → Download ZIP</b>; dê dois cliques no ZIP para extrair.</li>
+      <li>Em <code>manometro/lancadores</code>, clique com o botão direito em <code>gerar-relatorio-demo-macos.command</code> → <b>Abrir</b> → <b>Abrir</b> (só na primeira vez, por causa do Gatekeeper).</li>
+      <li>Se aparecer “permissão negada”, no Terminal rode <kbd>chmod +x</kbd> no arquivo e tente de novo.</li>
+    </ol>
+  </div>
+  <div role="tabpanel" id="p-lin" aria-labelledby="t-lin" hidden>
+    <ol class="passos">
+      <li>Confira: <kbd>python3 --version</kbd> (Debian/Ubuntu já trazem; se não, <kbd>sudo apt install python3</kbd>).</li>
+      <li>Clone: <kbd>git clone https://github.com/Ridd1kulusC0d3r/CaldeiraCyberOT</kbd> (ou baixe o ZIP).</li>
+      <li>No gerenciador de arquivos, dê dois cliques em <code>manometro/lancadores/gerar-relatorio-demo-linux.sh</code> e escolha <b>Executar</b>. Ou, no terminal: <kbd>sh manometro/lancadores/gerar-relatorio-demo-linux.sh</kbd>.</li>
+      <li>O relatório fica em <code>saida/manometro-demo.html</code> e abre com <code>xdg-open</code>.</li>
+    </ol>
+  </div>
+</div>
+
+<h2 id="primeiro"><span class="n2">04</span>Primeiro uso guiado — uma ação por vez</h2>
+<p>Marque cada caixa quando terminar. Só passe para a próxima depois.</p>
+<ol class="passos" id="guiado">
+  <li><label class="agora"><input type="checkbox"> <span>Rode o lançador do seu sistema (seção 03). O relatório abre.</span></label></li>
+  <li><label class="agora"><input type="checkbox"> <span>Leia <b>só</b> o banner laranja no topo: a coleta teve erros. Isso vem antes de qualquer número.</span></label></li>
+  <li><label class="agora"><input type="checkbox"> <span>No primeiro card, compare <b>17 alertas</b> com <b>707 documentos</b>. Essa é a diferença que a deduplicação evita.</span></label></li>
+  <li><label class="agora"><input type="checkbox"> <span>Na matriz, clique em <b>Comportamento</b>. Veja as táticas caírem de 9 para 7 e as técnicas de 13 para 8.</span></label></li>
+  <li><label class="agora"><input type="checkbox"> <span>Role até <b>Qualidade do mapeamento</b> e encontre o <code>T0855</code> que virou <code>T1692.001</code>.</span></label></li>
+  <li><label class="agora"><input type="checkbox"> <span>Em <b>Configuration Download</b>, ache a linha vermelha <code>PC-17 → PLC-04</code>: uma estação de TI fora do baseline.</span></label></li>
+  <li><label class="agora"><input type="checkbox"> <span>Confira a integridade: <kbd>python3 -m manometro verificar saida/manometro-demo.json</kbd>. Deve dizer <b>ÍNTEGRO</b>.</span></label></li>
+</ol>
+
+<h2 id="tour"><span class="n2">05</span>Tour do relatório</h2>
+<h3>Topo: saúde, selo e cards</h3>
+<div class="shot"><img src="manual/img/01-topo.png" alt="Topo do relatório com título, seletor de idioma e tema, selo de dados sintéticos, banner de erro de coleta e seis cards de KPI" width="1280" height="470">
+  <span class="mk" style="left:2.2%;top:6%">1</span><span class="mk" style="left:75.9%;top:7.3%">2</span><span class="mk" style="left:2.2%;top:21.5%">3</span><span class="mk" style="left:2.2%;top:28.9%">4</span><span class="mk" style="left:2.2%;top:38.5%">5</span><span class="mk" style="left:41.6%;top:38.5%">6</span><span class="mk" style="left:61.2%;top:38.5%">7</span><span class="mk" style="left:2.2%;top:71.6%">8</span></div>
+<ul class="leg">
+  <li><b class="c">1</b>Título e período analisado (AAAA-MM → AAAA-MM).</li>
+  <li><b class="c">2</b>Idioma PT/EN e tema Sistema/Claro/Escuro (lembrados no navegador).</li>
+  <li><b class="c">3</b>Selo de dados sintéticos e chips de método: dedup, versão do ATT&amp;CK, campos de data.</li>
+  <li><b class="c">4</b>Banner de saúde da coleta. Clique para ir à tabela de erros.</li>
+  <li><b class="c">5</b>Alertas únicos no período, com o total de documentos e o fator de inflação.</li>
+  <li><b class="c">6</b>Dispositivos <b>distintos</b> por uid, por categoria, e quanto daria somando por alerta.</li>
+  <li><b class="c">7</b>Táticas com alerta <b>mapeado</b> e, abaixo, só de comportamento.</li>
+  <li><b class="c">8</b>Eventos de Configuration Download e pares fora do baseline.</li>
+</ul>
+
+<h3>Matriz ATT&amp;CK for ICS</h3>
+<div class="shot"><img src="manual/img/02-matriz.png" alt="Matriz ATT&amp;CK for ICS com filtro Comportamento ativo, busca, colunas de táticas e técnicas destacadas" width="1248" height="760">
+  <span class="mk" style="left:2.2%;top:3.6%">1</span><span class="mk" style="left:12.9%;top:14.3%">2</span><span class="mk" style="left:37.3%;top:14.6%">3</span><span class="mk" style="left:59.4%;top:15.5%">4</span><span class="mk" style="left:86.8%;top:23.8%">5</span><span class="mk" style="left:72.7%;top:58.9%">6</span></div>
+<ul class="leg">
+  <li><b class="c">1</b>Totais da matriz. Mudam quando você troca o filtro.</li>
+  <li><b class="c">2</b>Filtro de natureza: Todos, Comportamento, Exposição/postura.</li>
+  <li><b class="c">3</b>Busca por técnica, ID (ex.: <code>T0846</code>) ou nome do alerta.</li>
+  <li><b class="c">4</b>Expandir subtécnicas e alertas; mostrar só os do último mês.</li>
+  <li><b class="c">5</b>Cabeçalho da tática: técnicas com alerta / total.</li>
+  <li><b class="c">6</b>Técnica com alertas: cor por quantidade, subtécnicas e lista de alertas com selo C (comportamento) ou E (exposição).</li>
+</ul>
+
+<h3>Qualidade do mapeamento e exposição de ativos</h3>
+<div class="shot"><img src="manual/img/03-qualidade-ativos.png" alt="Tabela de IDs revogados remapeados e painéis de protocolo legado por nível Purdue e lista de ativos obsoletos" width="1280" height="717">
+  <span class="mk" style="left:3.4%;top:14%">1</span><span class="mk" style="left:2.2%;top:51.8%">2</span><span class="mk" style="left:51.4%;top:51.8%">3</span></div>
+<ul class="leg">
+  <li><b class="c">1</b>ID que o fornecedor mandou, ID usado e motivo (revogado no v20.0 ou fora do ICS).</li>
+  <li><b class="c">2</b>Protocolo legado (SMBv1) por nível Purdue.</li>
+  <li><b class="c">3</b>Ativos obsoletos distintos: fim de vida e/ou firmware desatualizado.</li>
+</ul>
+
+<h3>Configuration Download, saúde e recomendações</h3>
+<div class="shot"><img src="manual/img/04-config-saude-rec.png" alt="Gráfico mensal de Configuration Download, tabela de pares com dois fora do baseline, tabela de erros de coleta e recomendações priorizadas" width="1280" height="1371">
+  <span class="mk" style="left:3.4%;top:5.2%">1</span><span class="mk" style="left:52.6%;top:7.3%">2</span><span class="mk" style="left:3.4%;top:62.1%">3</span><span class="mk" style="left:4.8%;top:78.8%">4</span></div>
+<ul class="leg">
+  <li><b class="c">1</b>Eventos de Configuration Download por mês.</li>
+  <li><b class="c">2</b>Pares origem → destino; os fora do baseline vêm primeiro, em vermelho.</li>
+  <li><b class="c">3</b>Erros de coleta normalizados (números e IDs viram &lt;n&gt;/&lt;id&gt;).</li>
+  <li><b class="c">4</b>Recomendações ordenadas por prioridade, geradas a partir dos números.</li>
+</ul>
+
+<h3>Tema claro e inglês</h3>
+<div class="shot"><img src="manual/img/05-claro-en.png" alt="O mesmo topo do relatório em tema claro com rótulos em inglês" width="1280" height="470"></div>
+
+<h2 id="relatorios"><span class="n2">06</span>Gerando relatórios</h2>
+<pre>python3 -m manometro analisar manometro/fixtures/demo-xdome.json \
+    --de 2026-01 --ate 2026-10 \
+    --json saida/manometro.json --html saida/manometro.html</pre>
+<table><thead><tr><th>Opção</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><code>--de</code> / <code>--ate</code></td><td>Período em meses (AAAA-MM), inclusivo. Sem elas: do primeiro ao último mês com dados (no demo, 2025-11 → 2026-10).</td></tr>
+<tr><td><code>--json</code></td><td>Grava o envelope selado (payload + digest SHA-256).</td></tr>
+<tr><td><code>--html</code></td><td>Gera o relatório estático a partir do mesmo payload.</td></tr>
+<tr><td><code>verificar ARQ.json</code></td><td>Recalcula o digest. <b>ÍNTEGRO</b> ou <b>ALTERADO</b>. Integridade não é autoria.</td></tr>
+</tbody></table>
+<p>Para recriar o caso demo: <code>python3 -m manometro.gerar_demo</code>. Para atualizar o catálogo quando sair outra versão do ATT&amp;CK: baixe o <code>ics-attack-XX.json</code> oficial e rode <code>python3 -m manometro.matriz caminho/ics-attack-XX.json</code>.</p>
+
+<h2 id="kpis"><span class="n2">07</span>Dicionário de KPIs — e a armadilha de cada um</h2>
+<table><thead><tr><th>KPI</th><th>Como é calculado</th><th>Armadilha que evita</th></tr></thead><tbody>
+<tr><td>Alertas únicos</td><td>Grupos por <code>claroty_xdome.alert.id</code>; vale o estado do maior <code>updated_time</code>.</td><td>Contar re-coletas e o fan-out por dispositivo como alertas.</td></tr>
+<tr><td>Em aberto</td><td>Status vigente fora de <code>status_resolvido</code> da política.</td><td>Ler o status de uma coleta antiga.</td></tr>
+<tr><td>Dispositivos distintos</td><td>União de <code>device.uid</code> dos snapshots vigentes.</td><td>Somar <code>devices_count</code> de cada alerta (no demo: 130 × 80 reais).</td></tr>
+<tr><td>Técnicas / táticas com alerta</td><td>IDs normalizados para v20.0; subtécnica credita a técnica-mãe; técnica conta em todas as táticas a que pertence.</td><td>Chamar de “táticas atingidas” algo que é mapeamento de fornecedor.</td></tr>
+<tr><td>Só comportamento</td><td>Exclui alertas cuja categoria está em <code>categorias_exposicao</code> (padrão: <code>Risk</code>).</td><td>Firmware antigo ou certificado vencido parecerem adversário na matriz.</td></tr>
+<tr><td>Ativos obsoletos</td><td>União de EoL (<code>end_of.life.state</code>) e firmware desatualizado (tipo de alerta).</td><td>Somar as duas listas e contar duas vezes quem está nas duas.</td></tr>
+<tr><td>Configuration Download</td><td>Eventos do tipo na política, agrupados origem → destino e comparados com <code>baseline_config</code>.</td><td>Validar baseline “de olho”; confundir download com upload.</td></tr>
+<tr><td>Saúde da coleta</td><td>Documentos com <code>error.message</code> no período, por tipo normalizado.</td><td>Painel bonito sobre integração quebrada.</td></tr>
+</tbody></table>
+
+<h2 id="arquitetura"><span class="n2">08</span>Arquitetura e legenda</h2>
+<svg viewBox="0 0 1060 260" role="img" aria-labelledby="sv3t"><title id="sv3t">Módulos do pacote manometro e suas dependências</title>
+  <rect class="s-box" x="20" y="20" width="200" height="60" rx="8"/><text class="s-t" x="120" y="47" text-anchor="middle" font-weight="700">campos.py</text><text class="s-m" x="120" y="66" text-anchor="middle">único mapa de nomes de campo</text>
+  <rect class="s-box" x="20" y="110" width="200" height="60" rx="8"/><text class="s-t" x="120" y="137" text-anchor="middle" font-weight="700">carga.py</text><text class="s-m" x="120" y="156" text-anchor="middle">trava sintética + limites</text>
+  <rect class="s-box" x="20" y="190" width="200" height="60" rx="8"/><text class="s-t" x="120" y="217" text-anchor="middle" font-weight="700">gerar_demo.py</text><text class="s-m" x="120" y="236" text-anchor="middle">caso demo determinístico</text>
+  <rect class="s-box" x="300" y="20" width="200" height="60" rx="8"/><text class="s-t" x="400" y="47" text-anchor="middle" font-weight="700">dedup.py</text><text class="s-m" x="400" y="66" text-anchor="middle">alert.id + updated_time</text>
+  <rect class="s-box" x="300" y="110" width="200" height="60" rx="8"/><text class="s-t" x="400" y="137" text-anchor="middle" font-weight="700">matriz.py</text><text class="s-m" x="400" y="156" text-anchor="middle">STIX oficial → catálogo v20</text>
+  <rect class="s-box" x="580" y="60" width="200" height="70" rx="8"/><text class="s-t" x="680" y="90" text-anchor="middle" font-weight="700">kpis.py</text><text class="s-m" x="680" y="110" text-anchor="middle">período · natureza · recomendações</text>
+  <rect class="s-box" x="850" y="20" width="190" height="60" rx="8"/><text class="s-t" x="945" y="47" text-anchor="middle" font-weight="700">core/evidence.py</text><text class="s-m" x="945" y="66" text-anchor="middle">seal / verify SHA-256</text>
+  <rect class="s-box" x="850" y="110" width="190" height="60" rx="8"/><text class="s-t" x="945" y="137" text-anchor="middle" font-weight="700">relatorio.py</text><text class="s-m" x="945" y="156" text-anchor="middle">HTML estático</text>
+  <rect class="s-box" x="580" y="190" width="200" height="60" rx="8"/><text class="s-t" x="680" y="217" text-anchor="middle" font-weight="700">__main__.py</text><text class="s-m" x="680" y="236" text-anchor="middle">CLI analisar / verificar</text>
+  <path class="s-line" d="M220 50H300M220 140H260V60H300M500 50H540V85H580M500 140H540V105H580M780 95H815V50H850M780 95H815V140H850M680 130V190M220 220H580"/>
+</svg>
+<table><thead><tr><th>Símbolo no relatório</th><th>Significado</th></tr></thead><tbody>
+<tr><td>Célula laranja forte</td><td>≥ 3 alertas mapeados na técnica.</td></tr>
+<tr><td>Célula laranja clara</td><td>1–2 alertas.</td></tr>
+<tr><td>Borda verde-água</td><td>Há alerta do último mês do período.</td></tr>
+<tr><td><b>C</b> / <b>E</b></td><td>Alerta de comportamento / de exposição (postura).</td></tr>
+<tr><td>Linha vermelha</td><td>Par de Configuration Download fora do baseline.</td></tr>
+</tbody></table>
+
+<h2 id="problemas"><span class="n2">09</span>Solução de problemas</h2>
+<details><summary>“Python 3.10+ não encontrado”</summary><p>Instale pelo python.org. No Windows, reinstale marcando “Add python.exe to PATH”. Teste com <kbd>python --version</kbd> ou <kbd>py -3 --version</kbd>.</p></details>
+<details><summary>“Apenas exportações explicitamente marcadas como sintéticas são aceitas”</summary><p>É a trava do repositório público. Use o caso demo ou gere outro sintético com <code>gerar_demo.py</code>. Dados reais pertencem a uma cópia privada, sob a política de dados da sua organização.</p></details>
+<details><summary>“--de deve estar no formato AAAA-MM” ou “Período inválido”</summary><p>Use meses com dois dígitos (<code>2026-01</code>) e o início antes do fim.</p></details>
+<details><summary>No macOS: “não pode ser aberto porque é de um desenvolvedor não identificado”</summary><p>Botão direito no <code>.command</code> → Abrir → Abrir. Só na primeira vez.</p></details>
+<details><summary>O relatório abriu sem cores/filtros</summary><p>O HTML usa um pequeno script embutido. Abra num navegador atual (Chrome, Edge, Firefox, Safari). Visualizadores de pré-visualização de e-mail podem bloquear scripts.</p></details>
+<details><summary>Meu índice usa outros nomes de campo</summary><p>Edite só <code>manometro/campos.py</code>. Os campos marcados <code>"suposto"</code> não estão na referência pública da integração e o relatório os lista no rodapé.</p></details>
+<details><summary>“verificar” diz ALTERADO</summary><p>O payload do JSON foi modificado depois de gerado (até um espaço dentro de um valor muda o digest). Gere de novo a partir da exportação.</p></details>
+
+<h2 id="glossario"><span class="n2">10</span>Glossário</h2>
+<dl class="glos">
+<dt>OT / ICS</dt><dd>Tecnologia operacional / sistemas de controle industrial: PLCs, RTUs, HMIs, SCADA.</dd>
+<dt>Re-coleta</dt><dd>Nova consulta da integração à API, que grava outra vez o estado do alerta.</dd>
+<dt>Fan-out</dt><dd>Um documento por dispositivo afetado; um alerta com 30 dispositivos gera 30 documentos por coleta.</dd>
+<dt>Deduplicação</dt><dd>Agrupar documentos do mesmo alerta e manter só o estado vigente.</dd>
+<dt>ATT&amp;CK for ICS</dt><dd>Taxonomia da MITRE de comportamentos adversários em ambientes industriais. v20.0: 12 táticas, 78 técnicas, 26 subtécnicas.</dd>
+<dt>ID revogado</dt><dd>Técnica substituída por outra numa versão nova (ex.: T0855 → T1692.001 no v20.0).</dd>
+<dt>Comportamento × exposição</dt><dd>Algo que alguém fez (scan, escrita) × uma condição do ambiente (firmware velho, SMBv1).</dd>
+<dt>Purdue</dt><dd>Modelo didático de níveis (0 a 5) de uma arquitetura industrial.</dd>
+<dt>EoL</dt><dd>End of Life: fora do suporte do fabricante.</dd>
+<dt>Baseline</dt><dd>Lista declarada do que é esperado (aqui: quem pode fazer Configuration Download para quem).</dd>
+<dt>SHA-256 / digest</dt><dd>Impressão digital do payload. Detecta alteração; não prova quem gerou.</dd>
+</dl>
+
+<h2 id="tecnico"><span class="n2">11</span>Seção técnica e resultado dos testes</h2>
+<div class="grid2">
+<div class="box"><h3>Garantias</h3><ul>
+<li>Biblioteca padrão do Python apenas; nenhum <code>socket</code>, <code>urllib</code> ou subprocesso.</li>
+<li>Catálogo ATT&amp;CK derivado do STIX oficial <code>ics-attack-20.0.json</code> (SHA-256 <code>c9ca0ce5…1e1183</code>), com contagens conferidas em teste.</li>
+<li>Resultado determinístico: mesma exportação + mesmo período = mesmo digest.</li>
+<li>Entrada nunca é alterada (teste dedicado).</li>
+</ul></div>
+<div class="box"><h3>Resultado dos testes</h3>
+<p>25 testes (9 do núcleo + 16 do Manômetro), executados em workspace Linux na nuvem em 23/10/2026, Python 3.13 e 3.11: <b>todos passaram</b>. Detalhes em <a href="RELATORIO-TESTES.md">RELATORIO-TESTES.md</a>. O GitHub Actions repete a bateria a cada push.</p>
+<pre>python3 -m unittest discover -s tests -v</pre></div>
+</div>
+<p>Limites conhecidos: valores de <code>category</code>/<code>status</code> do fornecedor variam por ambiente e ficam na política; o sentido de “download/upload” deve ser confirmado com o fornecedor; dois campos de nome de dispositivo em eventos são supostos.</p>
+
+</main>
+<footer>MANÔMETRO · Caldeira Cyber OT Labs. MITRE ATT&amp;CK® é marca registrada de The MITRE Corporation; nomes e IDs usados conforme os Termos de Uso do ATT&amp;CK. Projeto independente, sem afiliação com MITRE, Claroty ou Elastic. Dados do demo são fictícios.</footer>
+<script>
+(function(){
+  function theme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('manometro-manual-theme',t)}catch(e){}}
+  document.querySelectorAll('[data-th]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('[data-th]').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');theme(b.dataset.th);});});
+  try{var t=localStorage.getItem('manometro-manual-theme');if(t)document.querySelector('[data-th="'+t+'"]').click();}catch(e){}
+  document.querySelectorAll('[data-tabs]').forEach(function(box){
+    var tabs=[].slice.call(box.querySelectorAll('[role=tab]'));
+    function sel(tab){tabs.forEach(function(t){var on=t===tab;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});tab.focus();}
+    tabs.forEach(function(t,i){t.addEventListener('click',function(){sel(t)});t.addEventListener('keydown',function(e){if(e.key==='ArrowRight')sel(tabs[(i+1)%tabs.length]);if(e.key==='ArrowLeft')sel(tabs[(i-1+tabs.length)%tabs.length]);});});
+    var ua=navigator.userAgent;var pre=/Mac/.test(ua)?'t-mac':(/Linux|X11/.test(ua)&&!/Android/.test(ua)?'t-lin':null);
+    if(pre){var el=document.getElementById(pre);if(el){tabs.forEach(function(t){var on=t===el;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});}}
+  });
+  var passos=[].slice.call(document.querySelectorAll('#guiado input'));
+  function trava(){var livre=true;passos.forEach(function(p){p.disabled=!livre;if(!p.checked)livre=false;p.closest('li').style.opacity=p.disabled?.45:1;});}
+  passos.forEach(function(p){p.addEventListener('change',trava)});trava();
+})();
+</script>
+</body>
+</html>

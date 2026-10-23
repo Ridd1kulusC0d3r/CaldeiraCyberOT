@@ -13,7 +13,7 @@
 
 **Caldeira Cyber OT Labs** é um hub independente de estudos globais sobre **OT / ICS / SCADA**, com um núcleo didático de **detecção baseada em eventos sintéticos, evidências verificáveis e inteligência aplicada**.
 
-[**COMECE AQUI**](COMECE-AQUI.md) · [**ABRIR PORTAL VISUAL**](docs/PORTAL.md) · [**CASOS DE DETECÇÃO**](cases/README.md) · [**ATLAS DE INCIDENTES**](docs/casos-ot/README.md) · [**ARQUITETURA**](docs/arquitetura-labs.md)
+[**COMECE AQUI**](COMECE-AQUI.md) · [**MANÔMETRO · KPI OT**](manometro/README.md) · [**ABRIR PORTAL VISUAL**](docs/PORTAL.md) · [**CASOS DE DETECÇÃO**](cases/README.md) · [**ATLAS DE INCIDENTES**](docs/casos-ot/README.md) · [**ARQUITETURA**](docs/arquitetura-labs.md)
 
 </div>
 
@@ -59,6 +59,7 @@ Regras puras sobre metadados fictícios, validação de baseline, resultados exp
 | **DETECTION CORE** | [Modbus policy](core/detectors/ot/modbus.py) · [IT/OT boundary](core/detectors/it/boundary.py) | **Implementado** |
 | **EVIDENCE ENGINE** | [JSON canônico e SHA-256](core/evidence.py) | **Implementado** |
 | **OFFLINE RUNNER** | [Análise de fixtures](core/runner.py) | **Implementado** |
+| **MANÔMETRO · KPI OT** | [Dedup, ATT&CK for ICS v20.0, exposição, baseline e saúde da coleta](manometro/README.md) | **Implementado (dados sintéticos)** |
 | **SIM BACKENDS** | [OpenPLC, GRFICS, Conpot e outros](sims/README.md) | **Planejados / não integrados** |
 | **EXTERNAL LAB** | [Mininet / Mininet-Sec](https://github.com/Ridd1kulusC0d3r/mininet) | **Projeto distinto** |
 
@@ -90,6 +91,16 @@ python -m core.runner cases/fixtures/boundary-policy.json
 ```
 
 **SHA-256 mede integridade, não autenticidade.** A validação indica se o payload difere do digest fornecido, mas não atesta quem gerou o arquivo. [Ver documentação](docs/arquitetura-labs.md).
+
+### Novo braço · MANÔMETRO (KPIs de OT)
+
+Transforma documentos da integração **Claroty xDome → Elastic** em KPIs defensáveis: deduplica re-coletas por `claroty_xdome.alert.id`, normaliza IDs para o **ATT&CK for ICS v20.0** (derivado do STIX oficial), separa **comportamento** de **exposição**, mede ativos obsoletos, valida **Configuration Download** contra baseline e mostra a **saúde da coleta**. Offline, stdlib, dados sintéticos.
+
+```bash
+python -m manometro analisar manometro/fixtures/demo-xdome.json --de 2026-01 --ate 2026-10 --html saida/manometro-demo.html
+```
+
+[README do braço](manometro/README.md) · [COMECE AQUI](manometro/COMECE-AQUI.md) · [Manual ilustrado](manometro/MANUAL.html)
 
 ## 04 / Threat intelligence & technique accuracy
 
