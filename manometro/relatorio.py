@@ -176,46 +176,70 @@ def renderizar(env):
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2317150f'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23f3f0e8' stroke-width='2'/%3E%3Cpath d='M16 16l6-5' stroke='%23e99754' stroke-width='3'/%3E%3C/svg%3E">
 <title>Manômetro OT KPI</title>
 <style>
-:root{{--bg:#f4f8f5;--panel:#ffffff;--panel2:#eaf1ef;--line:#c9d8d5;--ink:#0b2026;--muted:#4d6a6f;--acc:#b8642a;--mint:#1f8a76;--c3:#b8642a;--c3bg:#f6dcc4;--c1bg:#fbeee2;--bad:#b3261e;--font:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}}
-@media (prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--bg:#07171d;--panel:#0f2a33;--panel2:#0b222a;--line:#244751;--ink:#f4f8f5;--muted:#a9c8c5;--acc:#e99754;--mint:#57c9b2;--c3:#e99754;--c3bg:#8a4b17;--c1bg:#4a2e14;--bad:#ff8a80}}}}
-:root[data-theme="dark"]{{--bg:#07171d;--panel:#0f2a33;--panel2:#0b222a;--line:#244751;--ink:#f4f8f5;--muted:#a9c8c5;--acc:#e99754;--mint:#57c9b2;--c3:#e99754;--c3bg:#8a4b17;--c1bg:#4a2e14;--bad:#ff8a80}}
-*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.5}}
-.wrap{{max-width:1500px;margin:0 auto;padding:16px}}
-header.top{{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px}}
-h1{{font-size:20px;margin:0}}h1 small{{display:block;font-size:12px;color:var(--muted);font-weight:400}}
-.tools{{display:flex;gap:8px;flex-wrap:wrap}}.seg{{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}}
-.seg button{{background:transparent;color:var(--ink);border:0;padding:6px 12px;cursor:pointer;font:inherit}}.seg button[aria-pressed="true"]{{background:var(--mint);color:#04161a;font-weight:700}}
-button:focus-visible,input:focus-visible,a:focus-visible{{outline:3px solid var(--acc);outline-offset:2px}}
-.chips{{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}}.chip{{border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--muted)}}.chip code{{font-family:var(--mono)}}.chip.syn{{border-color:var(--mint);color:var(--mint);font-weight:700}}
-.banner{{display:inline-block;border:1px solid var(--acc);color:var(--acc);border-radius:999px;padding:4px 12px;text-decoration:none;font-weight:600}}
-.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}}
-.card{{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--mint);border-radius:10px;padding:12px 14px}}.card.a{{border-left-color:var(--acc)}}.card.r{{border-left-color:var(--bad)}}
-.card h3{{margin:0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}}.card .v{{font-size:30px;font-weight:800;font-family:var(--mono)}}.card .v small{{font-size:15px;color:var(--muted)}}.card p{{margin:2px 0 0;color:var(--muted);font-size:12.5px}}
-h2{{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px}}
-.box{{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}}
-.mt{{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}}.mt div{{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 12px}}.mt b{{font-size:22px;font-family:var(--mono)}}.mt small{{display:block;color:var(--muted);font-size:12px}}
-.ctl{{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:8px 0 10px}}.ctl input[type=search]{{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 10px;min-width:260px}}
-.leg{{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:6px 0 10px}}.leg i{{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-2px;border:1px solid var(--line)}}
-.grid{{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}}.col{{min-width:168px;max-width:168px;display:flex;flex-direction:column;gap:5px}}
-.col header{{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center}}.col h4{{margin:0;font-size:12.5px}}.col small{{color:var(--muted);font-size:11px}}
-.bar{{display:block;height:4px;background:var(--line);border-radius:2px;margin-top:4px;overflow:hidden}}.bar i{{display:block;height:100%;background:var(--acc)}}
+/* Família visual LLMInjection · mesa do analista: papel, tinta, uma cor de sinal (cobre). */
+:root{{--paper:#f3f0e8;--paper-2:#ebe7dc;--card:#fbf9f3;--ink:#17150f;--ink-2:#4a463c;--ink-3:#68635a;--rule:#cfc9ba;--rule-2:#e0dacb;--signal:#9c4a0c;--signal-ink:#fff;--seq-1:#ecbe92;--seq-3:#9c4a0c;--on-seq-3:#fff;--serif:Georgia,"Iowan Old Style","Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;color-scheme:light}}
+@media (prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--paper:#131210;--paper-2:#1b1915;--card:#1b1915;--ink:#ece8dd;--ink-2:#b9b4a6;--ink-3:#908b7d;--rule:#37332b;--rule-2:#27241e;--signal:#e99754;--signal-ink:#131210;--seq-1:#6b4224;--seq-3:#e99754;--on-seq-3:#131210;color-scheme:dark}}}}
+:root[data-theme="dark"]{{--paper:#131210;--paper-2:#1b1915;--card:#1b1915;--ink:#ece8dd;--ink-2:#b9b4a6;--ink-3:#908b7d;--rule:#37332b;--rule-2:#27241e;--signal:#e99754;--signal-ink:#131210;--seq-1:#6b4224;--seq-3:#e99754;--on-seq-3:#131210;color-scheme:dark}}
+*{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);font:14px/1.55 var(--sans)}}
+a{{color:var(--ink);text-decoration-color:var(--signal);text-underline-offset:3px}}
+.wrap{{max-width:1500px;margin:0 auto;padding:0 24px 24px}}
+header.top{{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:end;border-bottom:1px solid var(--ink);padding:22px 0 18px}}
+h1{{font:700 clamp(26px,3.4vw,40px)/1.05 var(--serif);letter-spacing:-.01em;margin:0}}h1 small{{display:block;margin-top:10px;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}}
+.tools{{display:flex;gap:8px;flex-wrap:wrap}}.seg{{display:inline-flex;border:1px solid var(--rule)}}
+.seg button{{background:none;color:var(--ink-2);border:0;border-left:1px solid var(--rule);padding:6px 10px;cursor:pointer;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase}}.seg button:first-child{{border-left:0}}
+.seg button:hover{{color:var(--ink)}}.seg button[aria-pressed="true"]{{background:var(--ink);color:var(--paper)}}
+button:focus-visible,input:focus-visible,a:focus-visible{{outline:2px solid var(--signal);outline-offset:2px}}
+.chips{{display:flex;gap:6px 18px;flex-wrap:wrap;margin:14px 0 4px;font:600 11px var(--mono);letter-spacing:.06em;color:var(--ink-3)}}.chip code{{font-family:var(--mono)}}
+.chip.syn{{color:var(--ink);border:1px solid var(--ink);padding:1px 6px}}
+.banner{{display:block;margin:10px 0 0;padding:8px 12px;border-left:3px solid var(--signal);background:var(--paper-2);color:var(--ink);text-decoration:none;font-size:13px}}.banner:hover{{color:var(--signal)}}
+.cards{{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);margin:18px 0 0}}
+.card{{padding:14px 16px 14px;border-left:1px solid var(--rule)}}.card:first-child{{border-left:0;padding-left:0}}
+.card h3{{margin:0;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}}
+.card .v{{font:600 34px/1.1 var(--mono);letter-spacing:-.03em;margin-top:6px}}.card .v small{{font-size:15px;color:var(--ink-3)}}
+.card p{{margin:4px 0 0;color:var(--ink-2);font-size:12.5px}}.card.r .v{{color:var(--signal)}}
+h2{{font:700 22px/1.2 var(--serif);margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--ink)}}
+.box{{padding:4px 0 0;overflow-x:auto;min-width:0}}
+.mt{{display:flex;flex-wrap:wrap;gap:0;margin-bottom:12px;border-bottom:1px solid var(--rule)}}.mt div{{padding:6px 22px 10px;border-left:1px solid var(--rule)}}.mt div:first-child{{border-left:0;padding-left:0}}
+.mt b{{font:600 26px var(--mono);letter-spacing:-.02em}}.mt small{{display:block;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}}
+.ctl{{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;margin:8px 0 10px}}
+.ctl input[type=search]{{font:14px var(--sans);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink);padding:6px 2px;border-radius:0;min-width:280px}}.ctl input[type=search]:focus{{outline:none;border-bottom-color:var(--signal)}}
+.ctl label{{font-size:13px;color:var(--ink-2)}}input[type=checkbox]{{accent-color:var(--signal)}}
+.leg{{display:flex;gap:6px 20px;flex-wrap:wrap;font:600 11px var(--mono);letter-spacing:.04em;color:var(--ink-3);margin:6px 0 12px;padding:8px 0;border-top:1px solid var(--rule-2);border-bottom:1px solid var(--rule-2)}}
+.leg i{{display:inline-block;width:12px;height:12px;margin-right:6px;vertical-align:-2px;border:1px solid var(--rule)}}
+.grid{{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px}}.col{{min-width:170px;max-width:170px;display:flex;flex-direction:column;gap:4px}}
+.col header{{border-bottom:1px solid var(--ink);padding:0 0 8px;margin-bottom:4px}}.col h4{{margin:0;font:700 14px/1.2 var(--serif);min-height:34px}}
+.col small{{font:600 10.5px var(--mono);color:var(--ink-3);letter-spacing:.06em}}
+.bar{{display:block;height:4px;background:var(--rule-2);margin-top:5px;overflow:hidden}}.bar i{{display:block;height:100%;background:var(--seq-3)}}
 td .bar{{width:120px;height:8px}}
-.tec{{border:1px solid var(--line);border-radius:6px;padding:6px 7px;font-size:12px;background:var(--panel)}}.tec .th{{display:flex;gap:4px;align-items:flex-start}}.tn{{flex:1}}.tid,.sid{{font-family:var(--mono);font-size:10px;color:var(--muted)}}
-.tec .n,.sub .n{{font-family:var(--mono);font-weight:800}}.subcount{{font-family:var(--mono);font-size:10px;color:var(--muted)}}
-.tec.c3{{background:var(--c3bg);border-color:var(--c3)}}.tec.c1{{background:var(--c1bg);border-color:var(--c3)}}.tec.mes{{box-shadow:inset 0 0 0 2px var(--mint)}}
-.det{{display:none;margin-top:6px}}.open .det{{display:block}}.sub{{border:1px dashed var(--line);border-radius:5px;padding:3px 6px;margin:3px 0;font-size:11px;display:flex;gap:4px}}.sub.c1,.sub.c3{{border-style:solid;border-color:var(--c3)}}
-.det .lbl{{margin:6px 0 2px;font-size:10px;letter-spacing:.06em;color:var(--muted)}}.det ul{{margin:0;padding:0;list-style:none}}.det li{{background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:3px 5px;margin:3px 0;font-size:11px}}
-.nat{{font-style:normal;font-size:10px;font-weight:800;border-radius:4px;padding:0 4px;margin-left:4px}}.nat.comportamento{{background:var(--mint);color:#04161a}}.nat.exposicao{{background:var(--line);color:var(--ink)}}
-.hide{{display:none!important}}.nota{{color:var(--muted);font-size:12.5px;margin:6px 0 0}}
-table{{width:100%;border-collapse:collapse;font-size:13px}}th,td{{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}}th{{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}}td code{{font-family:var(--mono)}}td small{{color:var(--muted)}}
-tr.fora td{{color:var(--bad);font-weight:600}}.ok{{color:var(--mint);font-weight:700}}.bad{{color:var(--bad);font-weight:800}}
-.two{{align-items:start;display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:12px}}
-.meses{{display:flex;gap:6px;align-items:flex-end;height:150px;padding-top:10px}}.mcol{{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:2px}}.mcol i{{display:block;width:70%;background:var(--mint);border-radius:3px 3px 0 0;min-height:2px}}.mv{{font-family:var(--mono);font-size:11px}}.ml{{font-size:10px;color:var(--muted)}}
-ol.rec{{margin:0;padding-left:18px}}ol.rec li{{margin:6px 0}}ol.rec span{{font-family:var(--mono);font-size:10px;font-weight:800;border-radius:4px;padding:1px 5px;margin-right:8px;background:var(--line)}}ol.rec .p-alta span{{background:var(--bad);color:#fff}}ol.rec .p-media span{{background:var(--acc);color:#04161a}}
-footer{{margin:28px 0 10px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:10px}}footer code{{font-family:var(--mono);word-break:break-all}}
-@media (max-width:640px){{.ctl input[type=search]{{min-width:0;width:100%}}.two{{grid-template-columns:1fr}}}}
+.tec{{border:1px solid var(--rule);padding:6px 7px;font-size:12px;background:var(--card)}}.tec .th{{display:flex;gap:4px;align-items:flex-start}}.tn{{flex:1}}
+.tid,.sid{{font:10.5px var(--mono);color:var(--ink-3)}}.tec .n,.sub .n{{font:700 12px var(--mono)}}.subcount{{font:10px var(--mono);color:var(--ink-3)}}
+.tec.c1{{background:var(--seq-1);border-color:var(--seq-3)}}
+.tec.c3{{background:var(--seq-3);border-color:var(--seq-3);color:var(--on-seq-3)}}.tec.c3 .tid,.tec.c3 .subcount,.tec.c3>.det>.lbl{{color:var(--on-seq-3);opacity:.85}}
+.tec.mes{{position:relative}}.tec.mes:after{{content:"";position:absolute;top:-4px;right:-4px;width:9px;height:9px;background:var(--ink);border:2px solid var(--paper);border-radius:50%}}
+.det{{display:none;margin-top:6px}}.open .det{{display:block}}
+.sub{{border:1px dashed var(--rule);padding:3px 6px;margin:3px 0;font-size:11px;display:flex;gap:4px;background:var(--card);color:var(--ink)}}.sub .sid{{color:var(--ink-3)}}.sub.c1,.sub.c3{{border-style:solid;border-color:var(--ink)}}
+.det .lbl{{margin:6px 0 2px;font:600 10px var(--mono);letter-spacing:.1em;color:var(--ink-3)}}.det ul{{margin:0;padding:0;list-style:none}}
+.det li{{background:var(--card);color:var(--ink);border:1px solid var(--rule);padding:3px 5px;margin:3px 0;font-size:11px}}
+.nat{{font:700 10px var(--mono);font-style:normal;padding:0 4px;margin-left:4px;border:1px solid var(--ink)}}.nat.comportamento{{background:var(--ink);color:var(--paper)}}.nat.exposicao{{background:transparent;color:var(--ink)}}
+.hide{{display:none!important}}.nota{{color:var(--ink-3);font:12px var(--mono);margin:8px 0 0}}
+table{{width:100%;border-collapse:collapse;font-size:13.5px}}th{{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--ink)}}
+td{{padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top;text-align:left}}td code{{font-family:var(--mono)}}td small{{color:var(--ink-3)}}
+tr.fora td{{color:var(--signal);font-weight:600}}.ok{{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}}
+.bad{{font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--signal);border:1px solid var(--signal);padding:1px 5px;white-space:nowrap}}
+.two{{align-items:start;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:12px 48px}}.two>.box{{min-width:0;overflow-x:auto}}
+.meses{{display:flex;gap:6px;align-items:flex-end;height:150px;padding-top:10px;border-bottom:1px solid var(--ink)}}.mcol{{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:2px}}
+.mcol i{{display:block;width:70%;background:var(--seq-3);min-height:2px}}.mv{{font:11px var(--mono)}}.ml{{font:10px var(--mono);color:var(--ink-3)}}
+ol.rec{{margin:0;padding:0;list-style:none;counter-reset:r}}ol.rec li{{counter-increment:r;display:grid;grid-template-columns:28px 64px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--rule)}}ol.rec li:last-child{{border-bottom:1px solid var(--rule)}}
+ol.rec li:before{{content:counter(r,decimal-leading-zero);font:600 12px var(--mono);color:var(--ink-3)}}
+ol.rec span{{align-self:start;justify-self:start;font:600 10px var(--mono);letter-spacing:.08em;padding:1px 5px;border:1px solid var(--rule);color:var(--ink-3)}}
+ol.rec .p-alta span{{background:var(--signal);border-color:var(--signal);color:var(--signal-ink)}}ol.rec .p-media span{{border-color:var(--ink);color:var(--ink)}}
+footer{{margin:34px 0 10px;color:var(--ink-3);font:12px var(--mono);border-top:1px solid var(--ink);padding-top:12px}}footer code{{font-family:var(--mono);word-break:break-all}}
+@media (max-width:1100px){{.cards{{grid-template-columns:repeat(3,minmax(0,1fr))}}.card:nth-child(4){{border-left:0;padding-left:0}}.card{{border-top:1px solid var(--rule)}}}}
+@media (max-width:640px){{.wrap{{padding:0 16px 16px}}.cards{{grid-template-columns:repeat(2,minmax(0,1fr))}}.card:nth-child(odd){{border-left:0;padding-left:0}}.card:nth-child(4){{border-left:1px solid var(--rule);padding-left:16px}}.ctl input[type=search]{{min-width:0;width:100%}}.two{{grid-template-columns:1fr}}}}
+@media print{{.tools,.ctl{{display:none!important}}body{{background:#fff}}}}
 </style>
 </head>
 <body>
@@ -269,7 +293,7 @@ footer{{margin:28px 0 10px;color:var(--muted);font-size:12px;border-top:1px soli
     <label><input type="checkbox" id="expandir" checked> <span data-i18n="f_expandir">Expandir subtécnicas e alertas</span></label>
     <label><input type="checkbox" id="mes"> <span data-i18n="f_mes">Só alertas do último mês</span> ({E(per["ultimo_mes"])})</label>
   </div>
-  <div class="leg"><span><i style="background:var(--c3bg);border-color:var(--c3)"></i><span data-i18n="l_3">≥3 alertas</span></span><span><i style="background:var(--c1bg);border-color:var(--c3)"></i><span data-i18n="l_12">1–2 alertas</span></span><span><i></i><span data-i18n="l_0">Sem alertas</span></span><span><i style="box-shadow:inset 0 0 0 2px var(--mint)"></i><span data-i18n="l_mes">Alerta do último mês</span></span><span><em class="nat comportamento">C</em> comportamento <em class="nat exposicao">E</em> exposição</span></div>
+  <div class="leg"><span><i style="background:var(--seq-3);border-color:var(--seq-3)"></i><span data-i18n="l_3">≥3 alertas</span></span><span><i style="background:var(--seq-1);border-color:var(--seq-3)"></i><span data-i18n="l_12">1–2 alertas</span></span><span><i></i><span data-i18n="l_0">Sem alertas</span></span><span><i style="border-radius:50%;background:var(--ink);width:9px;height:9px"></i><span data-i18n="l_mes">Alerta do último mês</span></span><span><em class="nat comportamento">C</em> comportamento <em class="nat exposicao">E</em> exposição</span></div>
   <div class="grid" id="grade">{colunas}</div>
   <p class="nota" data-i18n="m_nota">Mapeamento do fornecedor, não prova de execução. Uma técnica que pertence a N táticas conta nas N.</p>
 </div>

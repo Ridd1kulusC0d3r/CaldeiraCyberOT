@@ -10,7 +10,7 @@ O MANÔMETRO lê uma exportação de documentos da integração **Claroty xDome 
 2. **Normalização ATT&CK for ICS v20.0.** O catálogo é derivado do STIX oficial da MITRE (12 táticas · 78 técnicas · 26 subtécnicas). IDs revogados viram o substituto oficial (`T0855 → T1692.001`, `T0857 → T1693.001`, `T0812 → T1694.001`) e IDs de outro domínio no campo de ICS (ex.: `T1059`) ficam fora da cobertura.
 3. **Comportamento × exposição.** Alerta de postura (categoria `Risk`: SMBv1, firmware antigo, certificado vencido) não é adversário. A matriz mostra os dois e filtra cada um.
 
-Junto vêm exposição de ativos (fim de vida, firmware, protocolo legado por nível Purdue), **Configuration Download** origem → destino contra baseline e **saúde da coleta**. A saída é um envelope JSON com SHA-256 (via [`core/evidence.py`](../core/evidence.py)) e um relatório HTML estático PT/EN, claro/escuro/sistema.
+Junto vêm exposição de ativos (fim de vida, firmware, protocolo legado por nível Purdue), **Configuration Download** origem → destino contra baseline e **saúde da coleta**. A saída é um envelope JSON com SHA-256 (via [`core/evidence.py`](../core/evidence.py)) e um relatório HTML estático PT/EN, claro/escuro/sistema, na identidade visual v3 do Caldeira (família LLMInjection, ver [BRAND.md](../assets/brand/BRAND.md)).
 
 > [!IMPORTANT]
 > **Escopo do repositório público:** somente dados sintéticos (`"synthetic": true`), offline, sem sockets, sem conexão com Elastic, API do fornecedor ou ativos OT. O mapeamento ATT&CK é do fornecedor e **não prova execução** da técnica.

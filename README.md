@@ -4,10 +4,11 @@
 
 <br>
 
-[![LAB MODE](https://img.shields.io/badge/LAB-OFFLINE%20%2B%20SYNTHETIC-57C9B2?style=for-the-badge&labelColor=07171D)](COMECE-AQUI.md)
-[![ICS RESEARCH](https://img.shields.io/badge/ICS-RESEARCH%20ATLAS-E99754?style=for-the-badge&labelColor=07171D)](docs/casos-ot/README.md)
-[![EVIDENCE](https://img.shields.io/badge/EVIDENCE-SHA256%20INTEGRITY-88B4BE?style=for-the-badge&labelColor=07171D)](core/evidence.py)
-[![PYTHON](https://img.shields.io/badge/PYTHON-STDLIB%20ONLY-CDD9D6?style=for-the-badge&labelColor=07171D)](tests/test_core.py)
+[![Testes offline](https://img.shields.io/github/actions/workflow/status/Ridd1kulusC0d3r/CaldeiraCyberOT/ot-labs-tests.yml?style=flat-square&label=testes%20offline&labelColor=17150f&color=9c4a0c)](.github/workflows/ot-labs-tests.yml)
+[![Lab](https://img.shields.io/badge/lab-offline%20%2B%20sint%C3%A9tico-4a463c?style=flat-square&labelColor=17150f)](COMECE-AQUI.md)
+[![Evidência](https://img.shields.io/badge/evid%C3%AAncia-SHA--256-4a463c?style=flat-square&labelColor=17150f)](core/evidence.py)
+[![Python](https://img.shields.io/badge/python-stdlib-4a463c?style=flat-square&labelColor=17150f)](tests/test_core.py)
+[![ATT&CK for ICS](https://img.shields.io/badge/ATT%26CK%20for%20ICS-v20.0-9c4a0c?style=flat-square&labelColor=17150f)](manometro/README.md)
 
 ### Threat intelligence is not just a report. Detection is not just an alert.
 
@@ -20,7 +21,7 @@
 ---
 
 > [!IMPORTANT]
-> **Status real do projeto.** Implementado: dois detectores puros, runner local offline, fixtures sintéticas, digest SHA-256 e testes. OpenPLC, GRFICS, ScadaBR, Conpot e outros backends são **pesquisa e integração futura**, não funcionalidades disponíveis. O repositório [Mininet](https://github.com/Ridd1kulusC0d3r/mininet) é independente e é citado apenas como referência.
+> **Status real do projeto.** Implementado: dois detectores puros, runner local offline, fixtures sintéticas, digest SHA-256, testes e o braço [Manômetro](manometro/README.md) de KPIs de OT sobre exportações sintéticas. OpenPLC, GRFICS, ScadaBR, Conpot e outros backends são **pesquisa e integração futura**, não funcionalidades disponíveis. O repositório [Mininet](https://github.com/Ridd1kulusC0d3r/mininet) é independente e é citado apenas como referência.
 >
 > **Safety first:** nenhuma operação neste repositório interage com sistemas OT reais. Nada aqui se destina a produção ou decisão automática sobre processo físico.
 
@@ -29,7 +30,9 @@
 <table><tr>
 <td width="50%" valign="top">
 
-### <img src="https://img.shields.io/badge/01-RESEARCH-E99754?style=flat-square&labelColor=07171D" alt="01 Research"> Global OT Research
+<sub><code>01 · RESEARCH</code></sub>
+
+### Global OT Research
 
 Atlas de casos, relatórios anuais, fontes primárias, pesquisadores, fornecedores, ameaças, standards e metodologia de CTI industrial.
 
@@ -38,7 +41,9 @@ Atlas de casos, relatórios anuais, fontes primárias, pesquisadores, fornecedor
 </td>
 <td width="50%" valign="top">
 
-### <img src="https://img.shields.io/badge/02-LABS-57C9B2?style=flat-square&labelColor=07171D" alt="02 Labs"> Detection & Evidence
+<sub><code>02 · LABS</code></sub>
+
+### Detection & Evidence
 
 Regras puras sobre metadados fictícios, validação de baseline, resultados explicáveis, fixtures reproduzíveis e digest SHA-256.
 
