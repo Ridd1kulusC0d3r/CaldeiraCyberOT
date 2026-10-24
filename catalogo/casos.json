@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "reviewed_on": "2026-10-18",
+  "reviewed_on": "2026-10-23",
   "description": "Catálogo histórico editorial. Não contém comandos, alvos nem instruções operacionais.",
   "cases": [
     {
@@ -12,7 +12,12 @@
       "ot_impact": "documented",
       "evidence_level": "B",
       "primary_url": "https://cyote.inl.gov/tools/cyote-insights/",
-      "notes": "Comparação histórica; decompor a cadeia de fontes do PAR antes de atribuir etapas."
+      "notes": "Comparação histórica; decompor a cadeia de fontes do PAR antes de atribuir etapas.",
+      "attack_refs": [
+        "C0028",
+        "S0089",
+        "G0034"
+      ]
     },
     {
       "id": "CAL-CASE-002",
@@ -23,7 +28,12 @@
       "ot_impact": "documented",
       "evidence_level": "B",
       "primary_url": "https://cyote.inl.gov/tools/cyote-insights/",
-      "notes": "Caso histórico; preserva distinção entre malware, mecanismo e impacto."
+      "notes": "Caso histórico; preserva distinção entre malware, mecanismo e impacto.",
+      "attack_refs": [
+        "C0025",
+        "S0604",
+        "G0034"
+      ]
     },
     {
       "id": "CAL-CASE-003",
@@ -34,7 +44,12 @@
       "ot_impact": "operational_disruption",
       "evidence_level": "A",
       "primary_url": "https://cloud.google.com/blog/topics/threat-intelligence/attackers-deploy-new-ics-attack-framework-triton",
-      "notes": "Capacidade sobre SIS; intenção de dano foi avaliação dos investigadores."
+      "notes": "Capacidade sobre SIS; intenção de dano foi avaliação dos investigadores.",
+      "attack_refs": [
+        "C0030",
+        "S1009",
+        "G0088"
+      ]
     },
     {
       "id": "CAL-CASE-004",
@@ -45,7 +60,10 @@
       "ot_impact": "not_confirmed",
       "evidence_level": "A",
       "primary_url": "https://cloud.google.com/blog/topics/threat-intelligence/incontroller-state-sponsored-ics-tool/",
-      "notes": "Ferramentas analisadas; sem incidente específico confirmado na publicação inicial."
+      "notes": "Ferramentas analisadas; sem incidente específico confirmado na publicação inicial.",
+      "attack_refs": [
+        "S1045"
+      ]
     },
     {
       "id": "CAL-CASE-005",
@@ -56,7 +74,12 @@
       "ot_impact": "attempt_documented",
       "evidence_level": "A",
       "primary_url": "https://www.welivesecurity.com/2022/04/12/industroyer2-industroyer-reloaded/",
-      "notes": "ESET/CERT-UA; tentativa disruptiva observada."
+      "notes": "ESET/CERT-UA; tentativa disruptiva observada.",
+      "attack_refs": [
+        "C0034",
+        "S1072",
+        "G0034"
+      ]
     },
     {
       "id": "CAL-CASE-006",
@@ -71,7 +94,11 @@
         "T0836",
         "T0829"
       ],
-      "notes": "Técnicas selecionadas presentes em MITRE Campaign C0041, sem atribuir toda a cronologia a um único mecanismo."
+      "notes": "Técnicas selecionadas presentes em MITRE Campaign C0041, sem atribuir toda a cronologia a um único mecanismo.",
+      "attack_refs": [
+        "C0041",
+        "S1165"
+      ]
     },
     {
       "id": "CAL-CASE-007",
@@ -82,7 +109,11 @@
       "ot_impact": "ics_compromise_not_confirmed",
       "evidence_level": "B",
       "primary_url": "https://cyote.inl.gov/tools/cyote-insights/",
-      "notes": "Distinguir parada operacional de invasão de PLC/SCADA."
+      "notes": "Distinguir parada operacional de invasão de PLC/SCADA.",
+      "attack_refs": [
+        "S0496"
+      ]
     }
-  ]
+  ],
+  "attack_refs_note": "attack_refs liga cada caso a campanhas (C), software (S) e grupos (G) do MITRE ATT&CK for ICS v20.0. Atribuição segue a MITRE, não o Caldeira."
 }

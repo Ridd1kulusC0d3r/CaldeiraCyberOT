@@ -18,5 +18,7 @@ flowchart LR
 | Captura ativa, topologias e emulação de rede | **Não** | Repositório distinto |
 | Execução de OpenPLC, GRFICS e Conpot | **Não** | Não assumida |
 | Perfis ATT&CK/CTI para aprendizado | **Sim**, com fontes | Seus próprios mapeamentos |
+| KPIs de OT sobre exportações sintéticas de SIEM ([Manômetro](../manometro/README.md)) | **Sim**, offline | Não |
+| Conexão com SIEM, API de fornecedor ou ativo OT | **Não** | Não |
 
 **O Caldeira não copia, importa nem executa automaticamente o Mininet.** A documentação de `sims/` sinaliza backends futuros, não módulos operacionais. Para o laboratório funcional do Caldeira consulte [COMECE-AQUI.md](../COMECE-AQUI.md).

@@ -33,6 +33,8 @@ def validate():
         uri = urlparse(row["primary_url"])
         assert uri.scheme == "https" and uri.netloc, "Fonte nao HTTPS"
         assert isinstance(row["notes"], str) and row["notes"].strip()
+        for ref in row.get("attack_refs", []):
+            assert isinstance(ref, str) and ref[:1] in "CSG" and ref[1:].isdigit(), f"{row['id']}: attack_ref inválido {ref}"
         for technique in row.get("techniques", []):
             assert isinstance(technique, str) and technique.startswith("T")
     print(f"Validados {len(rows)} casos: esquema e campos consistentes.")
